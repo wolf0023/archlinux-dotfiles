@@ -1,0 +1,3 @@
+! CapsLock -> Zenkaku/Hankaku
+remove lock = Caps_Lock
+keycode 66 = Zenkaku_Hankaku

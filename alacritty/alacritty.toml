@@ -1,0 +1,6 @@
+[window]
+opacity = 0.8
+
+[font]
+normal = { family = "Moralerspace Argon", style = "Regular" }
+size = 8
