@@ -103,7 +103,7 @@ secondary_screen = Screen(
     top=bar.Bar(
         [
             widget.TextBox(
-                text='',
+                text='󰣇',
                 fontsize=20,
                 font='sans',
                 padding=6,
