@@ -95,11 +95,11 @@ keys_list = [
         desc="Toogle Mic Mute"
     ),
     Key([], "XF86MonBrightnessUp",
-        lazy.spawn("brightnessctl set 5%+"),
+        lazy.spawn("brightnessctl set 2%+"),
         desc="Brightness Up"
     ),
     Key([], "XF86MonBrightnessDown",
-        lazy.spawn("brightnessctl set 5%-"),
+        lazy.spawn("brightnessctl set 2%-"),
         desc="Brightness Down"
     ),
     Key([], "XF86Display",
