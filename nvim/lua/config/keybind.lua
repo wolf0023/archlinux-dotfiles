@@ -31,3 +31,16 @@ map('n', '<space>l', '<C-w>l', opts)
 -- バッファ操作
 map('n', '<space>n', ':bnext<CR>', opts)
 map('n', '<space>p', ':bprevious<CR>', opts)
+
+-- lsp操作
+map('n', 'gD', vim.lsp.buf.declaration, opts)
+map('n', 'gd', vim.lsp.buf.definition, opts)
+map('n', 'K', vim.lsp.buf.hover, opts)
+map('n', 'gi', vim.lsp.buf.implementation, opts)
+map('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+map('n', '<leader>rn', vim.lsp.buf.rename, opts)
+map('n', 'gr', vim.lsp.buf.references, opts)
+
+-- 診断メッセージの操作
+map('n', '[d', vim.diagnostic.goto_prev, opts)
+map('n', ']d', vim.diagnostic.goto_next, opts)
