@@ -3,6 +3,8 @@ alacritty
 base
 base-devel
 bat
+bluez
+bluez-utils
 brightnessctl
 btop
 cups
@@ -18,6 +20,7 @@ fcitx5-qt
 feh
 firefox
 fish
+fzf
 git
 github-cli
 gradle
@@ -48,6 +51,7 @@ scrot
 sof-firmware
 sudo
 telegram-desktop
+tlp
 tree
 ufw
 unzip
