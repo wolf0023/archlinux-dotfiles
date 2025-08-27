@@ -3,14 +3,13 @@ return {
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v3.x",
         lazy = false,
-        config = function()
-            require("neo-tree").setup({
-                close_if_last_window = true,
-                window = {
-                    width = 30,
-                },
-            })
-        end,
+        opts = {
+            close_if_last_window = true,
+            window = {
+                width = 30,
+            },
+            add_blank_line_at_top = true,
+        }
     },
     {
         "nvim-lua/plenary.nvim"
@@ -21,4 +20,10 @@ return {
     {
         "nvim-tree/nvim-web-devicons"
     },
+    {
+        "antosha417/nvim-lsp-file-operations",
+        config = function()
+            require("lsp-file-operations").setup()
+        end
+    }
 }
