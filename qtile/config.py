@@ -98,7 +98,7 @@ layouts = [
 widget_defaults = dict(
     font="Moralerspace Argon Bold",
     background='313244',
-    foreground='94e2d5',
+    foreground='74c7ec',
     fontsize=13,
 )
 extension_defaults = widget_defaults.copy()

@@ -18,26 +18,30 @@ primary_screen = Screen(
             widget.TextBox(
                 text='|',
                 padding=6,
-                foreground='6c7086'
+                foreground='cdd6f4'
             ),
             widget.Prompt(),
             # widget.CurrentLayout(),
             widget.GroupBox(
-                active='94e2d5',
-                inactive='a6adc8',
-                highlight_method='block',
-                use_mouse_wheel=False
+                active='a6e3a1',
+                inactive='6c7086',
+                this_current_screen_border="fab387",
+                this_screen_border="fab387",
+                other_screen_border="eba0ac",
+                use_mouse_wheel=False,
+                highlight_method='line',
+                highlight_color='313244'
             ),
             widget.TextBox(
                 text='|',
                 padding=6,
-                foreground='6c7086'
+                foreground='cdd6f4'
             ),
             widget.WindowName(),
             widget.TextBox(
                 text='|',
                 padding=6,
-                foreground='6c7086'
+                foreground='cdd6f4'
             ),
             # widget.Chord(
             #     chords_colors={
@@ -83,7 +87,7 @@ primary_screen = Screen(
             widget.TextBox(
                 text='|',
                 padding=6,
-                foreground='6c7086'
+                foreground='cdd6f4'
             ),
             widget.Systray(padding=8, icon_size=20),
         ],
@@ -112,13 +116,17 @@ secondary_screen = Screen(
             widget.TextBox(
                 text='|',
                 padding=6,
-                foreground='6c7086'
+                foreground='cdd6f4'
             ),
             widget.GroupBox(
-                active='f8f8f2',
-                inactive='666666',
-                highlight_method='block',
-                use_mouse_wheel=False
+                active='a6e3a1',
+                inactive='6c7086',
+                this_current_screen_border="fab387",
+                this_screen_border="fab387",
+                other_screen_border="eba0ac",
+                use_mouse_wheel=False,
+                highlight_method='line',
+                highlight_color='313244'
             ),
             widget.TextBox(
                 text='|',
@@ -159,7 +167,7 @@ secondary_screen = Screen(
             widget.TextBox(
                 text='|',
                 padding=6,
-                foreground='6c7086'
+                foreground='cdd6f4'
             )
         ],
         24,
