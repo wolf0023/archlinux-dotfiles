@@ -2,6 +2,9 @@
 # 一部アイコンにはNerd Fontのアイコンを使用している
 from libqtile import bar, widget
 from libqtile.config import Screen
+
+from palette import Mocha 
+
 # メインモニタ
 primary_screen = Screen(
     wallpaper='~/archlinux-dotfiles/wallpaper.jpg',
@@ -13,35 +16,35 @@ primary_screen = Screen(
                 fontsize=20,
                 font='sans',
                 padding=6,
-                foreground='74c7ec'
+                foreground=Mocha.Sapphire
             ),
             widget.TextBox(
                 text='|',
                 padding=6,
-                foreground='cdd6f4'
+                foreground=Mocha.Text
             ),
             widget.Prompt(),
             # widget.CurrentLayout(),
             widget.GroupBox(
-                active='a6e3a1',
-                inactive='6c7086',
-                this_current_screen_border="fab387",
-                this_screen_border="fab387",
-                other_screen_border="eba0ac",
+                active=Mocha.Green,
+                inactive=Mocha.Overlay0,
+                this_current_screen_border=Mocha.Peach,
+                this_screen_border=Mocha.Peach,
+                other_screen_border=Mocha.Maroon,
                 use_mouse_wheel=False,
                 highlight_method='line',
-                highlight_color='313244'
+                highlight_color=Mocha.Surface0
             ),
             widget.TextBox(
                 text='|',
                 padding=6,
-                foreground='cdd6f4'
+                foreground=Mocha.Text
             ),
             widget.WindowName(),
             widget.TextBox(
                 text='|',
                 padding=6,
-                foreground='cdd6f4'
+                foreground=Mocha.Text
             ),
             # widget.Chord(
             #     chords_colors={
@@ -63,7 +66,7 @@ primary_screen = Screen(
                 not_charging_char='󰁹',
                 unknown_char='󱃍',
                 format='{char} {percent:2.0%} ({hour:d}h {min:02d}min - {watt:.2f} W)',
-                low_foreground='ffffff',
+                low_foreground=Mocha.Peach,
                 update_interval=2,
                 show_short_text=False,
                 padding=8,
@@ -87,7 +90,7 @@ primary_screen = Screen(
             widget.TextBox(
                 text='|',
                 padding=6,
-                foreground='cdd6f4'
+                foreground=Mocha.Text
             ),
             widget.Systray(padding=8, icon_size=20),
         ],
@@ -102,7 +105,7 @@ primary_screen = Screen(
 )
 
 secondary_screen = Screen(
-    wallpaper='~/Downloads/wallpaper/wall.png',
+    wallpaper='~/archlinux-dotfiles/wallpaper.jpg',
     wallpaper_mode='stretch',  # 画像の表示方法を指定
     top=bar.Bar(
         [
@@ -111,31 +114,33 @@ secondary_screen = Screen(
                 fontsize=20,
                 font='sans',
                 padding=6,
-                foreground='74c7ec'
+                foreground=Mocha.Sapphire
             ),
             widget.TextBox(
                 text='|',
                 padding=6,
-                foreground='cdd6f4'
+                foreground=Mocha.Text
             ),
             widget.GroupBox(
-                active='a6e3a1',
-                inactive='6c7086',
-                this_current_screen_border="fab387",
-                this_screen_border="fab387",
-                other_screen_border="eba0ac",
+                active=Mocha.Green,
+                inactive=Mocha.Overlay0,
+                this_current_screen_border=Mocha.Peach,
+                this_screen_border=Mocha.Peach,
+                other_screen_border=Mocha.Maroon,
                 use_mouse_wheel=False,
                 highlight_method='line',
-                highlight_color='313244'
+                highlight_color=Mocha.Surface0
             ),
             widget.TextBox(
                 text='|',
                 padding=6,
+                foreground=Mocha.Text
             ),
             widget.WindowName(),
             widget.TextBox(
                 text='|',
                 padding=6,
+                foreground=Mocha.Text
             ),
             widget.Net(
                 format='  ↓{down:.1f}{down_suffix} ↑{up:.1f}{up_suffix}',
@@ -149,7 +154,7 @@ secondary_screen = Screen(
                 not_charging_char='󰁹',
                 unknown_char='󱃍',
                 format='{char} {percent:2.0%} ({hour:d}h {min:02d}min)',
-                low_foreground='ffffff',
+                low_foreground=Mocha.Peach,
                 update_interval=2,
                 show_short_text=False,
                 padding=8,
@@ -167,7 +172,7 @@ secondary_screen = Screen(
             widget.TextBox(
                 text='|',
                 padding=6,
-                foreground='cdd6f4'
+                foreground=Mocha.Text
             )
         ],
         24,

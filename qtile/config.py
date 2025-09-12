@@ -32,6 +32,8 @@ from libqtile.utils import guess_terminal
 from keybindings import keys_list
 # screens.pyから各スクリーンの設定をインポート
 from screens import primary_screen, secondary_screen
+# palette.pyからカラーパレットをインポート
+from palette import Mocha
 
 mod = "mod4"
 terminal = guess_terminal()
@@ -97,8 +99,8 @@ layouts = [
 
 widget_defaults = dict(
     font="Moralerspace Argon Bold",
-    background='313244',
-    foreground='74c7ec',
+    background=Mocha.Surface0,
+    foreground=Mocha.Sapphire,
     fontsize=13,
 )
 extension_defaults = widget_defaults.copy()
