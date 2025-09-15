@@ -20,6 +20,7 @@ fcitx5-qt
 feh
 firefox
 fish
+fuse3
 fzf
 git
 github-cli
@@ -31,6 +32,7 @@ jdk21-openjdk
 jdk8-openjdk
 linux
 linux-firmware
+mpv
 neovim
 net-tools
 networkmanager
@@ -49,8 +51,10 @@ qtile
 rclone
 scrot
 sof-firmware
+steam
 sudo
 telegram-desktop
+thunderbird
 tlp
 tree
 ufw
