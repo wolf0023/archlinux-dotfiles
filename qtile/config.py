@@ -98,7 +98,7 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font="Moralerspace Argon Bold",
+    font="Moralerspace Radon Bold",
     background=Mocha.Surface0,
     foreground=Mocha.Sapphire,
     fontsize=13,
