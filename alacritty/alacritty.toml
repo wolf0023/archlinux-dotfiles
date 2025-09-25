@@ -1,6 +1,9 @@
 [window]
 opacity = 1
 
+[mouse]
+hide_when_typing = true
+
 [font]
 normal = { family = "Moralerspace Argon", style = "Regular" }
 size = 8
