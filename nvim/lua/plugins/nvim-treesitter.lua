@@ -12,6 +12,7 @@ return {
                     "javascript",
                     "javadoc",
                     "markdown",
+                    "python"
                 },
                 sync_install = false,
                 highlight = {enable = true},
