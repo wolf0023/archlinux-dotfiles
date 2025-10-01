@@ -57,8 +57,3 @@ opt.background = "dark" -- ダークテーマを使用
 opt.termguicolors = true -- 24ビットカラーを有効にする
 cmd[[colorscheme catppuccin]] -- テーマの設定
 
--- 背景の透過
--- api.nvim_set_hl(0, 'Normal', { ctermbg = 'none' })
--- api.nvim_set_hl(0, 'NonText', { ctermbg = 'none' })
--- api.nvim_set_hl(0, 'SpecialKey', { ctermbg = 'none' })
--- api.nvim_set_hl(0, 'EndOfBuffer', { ctermbg = 'none' })
