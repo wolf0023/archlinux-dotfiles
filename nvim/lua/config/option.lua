@@ -40,7 +40,7 @@ opt.virtualedit = "onemore" -- カーソルが行末を超えて移動できる�
 opt.backup = false -- バックアップファイルを作成しない
 opt.writebackup = false -- 書き込み時にバックアップファイルを作成しない
 opt.swapfile = false -- スワップファイルを作成しない
-opt.undofile = true -- アンドゥファイルを有効にする
+opt.undofile = false -- アンドゥファイルを作成しない
 opt.autoread = true -- ファイルが外部で変更された場合、自動的に再読み込み
 opt.confirm = true -- ファイルの変更を確認する
 
