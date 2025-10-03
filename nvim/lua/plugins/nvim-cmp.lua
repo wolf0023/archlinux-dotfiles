@@ -36,6 +36,7 @@ return {
                     {name = 'vsnip'},
                     {name = 'buffer'},
                     {name = 'path'},
+                    {name = 'copilot'},
                 }),
                 -- キーマッピング
                 mapping = cmp.mapping.preset.insert({
