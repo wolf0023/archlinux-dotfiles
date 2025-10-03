@@ -17,9 +17,11 @@ map('n', 'dd', 'ddzz', opts)
 -- ターミナルモード
 map('t', '<ESC>', '<C-\\><C-n>', opts)
 
--- ウィンドウ操作
+-- ウィンドウ分割
 map('n', '<space>s', '<C-w>s', opts)
 map('n', '<space>v', '<C-w>v', opts)
+
+-- ウィンドウ移動
 map('n', '<space>q', '<C-w>q', opts)
 map('n', '<space>w', '<C-w>w', opts)
 map('n', '<space>W', '<C-w>W', opts)
@@ -27,6 +29,12 @@ map('n', '<space>h', '<C-w>h', opts)
 map('n', '<space>j', '<C-w>j', opts)
 map('n', '<space>k', '<C-w>k', opts)
 map('n', '<space>l', '<C-w>l', opts)
+
+-- ウィンドウサイズ変更 
+map('n', '<space><Left>', '8<C-w><', opts)
+map('n', '<space><Right>', '8<C-w>>', opts)
+map('n', '<space><Up>', '4<C-w>+', opts)
+map('n', '<space><Down>', '4<C-w>-', opts)
 
 -- バッファ操作
 map('n', '<space>n', ':bnext<CR>', opts)
