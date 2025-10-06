@@ -6,7 +6,7 @@ hide_when_typing = true
 
 [font]
 normal = { family = "Moralerspace Argon", style = "Regular" }
-size = 8
+size = 12
 
 # Catppuccin Mocha Theme for Alacritty
 [colors.primary]
