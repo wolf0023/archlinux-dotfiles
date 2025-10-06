@@ -171,11 +171,6 @@ secondary_screen = Screen(
                 format=" %m/%d(%a) %p %I:%M",
                 padding=12,
             ),
-            widget.TextBox(
-                text='|',
-                padding=6,
-                foreground=Mocha.Text
-            )
         ],
         24,
     ),
