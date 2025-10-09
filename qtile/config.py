@@ -29,13 +29,12 @@ from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
 # keybindings.pyからkeysリストをインポート
-from keybindings import keys_list
+from keybindings import keys_list, mod
 # screens.pyから各スクリーンの設定をインポート
 from screens import primary_screen, secondary_screen
 # palette.pyからカラーパレットをインポート
 from palette import Mocha
 
-mod = "mod4"
 terminal = guess_terminal()
 
 # インポートしたkeys_listを代入

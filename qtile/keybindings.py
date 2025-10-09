@@ -7,7 +7,7 @@ from libqtile.utils import guess_terminal
 from external_display import DisplayManager
 
 # modキーの定義
-mod = "mod4"
+mod = "mod1"
 terminal = guess_terminal();
 
 # 外部ディスプレイクラスのインスタンス
