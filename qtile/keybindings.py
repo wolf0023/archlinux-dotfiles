@@ -23,7 +23,7 @@ keys_list = [
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
-    Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
+    Key([mod], "i", lazy.layout.next(), desc="Move window focus to other window"),
 
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
@@ -63,11 +63,6 @@ keys_list = [
         [mod], "Tab",
         lazy.screen.toggle_group(),
         desc="Move to the last visited group"
-    ),
-    Key(
-        [mod, "shift"], "Tab",
-        lazy.window.bring_to_front(),
-        desc="Bring window above all other windows"
     ),
 
     # ターミナルの起動
