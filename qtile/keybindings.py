@@ -8,6 +8,7 @@ from external_display import DisplayManager
 
 # modキーの定義
 mod = "mod1"
+app = "mod4"
 terminal = guess_terminal();
 
 # 外部ディスプレイクラスのインスタンス
@@ -69,15 +70,28 @@ keys_list = [
         desc="Bring window above all other windows"
     ),
 
-    # ソフトウェアの起動
+    # ターミナルの起動
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
-    Key([mod], "b", lazy.spawn("firefox")),
-    Key([mod], "m", lazy.spawn("thunderbird")),
-    Key([mod], "d", lazy.spawn("discord")),
+    # アクティブウィンドウのスクリーンショットを撮る
+    Key([mod], "Print",
+        lazy.spawn("scrot -u -e 'mkdir -p ~/Screenshots; mv $f ~/Screenshots/.'")
+    ),
+    # 画面全体のスクリーンショットを撮る
+    Key([mod, "control"], "Print",
+        lazy.spawn("scrot -e 'mkdir -p ~/Screenshots; mv $f ~/Screenshots/.'")
+    ),
+    # 選択範囲のスクリーンショットを撮る
     Key([], "Print",
-        lazy.spawn("scrot -s -e 'mkdir -p ~/Screenshots; mv $f ~/Screenshots/.'")
+        lazy.spawn("scrot -s -f -e 'mkdir -p ~/Screenshots; mv $f ~/Screenshots/.'")
     ),
     
+    # ソフトウェアの起動
+    Key([app], "b", lazy.spawn("firefox")),
+    Key([app], "m", lazy.spawn("thunderbird")),
+    Key([app], "d", lazy.spawn("discord")),
+    Key([app], "t", lazy.spawn("Telegram")),
+    Key([app], "s", lazy.spawn("spotify-launcher")),
+
     # Thinkpadのfnキーを有効化
     Key([], "XF86AudioRaiseVolume",
         lazy.spawn("pamixer --increase 5"),
