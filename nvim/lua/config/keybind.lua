@@ -3,7 +3,6 @@ local opts = { noremap = true, silent = true }
 
 -- 基本操作
 map('i', 'jj', '<ESC>', opts)
-map('i', 'ｊｊ', '<ESC>', opts)
 map('n', '<ESC><ESC>', ':nohlsearch<CR>', opts)
 map('n', '<C-s>', ':w<CR>', opts)
 
