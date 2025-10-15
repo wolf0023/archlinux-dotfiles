@@ -12,18 +12,13 @@ primary_screen = Screen(
     top=bar.Bar(
         [
             widget.TextBox(
-                text='󰣇',
-                fontsize=20,
-                font='sans',
-                padding=6,
-                foreground=Mocha.Sapphire
-            ),
-            widget.TextBox(
-                text='|',
-                padding=6,
+                text=' ',
+                padding=2,
                 foreground=Mocha.Text
             ),
-            widget.Prompt(),
+            widget.Prompt(
+                prompt=' :'
+            ),
             # widget.CurrentLayout(),
             widget.GroupBox(
                 active=Mocha.Green,
@@ -37,14 +32,14 @@ primary_screen = Screen(
                 highlight_color=Mocha.Surface0
             ),
             widget.TextBox(
-                text='|',
-                padding=6,
+                text=' ',
+                padding=2,
                 foreground=Mocha.Text
             ),
             widget.WindowName(),
             widget.TextBox(
-                text='|',
-                padding=6,
+                text=' ',
+                padding=2,
                 foreground=Mocha.Text
             ),
             # widget.Chord(
@@ -90,11 +85,16 @@ primary_screen = Screen(
                 padding=12,
             ),
             widget.TextBox(
-                text='|',
-                padding=6,
+                text=' ',
+                padding=2,
                 foreground=Mocha.Text
             ),
             widget.Systray(padding=8, icon_size=20),
+            widget.TextBox(
+                text=' ',
+                padding=2,
+                foreground=Mocha.Text
+            ),
         ],
         24,
         # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
@@ -111,16 +111,9 @@ secondary_screen = Screen(
     wallpaper_mode='stretch',  # 画像の表示方法を指定
     top=bar.Bar(
         [
-            widget.TextBox(
-                text='󰣇',
-                fontsize=20,
-                font='sans',
-                padding=6,
-                foreground=Mocha.Sapphire
-            ),
-            widget.TextBox(
-                text='|',
-                padding=6,
+           widget.TextBox(
+                text=' ',
+                padding=2,
                 foreground=Mocha.Text
             ),
             widget.GroupBox(
@@ -135,14 +128,14 @@ secondary_screen = Screen(
                 highlight_color=Mocha.Surface0
             ),
             widget.TextBox(
-                text='|',
-                padding=6,
+                text=' ',
+                padding=2,
                 foreground=Mocha.Text
             ),
             widget.WindowName(),
             widget.TextBox(
-                text='|',
-                padding=6,
+                text=' ',
+                padding=2,
                 foreground=Mocha.Text
             ),
             widget.Net(
@@ -172,6 +165,11 @@ secondary_screen = Screen(
             widget.Clock(
                 format=" %m/%d(%a) %p %I:%M",
                 padding=12,
+            ),
+           widget.TextBox(
+                text=' ',
+                padding=2,
+                foreground=Mocha.Text
             ),
         ],
         24,
