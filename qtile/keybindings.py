@@ -79,10 +79,12 @@ keys_list = [
     Key([], "Print",
         lazy.spawn("scrot -s -f -e 'mkdir -p ~/Screenshots; mv $f ~/Screenshots/.'")
     ),
+    # ブラウザの起動
+    Key([mod], "b", lazy.spawn("firefox")),
+    # メールソフトの起動
+    Key([mod], "m", lazy.spawn("thunderbird")),
     
     # ソフトウェアの起動
-    Key([app], "b", lazy.spawn("firefox")),
-    Key([app], "m", lazy.spawn("thunderbird")),
     Key([app], "d", lazy.spawn("discord")),
     Key([app], "t", lazy.spawn("Telegram")),
     Key([app], "s", lazy.spawn("spotify-launcher")),
