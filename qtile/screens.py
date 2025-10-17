@@ -16,9 +16,6 @@ primary_screen = Screen(
                 padding=2,
                 foreground=Mocha.Text
             ),
-            widget.Prompt(
-                prompt=' :'
-            ),
             # widget.CurrentLayout(),
             widget.GroupBox(
                 active=Mocha.Green,
@@ -30,6 +27,14 @@ primary_screen = Screen(
                 use_mouse_wheel=False,
                 highlight_method='line',
                 highlight_color=Mocha.Surface0
+            ),
+            widget.TextBox(
+                text=' ',
+                padding=2,
+                foreground=Mocha.Text
+            ),
+            widget.Prompt(
+                prompt=' :'
             ),
             widget.TextBox(
                 text=' ',
@@ -51,8 +56,8 @@ primary_screen = Screen(
             # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
             # widget.StatusNotifier(),
             widget.Net(
-                format='  ↓{down:.1f}{down_suffix} ↑{up:.1f}{up_suffix}',
-                padding=12,
+                format='  ↓{down:5.1f}{down_suffix:<2} ↑{up:5.1f}{up_suffix:<2}',
+                padding=8,
             ),
             widget.Battery(
                 charge_char='',
@@ -139,8 +144,8 @@ secondary_screen = Screen(
                 foreground=Mocha.Text
             ),
             widget.Net(
-                format='  ↓{down:.1f}{down_suffix} ↑{up:.1f}{up_suffix}',
-                padding=12,
+                format='  ↓{down:5.1f}{down_suffix:<2} ↑{up:5.1f}{up_suffix:<2}',
+                padding=8,
             ),
             widget.Battery(
                 charge_char='',
