@@ -79,7 +79,7 @@ setConfigLinkWithSudo "$current_dir/fontconfig/local.conf" "/etc/fonts/local.con
 
 # Install necessary packages
 echo "Installing necessary packages..."
-sudo pacman -Syu --noconfirm xorg xorg-xinit fish pypy uv alacritty neovim picom git unzip wget fcitx5-im fcitx5-mozc xdg-desktop-portal-gtk pipewire wireplumber firefox thunderbird mpv discord telegram-desktop
+sudo pacman -Syu --noconfirm xorg xorg-xinit fish pypy uv alacritty neovim picom git unzip wget fcitx5-im fcitx5-mozc xdg-desktop-portal-gtk pipewire wireplumber brightnessctl firefox thunderbird mpv discord telegram-desktop
 
 
 # Install qtile
