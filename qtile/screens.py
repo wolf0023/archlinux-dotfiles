@@ -94,7 +94,7 @@ primary_screen = Screen(
                 padding=2,
                 foreground=Mocha.Text
             ),
-            widget.Systray(padding=2, icon_size=20),
+            widget.Systray(padding=4, icon_size=20),
             widget.TextBox(
                 text=' ',
                 padding=2,
