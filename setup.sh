@@ -79,8 +79,12 @@ setConfigLinkWithSudo "$current_dir/fontconfig/local.conf" "/etc/fonts/local.con
 
 # Install necessary packages
 echo "Installing necessary packages..."
-sudo pacman -Syu --noconfirm xorg xorg-xinit fish pypy uv alacritty neovim picom git unzip wget fcitx5-im fcitx5-mozc xdg-desktop-portal-gtk pipewire wireplumber brightnessctl firefox thunderbird mpv discord telegram-desktop
-
+if [ -f "$current_dir/pkglist.txt" ]; then
+    echo "Package list file not found!";
+    echo "Please clone the repository including pkglist.txt and try again.";
+    exit 1;
+fi
+cat "$current_dir/pkglist.txt" | sudo pacman -Syu --noconfirm --needed -
 
 # Install qtile
 echo "Installing qtile..."
@@ -94,7 +98,7 @@ echo "Installing fonts..."
 # Create fonts directory
 mkdir -p "$HOME/.local/share/fonts"
 cd "$HOME/.local/share/fonts" || { 
-    echo "Failed to install fonts: cannot change directory.";
+    echo "Failed to change directory to $HOME/.local/share/fonts";
     exit 1;
 }
 
