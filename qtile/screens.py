@@ -66,7 +66,7 @@ primary_screen = Screen(
                 full_char='󱟢',
                 not_charging_char='󰁹',
                 unknown_char='󱃍',
-                format='{char} {percent:2.0%} ({hour:d}h {min:02d}min - {watt:.2f} W)',
+                format='{char}{hour:3d}h {min:2d}min - {watt:5.2f} W',
                 low_foreground=Mocha.Peach,
                 low_percentage=0.2,
                 update_interval=2,
@@ -76,25 +76,25 @@ primary_screen = Screen(
             widget.PulseVolume(
                 limit_max_volume=True,
                 mute_format='  0%',
-                unmute_format='  {volume}%',
+                unmute_format='  {volume:3.0f}%',
                 padding=8,
             ),
             widget.Backlight(
                 brightness_file='/sys/class/backlight/intel_backlight/brightness',
                 max_brightness_file='/sys/class/backlight/intel_backlight/max_brightness',
-                format='󰉄 {percent:2.0%}',
+                format='󰉄 {percent:4.0%}',
                 padding=8,
             ),
             widget.Clock(
-                format=" %m/%d(%a) %p %I:%M",
-                padding=12,
+                format=" %m/%d(%a) %H:%M",
+                padding=8,
             ),
             widget.TextBox(
                 text=' ',
                 padding=2,
                 foreground=Mocha.Text
             ),
-            widget.Systray(padding=8, icon_size=20),
+            widget.Systray(padding=2, icon_size=20),
             widget.TextBox(
                 text=' ',
                 padding=2,
@@ -154,7 +154,7 @@ secondary_screen = Screen(
                 full_char='󱟢',
                 not_charging_char='󰁹',
                 unknown_char='󱃍',
-                format='{char} {percent:2.0%} ({hour:d}h {min:02d}min)',
+                format='{char}{hour:3d}h {min:2d}min - {watt:5.2f} W',
                 low_foreground=Mocha.Peach,
                 low_percentage=0.2,
                 update_interval=2,
@@ -164,12 +164,12 @@ secondary_screen = Screen(
             widget.PulseVolume(
                 limit_max_volume=True,
                 mute_format='  0%',
-                unmute_format='  {volume}%',
+                unmute_format='  {volume:3.0f}%',
                 padding=8,
             ),
             widget.Clock(
-                format=" %m/%d(%a) %p %I:%M",
-                padding=12,
+                format=" %m/%d(%a) %H:%M",
+                padding=8,
             ),
            widget.TextBox(
                 text=' ',
