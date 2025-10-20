@@ -1,130 +1,135 @@
 #!/bin/bash
-# Fuctions
-# Install font a given URL
-# $1: URL of the font zip file
+# 関数定義
+# 与えられたURLからフォントをダウンロードしてインストールする
+# $1: フォントのURL
 function installFont() {
     wget "$1" || {
-        echo "Failed to download font from $1";
+        echo "フォントファイルのダウンロードに失敗しました: $1";
         return 1;
     }
     unzip "${1##*/}" || {
-        echo "Failed to unzip font file ${1##*/}";
+        echo "zipファイルの解凍に失敗しました: ${1##*/}";
         return 1;
     }
     rm "${1##*/}"
 }
 
-# Create symbolic link for configuration files
-# $1: source file
-# $2: destination file
+# シンボリックリンクを作成する
+# $1: ソースファイル
+# $2: リンク先ファイル
 function setConfigLink() {
-    # Backup existing config if it exists
+    # もし既存の設定ファイルが存在する場合はバックアップを作成
     if [ -e "$2" ]; then
         mv "$2" "$2-backup"
     fi
     ln -sf "$1" "$2"
 }
 
-# Create symbolic link for configuration files with sudo
-# $1: source file
-# $2: destination file
+# シンボリックリンクをsudo権限で作成する
+# $1: ソースファイル
+# $2: リンク先ファイル
 function setConfigLinkWithSudo() {
-    # Backup existing config if it exists
+    # もし既存の設定ファイルが存在する場合はバックアップを作成
     if [ -e "$2" ]; then
         sudo mv "$2" "$2-backup"
     fi
     sudo ln -sf "$1" "$2"
 }
 
-# Start of the script
-echo "Starting setup..."
+# メイン処理開始
+echo "セットアップを開始します..."
 current_dir="$(pwd)"
 
 
-# Set fish as default shell
-echo "Setting fish as the default shell..."
-# Check if fish is already the default shell
+# シンボリックリンクの作成
+echo "シンボリックリンクの作成を開始します..."
+# 必要なディレクトリの作成
+mkdir -p "$HOME/.config"
+sudo mkdir -p /etc/fonts
+
+# X11 configs
+echo "x11の設定ファイルをリンクしています..."
+setConfigLink "$current_dir/x11/.xinitrc" "$HOME/.xinitrc"
+setConfigLink "$current_dir/x11/.Xresources" "$HOME/.Xresources"
+
+# qtile configs
+echo "qtileの設定ファイルをリンクしています..."
+setConfigLink "$current_dir/qtile" "$HOME/.config/qtile"
+
+# Alacritty configs
+echo "alacrittyの設定ファイルをリンクしています..."
+setConfigLink "$current_dir/alacritty" "$HOME/.config/alacritty"
+
+# Neovim configs
+echo "nvimの設定ファイルをリンクしています..."
+setConfigLink "$current_dir/nvim" "$HOME/.config/nvim"
+
+# Fontconfig(root権限必須)
+echo "fontconfigの設定ファイルをリンクしています..."
+setConfigLinkWithSudo "$current_dir/fontconfig/local.conf" "/etc/fonts/local.conf"
+
+
+# パッケージのインストール
+echo "pkglist.txtに基づいてパッケージをインストールしています..."
+if [ ! -f "$current_dir/pkglist.txt" ]; then
+    echo "pkglist.txtが見つかりませんでした。";
+    echo "セットアップを中止します。クローンし直してから、再度実行してください。";
+    exit 1;
+fi
+cat "$current_dir/pkglist.txt" | sudo pacman -Syu --noconfirm --needed -
+
+
+# デフォルトシェルをfishに設定
+echo "デフォルトシェルをfishに設定しています..."
 if [ "$SHELL" != "/usr/bin/fish" ]; then
     chsh -s /usr/bin/fish
 fi
 
 
-# Linking configuration files
-echo "Linking configuration files..."
-# Create necessary directories
-mkdir -p "$HOME/.config"
-sudo mkdir -p /etc/fonts
 
-# X11 configs
-echo "Linking X11 configuration files..."
-setConfigLink "$current_dir/x11/.xinitrc" "$HOME/.xinitrc"
-setConfigLink "$current_dir/x11/.Xresources" "$HOME/.Xresources"
-
-# qtile configs
-echo "Linking qtile configuration files..."
-setConfigLink "$current_dir/qtile" "$HOME/.config/qtile"
-
-# Alacritty configs
-echo "Linking Alacritty configuration files..."
-setConfigLink "$current_dir/alacritty" "$HOME/.config/alacritty"
-
-# Neovim configs
-echo "Linking Neovim configuration files..."
-setConfigLink "$current_dir/nvim" "$HOME/.config/nvim"
-
-# Fontconfig(Root permission required)
-echo "Linking Fontconfig configuration files..."
-setConfigLinkWithSudo "$current_dir/fontconfig/local.conf" "/etc/fonts/local.conf"
-
-
-# Install necessary packages
-echo "Installing necessary packages..."
-if [ -f "$current_dir/pkglist.txt" ]; then
-    echo "Package list file not found!";
-    echo "Please clone the repository including pkglist.txt and try again.";
-    exit 1;
-fi
-cat "$current_dir/pkglist.txt" | sudo pacman -Syu --noconfirm --needed -
-
-# Install qtile
-echo "Installing qtile..."
+# qtileのインストール
+echo "qtileのインストールを開始します..."
 export PATH="$HOME/.local/bin:$PATH"
 uv tool install qtile[widgets]
 uv tool update-shell # Update shell environment
 
 
-# Install fonts
-echo "Installing fonts..."
-# Create fonts directory
+# フォントのインストール
+echo "フォントのインストールを開始します..."
+# フォントディレクトリの作成
 mkdir -p "$HOME/.local/share/fonts"
 cd "$HOME/.local/share/fonts" || { 
-    echo "Failed to change directory to $HOME/.local/share/fonts";
+    echo "ディレクトリの移動に失敗しました: $HOME/.local/share/fonts";
+    echo "再度セットアップを実行してください。"
     exit 1;
 }
 
 # Moralerspace font
 installFont "https://github.com/yuru7/moralerspace/releases/download/v2.0.0/Moralerspace_v2.0.0.zip" || {
-    echo "Failed to install Moralerspace font.";
+    echo "Moralerspace fontのインストールに失敗しました。";
     exit 1;
 }
 # Noto Sans CJK KR and SC fonts
 installFont "https://github.com/notofonts/noto-cjk/releases/download/Serif2.003/08_NotoSerifCJKkr.zip" || {
-    echo "Failed to install Noto Sans CJK KR font.";
+    echo "CJK KR fontのインストールに失敗しました。";
     exit 1;
 }
 installFont "https://github.com/notofonts/noto-cjk/releases/download/Serif2.003/09_NotoSerifCJKsc.zip" || {
-    echo "Failed to install Noto Sans CJK SC font.";
+    echo "CJK SC fontのインストールに失敗しました。";
     exit 1;
 }
 
-# Update font cache
+# フォントキャッシュの更新
 fc-cache -fv
 
-# Return to the original directory
+
+# 元のディレクトリに戻る
 cd "$current_dir" || {
-    echo "Failed to return to the original directory.";
+    echo "最初のディレクトリに戻れませんでした: $current_dir";
     exit 1;
 }
 
 
-echo "Setup completed! Please restart your system to apply all changes."
+echo "セットアップが完了しました！"
+echo "一部のパッケージのインストールや追加の設定を行う必要がある場合があります。"
+echo "システムを再起動して、変更を適用してください。"
