@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # 関数定義
 # 与えられたURLからフォントをダウンロードしてインストールする
 # $1: フォントのURL
@@ -14,14 +15,28 @@ function installFont() {
     rm "${1##*/}"
 }
 
+# シンボリックリンク元のファイルもしくはディレクトリが存在するかチェック
+# $1: ソースファイル
+# 存在しない場合はエラーを表示し終了
+function checkSourceExists() {
+    if [ ! -e "$1" ]; then
+        echo "シンボリックリンク元のファイルもしくはディレクトリが存在しません: $1"
+        echo "セットアップを中止します。クローンし直してから、再度実行してください。"
+        exit 1
+    fi
+}
+
 # シンボリックリンクを作成する
 # $1: ソースファイル
 # $2: リンク先ファイル
 function setConfigLink() {
+    checkSourceExists "$1"
     # もし既存の設定ファイルが存在する場合はバックアップを作成
     if [ -e "$2" ]; then
+        echo "既存の設定ファイルが存在するため、バックアップを作成します。"
         mv "$2" "$2-backup"
     fi
+
     ln -sf "$1" "$2"
 }
 
@@ -29,12 +44,15 @@ function setConfigLink() {
 # $1: ソースファイル
 # $2: リンク先ファイル
 function setConfigLinkWithSudo() {
+    checkSourceExists "$1"
     # もし既存の設定ファイルが存在する場合はバックアップを作成
     if [ -e "$2" ]; then
+        echo "既存の設定ファイルが存在するため、バックアップを作成します。"
         sudo mv "$2" "$2-backup"
     fi
     sudo ln -sf "$1" "$2"
 }
+
 
 # メイン処理開始
 echo "セットアップを開始します..."
@@ -71,12 +89,8 @@ setConfigLinkWithSudo "$current_dir/fontconfig/local.conf" "/etc/fonts/local.con
 
 # パッケージのインストール
 echo "pkglist.txtに基づいてパッケージをインストールしています..."
-if [ ! -f "$current_dir/pkglist.txt" ]; then
-    echo "pkglist.txtが見つかりませんでした。";
-    echo "セットアップを中止します。クローンし直してから、再度実行してください。";
-    exit 1;
-fi
-cat "$current_dir/pkglist.txt" | sudo pacman -Syu --noconfirm --needed -
+checkSourceExists "$current_dir/pkglist.txt"
+cat "$current_dir/pkglist.txt" | sudo pacman -Syu --needed -
 
 
 # デフォルトシェルをfishに設定
@@ -84,7 +98,6 @@ echo "デフォルトシェルをfishに設定しています..."
 if [ "$SHELL" != "/usr/bin/fish" ]; then
     chsh -s /usr/bin/fish
 fi
-
 
 
 # qtileのインストール
@@ -107,16 +120,13 @@ cd "$HOME/.local/share/fonts" || {
 # Moralerspace font
 installFont "https://github.com/yuru7/moralerspace/releases/download/v2.0.0/Moralerspace_v2.0.0.zip" || {
     echo "Moralerspace fontのインストールに失敗しました。";
-    exit 1;
 }
 # Noto Sans CJK KR and SC fonts
 installFont "https://github.com/notofonts/noto-cjk/releases/download/Serif2.003/08_NotoSerifCJKkr.zip" || {
     echo "CJK KR fontのインストールに失敗しました。";
-    exit 1;
 }
 installFont "https://github.com/notofonts/noto-cjk/releases/download/Serif2.003/09_NotoSerifCJKsc.zip" || {
     echo "CJK SC fontのインストールに失敗しました。";
-    exit 1;
 }
 
 # フォントキャッシュの更新
