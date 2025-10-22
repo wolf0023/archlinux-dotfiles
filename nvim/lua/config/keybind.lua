@@ -37,7 +37,7 @@ map('n', '<space><Down>', '4<C-w>-', opts)
 
 -- バッファ操作
 map('n', '<space>n', ':bnext<CR>', opts)
-map('n', '<space>p', ':bprevious<CR>', opts)
+map('n', '<space>N', ':bprevious<CR>', opts)
 
 -- lsp操作
 map('n', 'gD', vim.lsp.buf.declaration, opts)
