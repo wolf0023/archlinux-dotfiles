@@ -3,6 +3,7 @@
 from libqtile import bar, widget
 from libqtile.config import Screen
 
+from widgets.custom_battery import CustomBattery
 from palette import Mocha 
 
 # メインモニタ
@@ -56,22 +57,15 @@ primary_screen = Screen(
             # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
             # widget.StatusNotifier(),
             widget.Net(
-                format='  ↓{down:5.1f}{down_suffix:<2} ↑{up:5.1f}{up_suffix:<2}',
+                format='  ↓{down:5.1f}{down_suffix:>2} ↑{up:5.1f}{up_suffix:>2}',
                 padding=8,
             ),
-            widget.Battery(
-                charge_char='',
-                discharge_char='󰁹',
-                empty_char='󱉞',
-                full_char='󱟢',
-                not_charging_char='󰁹',
-                unknown_char='󱃍',
-                format='{char}{hour:3d}h {min:2d}min - {watt:5.2f} W',
-                low_foreground=Mocha.Peach,
-                low_percentage=0.2,
-                update_interval=2,
-                show_short_text=False,
+            CustomBattery(
+                format='{icon} {hour:2d}h {min:02d}min',
                 padding=8,
+                update_interval=2,
+                low_foreground=Mocha.Peach,
+                low_percentage=20,
             ),
             widget.PulseVolume(
                 limit_max_volume=True,
