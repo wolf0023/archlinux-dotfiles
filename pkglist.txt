@@ -18,6 +18,7 @@ networkmanager
 pamixer
 pipewire
 wireplumber
+scrot
 picom
 rclone
 steam
