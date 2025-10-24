@@ -33,7 +33,7 @@ class CustomBattery(base.ThreadPoolText):
         base.ThreadPoolText.__init__(self, "", **config)
         self.add_defaults(self.defaults)
         self._battery: _Battery = load_battery()
-        self.icon: tuple = self._set_icon()
+        self._icons: tuple = self._set_icon()
 
     def _set_icon(self) -> tuple:
         return (
@@ -65,7 +65,7 @@ class CustomBattery(base.ThreadPoolText):
             else:
                 char = self.charging_icon
         else:
-            char = self.icon[min(percent // 10, 10)]
+            char = self._icons[min(percent // 10, 10)]
 
         return char
     
