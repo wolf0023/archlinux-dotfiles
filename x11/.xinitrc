@@ -5,7 +5,7 @@ xrdb -merge $HOME/.Xresources
 # キーボードの設定(CapsLockをCtrlに変更)
 setxkbmap -option ctrl:nocaps
 # キーボードのリピートレートを設定
-xset r rate 200 30
+xset r rate 200 40
 
 # ディスプレイの設定
 systemctl --user import-environment DISPLAY
