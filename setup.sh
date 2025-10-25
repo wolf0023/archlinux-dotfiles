@@ -34,7 +34,7 @@ function setConfigLink() {
     # もし既存の設定ファイルが存在する場合はバックアップを作成
     if [ -e "$2" ]; then
         echo "既存の設定ファイルが存在するため、バックアップを作成します。"
-        mv "$2" "$2-backup"
+        mv "$2" "$2-backup-$(date +%Y%m%d%H%M%S)"
     fi
 
     ln -sf "$1" "$2"
@@ -48,7 +48,7 @@ function setConfigLinkWithSudo() {
     # もし既存の設定ファイルが存在する場合はバックアップを作成
     if [ -e "$2" ]; then
         echo "既存の設定ファイルが存在するため、バックアップを作成します。"
-        sudo mv "$2" "$2-backup"
+        sudo mv "$2" "$2-backup-$(date +%Y%m%d%H%M%S)"
     fi
     sudo ln -sf "$1" "$2"
 }
