@@ -184,19 +184,29 @@ fi
 
 
 # qtileのインストール
-echo "Installing qtile using uvtool..."
-uv venv -p pypy3 "${HOME}/.venv" || {
-    handleError "Failed to create uvtool virtual environment."
+echo "Installing qtile using uvtool..." 
+# uvプロジェクトの初期化
+cd "$HOME" || {
+    handleError "Could not change directory to home: $HOME"
 }
-source "${HOME}/.venv/bin/activate" || {
-    handleError "Failed to activate uvtool virtual environment."
+uv init -p pypy3 uv-qtile || {
+    handleError "Failed to initialize uvtool for qtile."
 }
 
-uv tool install qtile[widgets] || {
-    handleError "Failed to install qtile using uvtool."
+# venv環境を構築し、アクティベート
+cd uv-qtile || {
+    handleError "Could not change directory to uv-qtile: $HOME/uv-qtile"
 }
-uv tool update-shell || {
-    handleError "Failed to update shell environment using uvtool."
+uv sync || {
+    handleError "Failed to sync uvtool packages for qtile."
+}
+source .venv/bin/activate || {
+    handleError "Failed to activate uvtool virtual environment for qtile."
+}
+
+# uvtoolを使ってqtileをインストール
+uv add qtile[widgets] || {
+    handleError "Failed to install qtile using uvtool."
 }
 
 
