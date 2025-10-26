@@ -123,6 +123,11 @@ echo "Starting setup..."
 current_dir="$(pwd)"
 
 
+# localeの設定
+echo "Configuring locale settings..."
+overwriteFileWithSudo "LANG=C.UTF-8" "/etc/locale.conf"
+
+
 # シンボリックリンクの作成
 echo "Starting creation of symbolic links for configuration files..."
 # 必要なディレクトリの作成
