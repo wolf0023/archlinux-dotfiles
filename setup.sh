@@ -152,6 +152,7 @@ setConfigLink "$current_dir/nvim" "$HOME/.config/nvim"
 echo "Linking Fontconfig configuration files..."
 setConfigLinkWithSudo "$current_dir/fontconfig/local.conf" "/etc/fonts/local.conf"
 
+
 # multilibを有効化
 echo "Enabling multilib repository in pacman.conf..."
 appendToFileWithSudo "[multilib]\nInclude = /etc/pacman.d/mirrorlist" "/etc/pacman.conf"
@@ -162,25 +163,6 @@ checkSourceExists "$current_dir/pkglist.txt"
 sudo pacman -Syu --needed - < "$current_dir/pkglist.txt" || {
     handleError "Failed to install packages from pkglist.txt."
 }
-
-
-# localeの設定
-# ja_JP.UTF-8を有効化
-echo "Configuring locale settings..."
-sudo sed -i "s/^#ja_JP.EUC-JP EUC-JP/ja_JP.EUC-JP EUC-JP/" /etc/locale.gen || {
-    handleError "Failed to uncomment ja_JP.EUC-JP in /etc/locale.gen."
-}
-sudo sed -i "s/^#ja_JP.UTF-8 UTF-8/ja_JP.UTF-8 UTF-8/" /etc/locale.gen || {
-    handleError "Failed to uncomment ja_JP.UTF-8 in /etc/locale.gen."
-}
-sudo locale-gen || {
-    handleError "Failed to generate locale."
-}
-
-# /etc/locale.confの設定
-# LANG=ja_JP.UTF-8を設定
-echo "Setting LANG in /etc/locale.conf..."
-overwriteFileWithSudo "LANG=ja_JP.UTF-8" "/etc/locale.conf"
 
 
 # デフォルトシェルをfishに設定
