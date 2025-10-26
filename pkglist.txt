@@ -32,5 +32,5 @@ wget
 xorg
 xorg-xinit
 xdg-desktop-portal-gtk
-pypy
+pypy3
 uv
