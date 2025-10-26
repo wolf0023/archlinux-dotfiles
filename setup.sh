@@ -1,18 +1,24 @@
 #!/bin/bash
+set -uo pipefail
 
 # 関数定義
 # 与えられたURLからフォントをダウンロードしてインストールする
 # $1: フォントのURL
 function installFont() {
     wget "$1" || {
-        echo "フォントファイルのダウンロードに失敗しました: $1";
+        echo "Failed to download font file: $1";
         return 1;
     }
     unzip "${1##*/}" || {
-        echo "zipファイルの解凍に失敗しました: ${1##*/}";
+        echo "Failed to unzip the zip file: ${1##*/}";
         return 1;
     }
-    rm "${1##*/}"
+    rm "${1##*/}" || {
+        echo "Failed to remove the zip file: ${1##*/}";
+        return 1;
+    }
+
+    return 0;
 }
 
 # シンボリックリンク元のファイルもしくはディレクトリが存在するかチェック
@@ -20,9 +26,7 @@ function installFont() {
 # 存在しない場合はエラーを表示し終了
 function checkSourceExists() {
     if [ ! -e "$1" ]; then
-        echo "シンボリックリンク元のファイルもしくはディレクトリが存在しません: $1"
-        echo "セットアップを中止します。クローンし直してから、再度実行してください。"
-        exit 1
+        handleError "Source file does not exist: $1"
     fi
 }
 
@@ -33,8 +37,8 @@ function setConfigLink() {
     checkSourceExists "$1"
     # もし既存の設定ファイルが存在する場合はバックアップを作成
     if [ -e "$2" ]; then
-        echo "既存の設定ファイルが存在するため、バックアップを作成します。"
-        mv "$2" "$2-backup-$(date +%Y%m%d%H%M%S)"
+        echo "Creating backup of existing config file."
+        mv "$2" "${2}-backup-$(date +%Y%m%d%H%M%S)"
     fi
 
     ln -sf "$1" "$2"
@@ -47,86 +51,103 @@ function setConfigLinkWithSudo() {
     checkSourceExists "$1"
     # もし既存の設定ファイルが存在する場合はバックアップを作成
     if [ -e "$2" ]; then
-        echo "既存の設定ファイルが存在するため、バックアップを作成します。"
-        sudo mv "$2" "$2-backup-$(date +%Y%m%d%H%M%S)"
+        echo "Creating backup of existing config file with sudo."
+        sudo mv "$2" "${2}-backup-$(date +%Y%m%d%H%M%S)"
     fi
     sudo ln -sf "$1" "$2"
 }
 
+# エラー処理
+# セットアップ中にエラーが発生した場合に呼び出される
+# $1: エラーメッセージ
+function handleError() {
+    echo "Error occurred: $1" >&2
+    echo "Aborting setup. Please run again." >&2
+    exit 1
+}
+
 
 # メイン処理開始
-echo "セットアップを開始します..."
+echo "Starting setup..."
 current_dir="$(pwd)"
 
 
 # シンボリックリンクの作成
-echo "シンボリックリンクの作成を開始します..."
+echo "Starting creation of symbolic links for configuration files..."
 # 必要なディレクトリの作成
 mkdir -p "$HOME/.config"
-sudo mkdir -p /etc/fonts
+sudo mkdir -p /etc/fonts || {
+    handleError "Failed to create directory: /etc/fonts"
+}
 
 # X11 configs
-echo "x11の設定ファイルをリンクしています..."
+echo "Linking X11 configuration files..."
 setConfigLink "$current_dir/x11/.xinitrc" "$HOME/.xinitrc"
 setConfigLink "$current_dir/x11/.Xresources" "$HOME/.Xresources"
 
 # qtile configs
-echo "qtileの設定ファイルをリンクしています..."
+echo "Linking qtile configuration files..."
 setConfigLink "$current_dir/qtile" "$HOME/.config/qtile"
 
 # Alacritty configs
-echo "alacrittyの設定ファイルをリンクしています..."
+echo "Linking Alacritty configuration files..."
 setConfigLink "$current_dir/alacritty" "$HOME/.config/alacritty"
 
 # Neovim configs
-echo "nvimの設定ファイルをリンクしています..."
+echo "Linking Neovim configuration files..."
 setConfigLink "$current_dir/nvim" "$HOME/.config/nvim"
 
 # Fontconfig(root権限必須)
-echo "fontconfigの設定ファイルをリンクしています..."
+echo "Linking Fontconfig configuration files..."
 setConfigLinkWithSudo "$current_dir/fontconfig/local.conf" "/etc/fonts/local.conf"
 
 
 # パッケージのインストール
-echo "pkglist.txtに基づいてパッケージをインストールしています..."
+echo "Installing packages from pkglist.txt..."
 checkSourceExists "$current_dir/pkglist.txt"
-cat "$current_dir/pkglist.txt" | sudo pacman -Syu --needed -
+sudo pacman -Syu --needed - < "$current_dir/pkglist.txt" || {
+    handleError "Failed to install packages from pkglist.txt."
+}
 
 
 # デフォルトシェルをfishに設定
-echo "デフォルトシェルをfishに設定しています..."
+echo "Setting default shell to fish..."
 if [ "$SHELL" != "/usr/bin/fish" ]; then
-    chsh -s /usr/bin/fish
+    chsh -s /usr/bin/fish || {
+        handleError "Failed to change default shell to fish."
+    }
 fi
 
 
 # qtileのインストール
-echo "qtileのインストールを開始します..."
+echo "Installing qtile using uvtool..."
 export PATH="$HOME/.local/bin:$PATH"
-uv tool install qtile[widgets]
-uv tool update-shell # Update shell environment
+uv tool install qtile[widgets] || {
+    handleError "Failed to install qtile using uvtool."
+}
+uv tool update-shell || {
+    handleError "Failed to update shell environment using uvtool."
+}
 
 
 # フォントのインストール
-echo "フォントのインストールを開始します..."
+echo "Installing fonts..."
 # フォントディレクトリの作成
 mkdir -p "$HOME/.local/share/fonts"
 cd "$HOME/.local/share/fonts" || { 
-    echo "ディレクトリの移動に失敗しました: $HOME/.local/share/fonts";
-    echo "再度セットアップを実行してください。"
-    exit 1;
+    handleError "Could not change directory to font directory: $HOME/.local/share/fonts"
 }
 
 # Moralerspace font
 installFont "https://github.com/yuru7/moralerspace/releases/download/v2.0.0/Moralerspace_v2.0.0.zip" || {
-    echo "Moralerspace fontのインストールに失敗しました。";
+    echo "Failed to install Moralerspace font." >&2
 }
 # Noto Sans CJK KR and SC fonts
 installFont "https://github.com/notofonts/noto-cjk/releases/download/Serif2.003/08_NotoSerifCJKkr.zip" || {
-    echo "CJK KR fontのインストールに失敗しました。";
+    echo "Failed to install CJK KR font." >&2
 }
 installFont "https://github.com/notofonts/noto-cjk/releases/download/Serif2.003/09_NotoSerifCJKsc.zip" || {
-    echo "CJK SC fontのインストールに失敗しました。";
+    echo "Failed to install CJK SC font." >&2
 }
 
 # フォントキャッシュの更新
@@ -135,11 +156,10 @@ fc-cache -fv
 
 # 元のディレクトリに戻る
 cd "$current_dir" || {
-    echo "最初のディレクトリに戻れませんでした: $current_dir";
-    exit 1;
+    handleError "Could not change directory to the original directory: $current_dir"
 }
 
 
-echo "セットアップが完了しました！"
-echo "一部のパッケージのインストールや追加の設定を行う必要がある場合があります。"
-echo "システムを再起動して、変更を適用してください。"
+echo "Setup completed successfully!"
+echo "You may need to install some packages or perform additional configuration manually."
+echo "Please reboot your system to apply all changes."
