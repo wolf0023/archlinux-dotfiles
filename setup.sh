@@ -5,16 +5,18 @@ set -uo pipefail
 # 与えられたURLからフォントをダウンロードしてインストールする
 # $1: フォントのURL
 function installFont() {
-    wget "$1" || {
-        echo "Failed to download font file: $1";
+    local url="$1"
+
+    wget "$url" || {
+        echo "Failed to download font file: $url";
         return 1;
     }
-    unzip "${1##*/}" || {
-        echo "Failed to unzip the zip file: ${1##*/}";
+    unzip "${url##*/}" || {
+        echo "Failed to unzip the zip file: ${url##*/}";
         return 1;
     }
-    rm "${1##*/}" || {
-        echo "Failed to remove the zip file: ${1##*/}";
+    rm "${url##*/}" || {
+        echo "Failed to remove the zip file: ${url##*/}";
         return 1;
     }
 
@@ -25,8 +27,10 @@ function installFont() {
 # $1: ソースファイル
 # 存在しない場合はエラーを表示し終了
 function checkSourceExists() {
-    if [ ! -e "$1" ]; then
-        handleError "Source file does not exist: $1"
+    local source_file="$1"
+
+    if [ ! -e "$source_file" ]; then
+        handleError "Source file does not exist: $source_file"
     fi
 }
 
@@ -34,36 +38,63 @@ function checkSourceExists() {
 # $1: ソースファイル
 # $2: リンク先ファイル
 function setConfigLink() {
-    checkSourceExists "$1"
+    local source_file="$1"
+    local target_file="$2"
+
+    checkSourceExists "$source_file"
     # もし既存の設定ファイルが存在する場合はバックアップを作成
-    if [ -e "$2" ]; then
+    if [ -e "$target_file" ]; then
         echo "Creating backup of existing config file."
-        mv "$2" "${2}-backup-$(date +%Y%m%d%H%M%S)"
+        mv "$target_file" "${target_file}-backup-$(date +%Y%m%d%H%M%S)"
     fi
 
-    ln -sf "$1" "$2"
+    ln -sf "$source_file" "$target_file"
 }
 
 # シンボリックリンクをsudo権限で作成する
 # $1: ソースファイル
 # $2: リンク先ファイル
 function setConfigLinkWithSudo() {
-    checkSourceExists "$1"
+    local source_file="$1"
+    local target_file="$2"
+
+    checkSourceExists "$source_file"
     # もし既存の設定ファイルが存在する場合はバックアップを作成
-    if [ -e "$2" ]; then
+    if [ -e "$target_file" ]; then
         echo "Creating backup of existing config file with sudo."
-        sudo mv "$2" "${2}-backup-$(date +%Y%m%d%H%M%S)"
+        sudo mv "$target_file" "${target_file}-backup-$(date +%Y%m%d%H%M%S)"
     fi
-    sudo ln -sf "$1" "$2"
+    sudo ln -sf "$source_file" "$target_file"
 }
 
 # エラー処理
 # セットアップ中にエラーが発生した場合に呼び出される
 # $1: エラーメッセージ
 function handleError() {
-    echo "Error occurred: $1" >&2
+    local error_message="$1"
+
+    echo "Error occurred: $error_message" >&2
     echo "Aborting setup. Please run again." >&2
     exit 1
+}
+
+# ファイルに追記する関数
+# バックアップを作成してから追記を行う
+# $1: 追記する内容
+# $2: 追記先ファイル
+function appendToFileWithSudo() {
+    local content="$1"
+    local target_file="$2"
+
+    # バックアップの作成
+    sudo cp "$target_file" "${target_file}-backup-$(date +%Y%m%d%H%M%S)" || {
+        handleError "Failed to create backup of $target_file"
+    }
+
+    # 追記の実行
+    echo -e "$content" | sudo tee -a "$target_file" || {
+        handleError "Failed to append to $target_file"
+    }
 }
 
 
@@ -101,6 +132,9 @@ setConfigLink "$current_dir/nvim" "$HOME/.config/nvim"
 echo "Linking Fontconfig configuration files..."
 setConfigLinkWithSudo "$current_dir/fontconfig/local.conf" "/etc/fonts/local.conf"
 
+# multilibを有効化
+echo "Enabling multilib repository in pacman.conf..."
+appendToFileWithSudo "[multilib]\nInclude = /etc/pacman.d/mirrorlist" "/etc/pacman.conf"
 
 # パッケージのインストール
 echo "Installing packages from pkglist.txt..."
