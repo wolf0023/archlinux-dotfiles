@@ -153,6 +153,10 @@ setConfigLink "$current_dir/alacritty" "$HOME/.config/alacritty"
 echo "Linking Neovim configuration files..."
 setConfigLink "$current_dir/nvim" "$HOME/.config/nvim"
 
+# Fish config
+echo "Linking Fish configuration files..."
+setConfigLink "$current_dir/fish/config.fish" "$HOME/.config/fish/config.fish"
+
 # Fontconfig(root権限必須)
 echo "Linking Fontconfig configuration files..."
 setConfigLinkWithSudo "$current_dir/fontconfig/local.conf" "/etc/fonts/local.conf"
@@ -181,7 +185,13 @@ fi
 
 # qtileのインストール
 echo "Installing qtile using uvtool..."
-export PATH="$HOME/.local/bin:$PATH"
+uv venv -p pypy3 "${HOME}/.venv" || {
+    handleError "Failed to create uvtool virtual environment."
+}
+source "${HOME}/.venv/bin/activate" || {
+    handleError "Failed to activate uvtool virtual environment."
+}
+
 uv tool install qtile[widgets] || {
     handleError "Failed to install qtile using uvtool."
 }

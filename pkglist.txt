@@ -33,5 +33,6 @@ xorg
 xorg-xinit
 xdg-desktop-portal-gtk
 uv
+pypy3
 gcc
 
