@@ -78,45 +78,6 @@ function handleError() {
     exit 1
 }
 
-# ファイルに追記する関数
-# バックアップを作成してから追記を行う
-# $1: 追記する内容
-# $2: 追記先ファイル
-function appendToFileWithSudo() {
-    local content="$1"
-    local target_file="$2"
-
-    # バックアップの作成
-    sudo cp "$target_file" "${target_file}-backup-$(date +%Y%m%d%H%M%S)" || {
-        handleError "Failed to create backup of $target_file"
-    }
-
-    # 追記の実行
-    echo -e "$content" | sudo tee -a "$target_file" || {
-        handleError "Failed to append to $target_file"
-    }
-}
-
-
-# ファイルに上書きする関数
-# バックアップを作成してから上書きを行う
-# $1: 上書きする内容
-# $2: 上書き先ファイル
-function overwriteFileWithSudo() {
-    local content="$1"
-    local target_file="$2"
-
-    # バックアップの作成
-    sudo cp "$target_file" "${target_file}-backup-$(date +%Y%m%d%H%M%S)" || {
-        handleError "Failed to create backup of $target_file"
-    }
-
-    # 上書きの実行
-    echo -e "$content" | sudo tee "$target_file" || {
-        handleError "Failed to overwrite $target_file"
-    }
-}
-
 
 # メイン処理開始
 echo "Starting setup..."
@@ -164,7 +125,13 @@ setConfigLinkWithSudo "$current_dir/fontconfig/local.conf" "/etc/fonts/local.con
 
 # multilibを有効化
 echo "Enabling multilib repository in pacman.conf..."
-appendToFileWithSudo "[multilib]\nInclude = /etc/pacman.d/mirrorlist" "/etc/pacman.conf"
+if ! grep -q "^\[multilib\]" /etc/pacman.conf; then
+    sudo echo -e "\n[multilib]\nInclude = /etc/pacman.d/mirrorlist" | sudo tee -a /etc/pacman.conf || {
+        handleError "Failed to enable multilib repository in /etc/pacman.conf"
+    }
+else
+    echo "Multilib repository is already enabled."
+fi
 
 # パッケージのインストール
 echo "Installing packages from pkglist.txt..."
