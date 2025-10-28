@@ -144,7 +144,7 @@ fi
 
 # パッケージのインストール
 echo "Installing packages from pkglist.txt..."
-checkSourceExists "$current_dir/pkglist.txt"
+checkFileExists "$current_dir/pkglist.txt"
 sudo pacman -Syu --needed - < "$current_dir/pkglist.txt" || {
     handleError "Failed to install packages from pkglist.txt."
 }
