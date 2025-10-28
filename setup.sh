@@ -42,7 +42,9 @@ function setConfigLink() {
     local target_file="$2"
 
     # ソースファイルの存在チェック
-    checkFileExists "$source_file"
+    checkFileExists "$source_file" || {
+        handleError "Source file does not exist: $source_file"
+    }
 
     ln -sf --backup=existing "$source_file" "$target_file" || {
         handleError "Failed to create symbolic link from $source_file to $target_file"
@@ -57,7 +59,9 @@ function setConfigLinkWithSudo() {
     local target_file="$2"
 
     # ソースファイルの存在チェック
-    checkSourceExists "$source_file"
+    checkSourceExists "$source_file" || {
+        handleError "Source file does not exist: $source_file"
+    }
 
     sudo ln -sf --backup=numbered "$source_file" "$target_file" || {
         handleError "Failed to create symbolic link with sudo from $source_file to $target_file"
