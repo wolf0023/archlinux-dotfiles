@@ -59,7 +59,7 @@ function setConfigLinkWithSudo() {
     local target_file="$2"
 
     # ソースファイルの存在チェック
-    checkSourceExists "$source_file" || {
+    checkFileExists "$source_file" || {
         handleError "Source file does not exist: $source_file"
     }
 
