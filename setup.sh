@@ -41,14 +41,12 @@ function setConfigLink() {
     local source_file="$1"
     local target_file="$2"
 
+    # ソースファイルの存在チェック
     checkSourceExists "$source_file"
-    # もし既存の設定ファイルが存在する場合はバックアップを作成
-    if [ -e "$target_file" ]; then
-        echo "Creating backup of existing config file."
-        mv "$target_file" "${target_file}-backup-$(date +%Y%m%d%H%M%S)"
-    fi
 
-    ln -sf "$source_file" "$target_file"
+    ln -sf --backup=existing "$source_file" "$target_file" || {
+        handleError "Failed to create symbolic link from $source_file to $target_file"
+    }
 }
 
 # シンボリックリンクをsudo権限で作成する
@@ -58,13 +56,12 @@ function setConfigLinkWithSudo() {
     local source_file="$1"
     local target_file="$2"
 
+    # ソースファイルの存在チェック
     checkSourceExists "$source_file"
-    # もし既存の設定ファイルが存在する場合はバックアップを作成
-    if [ -e "$target_file" ]; then
-        echo "Creating backup of existing config file with sudo."
-        sudo mv "$target_file" "${target_file}-backup-$(date +%Y%m%d%H%M%S)"
-    fi
-    sudo ln -sf "$source_file" "$target_file"
+
+    sudo ln -sf --backup=numbered "$source_file" "$target_file" || {
+        handleError "Failed to create symbolic link with sudo from $source_file to $target_file"
+    }
 }
 
 # エラー処理
@@ -86,7 +83,9 @@ current_dir="$(pwd)"
 
 # localeの設定
 echo "Configuring locale settings..."
-overwriteFileWithSudo "LANG=C.UTF-8" "/etc/locale.conf"
+sudo echo "LANG=C.UTF-8" | sudo tee /etc/locale.conf || {
+    handleError "Failed to set LANG in /etc/locale.conf"
+}
 
 
 # シンボリックリンクの作成
