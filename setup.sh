@@ -119,6 +119,12 @@ setConfigLink "$current_dir/nvim" "$HOME/.config/nvim"
 
 # Fish config
 echo "Linking Fish configuration files..."
+# ディレクトリがない場合は作成
+if [ ! -d "$HOME/.config/fish" ]; then
+    mkdir -p "$HOME/.config/fish" || {
+        handleError "Failed to create directory: $HOME/.config/fish"
+    }
+fi
 setConfigLink "$current_dir/fish/config.fish" "$HOME/.config/fish/config.fish"
 
 # Fontconfig(root権限必須)
