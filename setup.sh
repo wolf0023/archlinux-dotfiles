@@ -23,14 +23,14 @@ function installFont() {
     return 0;
 }
 
-# シンボリックリンク元のファイルもしくはディレクトリが存在するかチェック
-# $1: ソースファイル
+# ファイルもしくはディレクトリが存在するかチェック
+# $1: ファイル
 # 存在しない場合はエラーを表示し終了
-function checkSourceExists() {
-    local source_file="$1"
+function checkFileExists() {
+    local file="$1"
 
-    if [ ! -e "$source_file" ]; then
-        handleError "Source file does not exist: $source_file"
+    if [ ! -e "$file" ]; then
+        return 1
     fi
 }
 
@@ -42,7 +42,7 @@ function setConfigLink() {
     local target_file="$2"
 
     # ソースファイルの存在チェック
-    checkSourceExists "$source_file"
+    checkFileExists "$source_file"
 
     ln -sf --backup=existing "$source_file" "$target_file" || {
         handleError "Failed to create symbolic link from $source_file to $target_file"
