@@ -63,7 +63,7 @@ function setConfigLinkWithSudo() {
         handleError "Source file does not exist: $source_file"
     }
 
-    sudo ln -sf --backup=numbered "$source_file" "$target_file" || {
+    sudo ln -sf --backup=existing "$source_file" "$target_file" || {
         handleError "Failed to create symbolic link with sudo from $source_file to $target_file"
     }
 }
