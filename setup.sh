@@ -87,7 +87,7 @@ current_dir="$(pwd)"
 
 # localeの設定
 echo "Configuring locale settings..."
-sudo echo "LANG=C.UTF-8" | sudo tee /etc/locale.conf || {
+sudo echo "LANG=C.UTF-8" | sudo tee /etc/locale.conf > /dev/null || {
     handleError "Failed to set LANG in /etc/locale.conf"
 }
 
@@ -135,7 +135,7 @@ setConfigLinkWithSudo "$current_dir/fontconfig/local.conf" "/etc/fonts/local.con
 # multilibを有効化
 echo "Enabling multilib repository in pacman.conf..."
 if ! grep -q "^\[multilib\]" /etc/pacman.conf; then
-    sudo echo -e "\n[multilib]\nInclude = /etc/pacman.d/mirrorlist" | sudo tee -a /etc/pacman.conf || {
+    sudo echo -e "\n[multilib]\nInclude = /etc/pacman.d/mirrorlist" | sudo tee -a /etc/pacman.conf > /dev/null || {
         handleError "Failed to enable multilib repository in /etc/pacman.conf"
     }
 else
