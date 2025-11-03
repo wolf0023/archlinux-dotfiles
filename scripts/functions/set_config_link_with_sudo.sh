@@ -39,7 +39,7 @@ function setConfigLinkWithSudo {
         }
     fi
 
-    ln -sf --target-directory="$target_dir" "$source_path" || {
+    sudo ln -sf --target-directory="$target_dir" "$source_path" || {
         log "Failed to create symbolic link from $source_path to $target_path" "error" "  --> "
         return 1
     }
