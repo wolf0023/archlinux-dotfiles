@@ -14,7 +14,7 @@ function setConfigLink {
     }
 
     # 既存のファイルやディレクトリをバックアップ
-    if [ -e "$target_file" ] || [ -d "$backup_dir" ]; then
+    if [ -e "$target_file" ]; then
         mv "$target_file" "${backup_dir}${target_file}"
     fi
 
