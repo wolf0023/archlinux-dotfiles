@@ -19,12 +19,12 @@ sudo mkdir -p /etc/fonts || {
 log "Linking X11 configuration files..." "info" ":: "
 if [ "$(checkComputerType)" == "laptop" ]; then
     # laptop
-    setConfigLink "$working_dir/configs/laptop/x11/.xinitrc" "$HOME/.xinitrc" "$backup_dir" || return 1
-    setConfigLink "$working_dir/configs/laptop/x11/.Xresources" "$HOME/.Xresources" "$backup_dir" || return 1
+    setConfigLink "$working_dir/configs/laptop/x11/.xinitrc" "$HOME" "$backup_dir" || return 1
+    setConfigLink "$working_dir/configs/laptop/x11/.Xresources" "$HOME" "$backup_dir" || return 1
 else
     # desktop
-    setConfigLink "$working_dir/configs/desktop/x11/.xinitrc" "$HOME/.xinitrc" "$backup_dir" || return 1
-    setConfigLink "$working_dir/configs/desktop/x11/.Xresources" "$HOME/.Xresources" "$backup_dir" || return 1
+    setConfigLink "$working_dir/configs/desktop/x11/.xinitrc" "$HOME" "$backup_dir" || return 1
+    setConfigLink "$working_dir/configs/desktop/x11/.Xresources" "$HOME" "$backup_dir" || return 1
 fi
 
 # qtile configs
