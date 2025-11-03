@@ -22,7 +22,7 @@ function setConfigLinkwithSudo {
         target_dir="${target_path%/*}"
         filename="${target_name}_$(date +%Y%m%d_%H%M%S).tar.gz"
 
-        sudo tar jzf "$filename" -C "$target_dir" "$target_name" || {
+        sudo tar czf "$filename" -C "$target_dir" "$target_name" || {
             log "Failed to backup existing file or directory: $target_path" "error" "  --> "
             return 1
         }
