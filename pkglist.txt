@@ -23,7 +23,7 @@ xorg-xinit
 pamixer
 pipewire
 wireplumber
-pipwire-pulse
+pipewire-pulse
 
 # Networking packages
 wireless_tools
