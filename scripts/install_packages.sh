@@ -16,7 +16,7 @@ checkFileExists "$working_dir/pkglist.txt"
 
 # リストからパッケージをインストールするときは、何も変更がない場合に1を返すため
 # インストール結果が1より大きい場合にエラーとする
-cat "$working_dir/pkglist.txt" | sudo pacman -Syu --needed -
+grep -v "^#" "$working_dir/pkglist.txt" | sudo pacman -Syu --needed -
 status=$? # インストールの終了ステータスを取得
 if [ $status -gt 1 ]; then
     log "Failed to install packages from pkglist.txt." "error" "==> " return 1
