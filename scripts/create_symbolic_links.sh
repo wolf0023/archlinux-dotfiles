@@ -30,7 +30,7 @@ fi
 # qtile configs
 log "Linking qtile configuration files..." "info" ":: "
 
-setConfigLink "$working_dir/configs/common/qtile/pallet.py" "$HOME/.config/qtile" "$backup_dir" || return 1
+setConfigLink "$working_dir/configs/common/qtile/palette.py" "$HOME/.config/qtile" "$backup_dir" || return 1
 setConfigLink "$working_dir/configs/common/qtile/widgets" "$HOME/.config/qtile" "$backup_dir" || return 1
 setConfigLink "$working_dir/configs/common/qtile/wallpaper.jpg" "$HOME/.config/qtile" "$backup_dir" || return 1
 
