@@ -36,12 +36,14 @@ setConfigLink "$working_dir/configs/common/qtile/wallpaper.jpg" "$HOME/.config/q
 
 if [ "$(checkComputerType)" == "laptop" ]; then
     # laptop
+    log "Laptop detected. Linking the configuration files for laptop..." "info" "  -> "
     setConfigLink "$working_dir/configs/laptop/qtile/config.py" "$HOME/.config/qtile" "$backup_dir" || return 1
     setConfigLink "$working_dir/configs/laptop/qtile/external_display.py" "$HOME/.config/qtile" "$backup_dir" || return 1
     setConfigLink "$working_dir/configs/laptop/qtile/keybindings.py" "$HOME/.config/qtile" "$backup_dir" || return 1
     setConfigLink "$working_dir/configs/laptop/qtile/screens.py" "$HOME/.config/qtile" "$backup_dir" || return 1
 else
     # desktop
+    log "Desktop detected. Linking the configuration files for desktop..." "info" "  -> "
     setConfigLink "$working_dir/configs/desktop/qtile/config.py" "$HOME/.config/qtile" "$backup_dir" || return 1
     setConfigLink "$working_dir/configs/desktop/qtile/keybindings.py" "$HOME/.config/qtile" "$backup_dir" || return 1
     setConfigLink "$working_dir/configs/desktop/qtile/screens.py" "$HOME/.config/qtile" "$backup_dir" || return 1
