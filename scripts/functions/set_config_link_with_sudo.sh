@@ -1,11 +1,14 @@
 # シンボリックリンクを作成する
 # $1: ソースファイル
-# $2: リンク先ファイル
+# $2: リンク先ディレクトリ
 # $3: バックアップディレクトリ
-function setConfigLinkWithSudo {
+function setConfigLink {
     local source_path="$1"
-    local target_path="$2"
+    local target_dir="$2"
     local backup_dir="$3"
+
+    local target_path
+    target_path="$target_dir/$(basename "$source_path")"
 
     # ソースファイルの存在チェック
     checkFileExists "$source_path" || {
@@ -15,11 +18,11 @@ function setConfigLinkWithSudo {
 
     # 既存のファイルやディレクトリをバックアップ
     if [ -e "$target_path" ]; then
+        log "Backing up existing file or directory: $target_path" "info" "  --> "
+
         local filename
         local target_name
-        local target_dir
-        target_name="${target_path##*/}"
-        target_dir="${target_path%/*}"
+        target_name="$(basename "$target_path")"
         filename="${target_name}_$(date +%Y%m%d_%H%M%S).tar.gz"
 
         sudo tar czf "$filename" -C "$target_dir" "$target_name" || {
@@ -36,7 +39,7 @@ function setConfigLinkWithSudo {
         }
     fi
 
-    sudo ln -sf "$source_path" "$target_path" || {
+    ln -sf --target-directory="$target_dir" "$source_path" || {
         log "Failed to create symbolic link from $source_path to $target_path" "error" "  --> "
         return 1
     }
