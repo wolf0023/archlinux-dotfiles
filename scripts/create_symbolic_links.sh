@@ -69,7 +69,7 @@ fi
 
 # Fontconfig(root権限必須)
 log "Linking Fontconfig configuration files..." "info" ":: "
-log "Authentication required to link Fontconfig files." "info" "   -> "
-setConfigLinkWithSudo "$working_dir/fontconfig/local.conf" "/etc/fonts" "$backup_dir" || return 1
+log "Authentication required to link Fontconfig files." "info" "  -> "
+setConfigLinkWithSudo "$working_dir/configs/common/fontconfig/local.conf" "/etc/fonts" "$backup_dir" || return 1
 
 
