@@ -33,12 +33,12 @@ log "Linking qtile configuration files..." "info" ":: "
 setConfigLink "$working_dir/configs/common/qtile/palette.py" "$HOME/.config/qtile" "$backup_dir" || return 1
 setConfigLink "$working_dir/configs/common/qtile/widgets" "$HOME/.config/qtile" "$backup_dir" || return 1
 setConfigLink "$working_dir/configs/common/qtile/wallpaper.jpg" "$HOME/.config/qtile" "$backup_dir" || return 1
+setConfigLink "$working_dir/configs/common/qtile/external_display.py" "$HOME/.config/qtile" "$backup_dir" || return 1
 
 if [ "$(checkComputerType)" == "laptop" ]; then
     # laptop
     log "Laptop detected. Linking the configuration files for laptop..." "info" "  -> "
     setConfigLink "$working_dir/configs/laptop/qtile/config.py" "$HOME/.config/qtile" "$backup_dir" || return 1
-    setConfigLink "$working_dir/configs/laptop/qtile/external_display.py" "$HOME/.config/qtile" "$backup_dir" || return 1
     setConfigLink "$working_dir/configs/laptop/qtile/keybindings.py" "$HOME/.config/qtile" "$backup_dir" || return 1
     setConfigLink "$working_dir/configs/laptop/qtile/screens.py" "$HOME/.config/qtile" "$backup_dir" || return 1
 else
