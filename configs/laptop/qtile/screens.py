@@ -106,7 +106,7 @@ primary_screen = Screen(
 )
 
 secondary_screen = Screen(
-    wallpaper='~/archlinux-dotfiles/wallpaper.jpg',
+    wallpaper='~/.config/qtile/wallpaper.jpg',
     wallpaper_mode='stretch',  # 画像の表示方法を指定
     top=bar.Bar(
         [
