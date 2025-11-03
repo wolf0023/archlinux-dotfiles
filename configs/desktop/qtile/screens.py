@@ -8,7 +8,7 @@ from palette import Mocha
 
 # メインモニタ
 primary_screen = Screen(
-    wallpaper='~/archlinux-dotfiles/wallpaper.jpg',
+    wallpaper='~/.config/qtile/wallpaper.jpg',
     wallpaper_mode='stretch',  # 画像の表示方法を指定
     top=bar.Bar(
         [
@@ -60,26 +60,13 @@ primary_screen = Screen(
                 format='  ↓{down:5.1f}{down_suffix:>2} ↑{up:5.1f}{up_suffix:>2}',
                 padding=8,
             ),
-            CustomBattery(
-                format='{icon} {hour:2d}h {min:02d}min',
-                padding=8,
-                update_interval=2,
-                low_foreground=Mocha.Peach,
-                low_percentage=20,
-            ),
-            widget.PulseVolume(
+           widget.PulseVolume(
                 limit_max_volume=True,
                 mute_format='  0%',
                 unmute_format='  {volume:3.0f}%',
                 padding=8,
             ),
-            widget.Backlight(
-                brightness_file='/sys/class/backlight/intel_backlight/brightness',
-                max_brightness_file='/sys/class/backlight/intel_backlight/max_brightness',
-                format='󰉄 {percent:4.0%}',
-                padding=8,
-            ),
-            widget.Clock(
+           widget.Clock(
                 format=" %m/%d(%a) %H:%M",
                 padding=8,
             ),
@@ -141,14 +128,7 @@ secondary_screen = Screen(
                 format='  ↓{down:5.1f}{down_suffix:<2} ↑{up:5.1f}{up_suffix:<2}',
                 padding=8,
             ),
-            CustomBattery(
-                format='{icon} {hour:2d}h {min:02d}min - {watt: 5.2f}W',
-                padding=8,
-                update_interval=2,
-                low_foreground=Mocha.Peach,
-                low_percentage=20,
-            ),
-            widget.PulseVolume(
+           widget.PulseVolume(
                 limit_max_volume=True,
                 mute_format='  0%',
                 unmute_format='  {volume:3.0f}%',

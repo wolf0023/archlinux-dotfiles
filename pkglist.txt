@@ -18,6 +18,7 @@ networkmanager
 pamixer
 pipewire
 wireplumber
+pipwire-pulse
 scrot
 picom
 rclone
