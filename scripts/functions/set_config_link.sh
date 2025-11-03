@@ -16,9 +16,13 @@ function setConfigLink {
     # 既存のファイルやディレクトリをバックアップ
     if [ -e "$target_path" ]; then
         local filename
-        filename="${target_path##*/}-$(date +%Y%m%d%H%M%S).tar.gz"
+        local target_name
+        local target_dir
+        target_name="${target_path##*/}"
+        target_dir="${target_path%/*}"
+        filename="${target_name}_$(date +%Y%m%d_%H%M%S).tar.gz"
 
-        tar czf "$filename" "$target_path" || {
+        tar jzf "$filename" -C "$target_dir" "$target_name" || {
             log "Failed to backup existing file or directory: $target_path" "error" "  --> "
             return 1
         }
