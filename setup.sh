@@ -102,6 +102,13 @@ source "$working_dir/scripts/install_fonts.sh" || {
     exit 1
 }
 
+###
+# systemdサービスの有効化
+# PipeWire PulseAudioの有効化
+systemctl --user enable --now pipewire-pulse.service || {
+    log "Failed to enable pipewire-pulse.service" "error" "==> "
+}
+
 log "Setup completed successfully!" "notice"
 log "You may need to install some packages or perform additional configuration manually." "notice"
 log "Please restart your system to apply all changes." "notice"
