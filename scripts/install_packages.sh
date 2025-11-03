@@ -15,7 +15,7 @@ log "Installing packages from pkglist.txt..." "info" ":: "
 checkFileExists "$working_dir/pkglist.txt"
 
 # ファイルのリダイレクトはユーザ権限で行う
-sudo pacman -Syu --needed - < "$working_dir/pkglist.txt" || {
+sudo pacman -Syu --needed < "$working_dir/pkglist.txt" || {
     log "Failed to install packages from pkglist.txt." "error" "==> "
     return 1
 }
