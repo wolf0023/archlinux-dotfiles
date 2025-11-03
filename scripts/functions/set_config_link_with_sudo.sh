@@ -2,7 +2,7 @@
 # $1: ソースファイル
 # $2: リンク先ファイル
 # $3: バックアップディレクトリ
-function setConfigLinkwithSudo {
+function setConfigLinkWithSudo {
     local source_path="$1"
     local target_path="$2"
     local backup_dir="$3"
