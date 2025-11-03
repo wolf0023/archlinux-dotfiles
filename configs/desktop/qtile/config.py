@@ -41,7 +41,7 @@ terminal = guess_terminal()
 
 # 外部ディスプレイクラスのインスタンス
 edisplay = DisplayManager()
-lazy.function(edisplay.setup_external_display, position="right-of")
+edisplay.setup_external_display(qtile=qtile, position="right-of")
 
 # インポートしたkeys_listを代入
 keys = keys_list
