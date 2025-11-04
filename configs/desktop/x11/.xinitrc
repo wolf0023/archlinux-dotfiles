@@ -6,6 +6,8 @@ xrdb -merge $HOME/.Xresources
 setxkbmap -option ctrl:nocaps
 # キーボードのリピートレートを設定
 xset r rate 200 40
+# スクリーンセーバーの無効化
+xset s off
 
 # ディスプレイの設定
 systemctl --user import-environment DISPLAY
