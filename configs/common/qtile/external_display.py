@@ -49,19 +49,23 @@ class DisplayManager:
             elif " connected" in line:
                 self.external_display_list.append(line.split()[0])
     
-    def _enable_external_display(self):
+    def _enable_external_display(self, position: str = "above"):
         """
         外部ディスプレイを有効にする
         """
         if not self.external_display_list:
             logger.info("有効なディスプレイが見つかりませんでした。")
             return
+
+        # 場所が正しいか確認
+        if position not in ["above", "below", "left-of", "right-of"]:
+            position = "above"
         
         # 外部ディスプレイをプライマリディスプレイの上に配置
         self.external_display = self.external_display_list[0]
 
         # xrandr コマンドを実行して配置を設定
-        command = f"--output {self.external_display} --above {self.primary_display} --auto"
+        command = f"--output {self.external_display} --{position} {self.primary_display} --auto"
         self._run_command(command)
     
         logger.info(f"外部ディスプレイ {self.external_display} をプライマリディスプレイ {self.primary_display} の上に配置しました")
@@ -115,7 +119,7 @@ class DisplayManager:
         return False
 
 
-    def setup_external_display(self, qtile):
+    def setup_external_display(self, qtile, position: str = "above"):
         """
         接続されている外部ディスプレイを探し、プライマリディスプレイの上に配置する
         """
@@ -129,9 +133,9 @@ class DisplayManager:
         if not self.primary_display or not self.external_display_list:
             return
 
-        self._enable_external_display()
+        self._enable_external_display(position=position)
 
-    def toggle_external_display(self, qtile):
+    def toggle_external_display(self, qtile, position: str = "above"):
         """
         接続されている最初の外部ディスプレイのON/OFFを切り替える
         """
@@ -144,5 +148,5 @@ class DisplayManager:
             self._disable_external_display()
         elif self.external_display_list:
             # 接続されていないが、認識している場合、オンにする
-            self._enable_external_display()
+            self._enable_external_display(position=position)
 

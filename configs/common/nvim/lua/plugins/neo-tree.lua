@@ -8,7 +8,18 @@ return {
             window = {
                 width = 30,
             },
-            add_blank_line_at_top = true,
+            popup_border_style = "rounded",
+            source_selector = {
+                winbar = true,
+            },
+            filesystem = {
+                filtered_items = {
+                    visible = true,
+                    hide_dotfiles = false,
+                    hide_gitignored = true,
+                },
+            },
+
         }
     },
     {
