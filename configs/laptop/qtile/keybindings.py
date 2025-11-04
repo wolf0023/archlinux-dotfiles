@@ -37,11 +37,11 @@ keys_list = [
     Key([mod, "shift"], "k", lazy.layout.grow_up(), desc="Grow window up"),
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
 
-    # qtileのレイアウトの切り替え
+    # 別のスクリーンに移動
     Key(
-        [mod, "control"],"Tab",
-        lazy.next_layout(),
-        desc="Toggle between layouts"
+        [mod, "control"],"i",
+        lazy.next_screen(),
+        desc="Move focus to next monitor"
     ),
 
     # ウィンドウの操作

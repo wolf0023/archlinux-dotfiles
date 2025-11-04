@@ -1,39 +1,70 @@
-alacritty
-bat
-brightnessctl
-btop
-discord
-fastfetch
-fcitx5-im
-fcitx5-mozc
-firefox
-fish
-fzf
+###
+# Essential packages
+
+# Base system packages
 git
 github-cli
-mpv
-neovim
-net-tools
-networkmanager
+sudo
+unzip
+wget
+
+# Window manager and related tools
+alacritty
+brightnessctl
+scrot
+picom
+fish
+
+# x11 packages
+xorg
+xorg-xinit
+
+# Audio packages
 pamixer
 pipewire
 wireplumber
-scrot
-picom
-rclone
-steam
-sudo
-telegram-desktop
-thunderbird
-tree
-ufw
-unzip
-wget
-xorg
-xorg-xinit
-xdg-desktop-portal-gtk
-uv
-pypy3
-gcc
+pipewire-pulse
+
+# Networking packages
 wireless_tools
 
+# Development tools
+neovim
+nodejs
+npm
+pypy3
+uv
+gcc
+fzf
+
+# Utilities and applications
+thunderbird
+telegram-desktop
+firefox
+discord
+
+###
+# Additional packages
+
+# System monitoring and utilities
+bat
+btop
+fastfetch
+mpv
+tree
+
+# Networking packages
+net-tools
+networkmanager
+ufw
+
+# File management
+xdg-desktop-portal-gtk
+
+# Input methods
+fcitx5-im
+fcitx5-mozc
+
+# Cloud and gaming
+rclone
+steam
