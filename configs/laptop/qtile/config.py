@@ -66,7 +66,11 @@ layouts = [
     layout.Columns(
         border_width=2,
         margin=0,
-        insert_position=1
+        insert_position=1,
+        border_focus=Mocha.Mauve,
+        border_focus_stack=Mocha.Mauve,
+        border_normal=Mocha.Surface2,
+        border_normal_stack=Mocha.Surface2,
     ),
     # layout.Max(),
     # Try more layouts by unleashing below layouts.
@@ -106,6 +110,9 @@ bring_front_click = False
 floats_kept_above = True
 cursor_warp = False
 floating_layout = layout.Floating(
+    border_width=2,
+    border_focus=Mocha.Mauve,
+    border_normal=Mocha.Surface2,
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
         *layout.Floating.default_float_rules,
