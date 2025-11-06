@@ -2,12 +2,6 @@
 
 # Xresourcesの設定を反映
 xrdb -merge $HOME/.Xresources
-# キーボードの設定(CapsLockをCtrlに変更)
-setxkbmap -option ctrl:nocaps
-# キーボードのリピートレートを設定
-xset r rate 200 40
-# スクリーンセーバーの無効化
-xset s off
 
 # 日本語入力を設定
 export GTK_IM_MODULE=fcitx
