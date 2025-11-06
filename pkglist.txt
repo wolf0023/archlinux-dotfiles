@@ -36,6 +36,7 @@ pypy3
 uv
 gcc
 fzf
+xclip
 
 # Utilities and applications
 thunderbird
