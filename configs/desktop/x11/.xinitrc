@@ -9,9 +9,6 @@ xset r rate 200 40
 # スクリーンセーバーの無効化
 xset s off
 
-# ディスプレイの設定
-systemctl --user import-environment DISPLAY
-
 # 日本語入力を設定
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
