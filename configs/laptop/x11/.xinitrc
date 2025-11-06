@@ -7,9 +7,6 @@ setxkbmap -option ctrl:nocaps
 # キーボードのリピートレートを設定
 xset r rate 200 40
 
-# ディスプレイの設定
-systemctl --user import-environment DISPLAY
-
 # 日本語入力を設定
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
