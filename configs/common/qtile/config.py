@@ -34,6 +34,8 @@ from keybindings import keys_list, mod
 from screens import primary_screen, secondary_screen
 # palette.pyからカラーパレットをインポート
 from palette import Mocha
+# autostart.pyからスタート時のコマンドを登録
+import autostart
 
 terminal = guess_terminal()
 
