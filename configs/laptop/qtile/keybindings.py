@@ -47,7 +47,7 @@ keys_list = [
     # ウィンドウの操作
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
     Key(
-        [mod, "control"],
+        [mod, "shift"],
         "f",
         lazy.window.toggle_fullscreen(),
         desc="Toggle fullscreen on the focused window",
