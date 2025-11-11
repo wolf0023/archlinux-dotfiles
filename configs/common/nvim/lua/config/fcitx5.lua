@@ -1,3 +1,5 @@
+-- Fcitx5 input method handling for Neovim
+-- Citation: https://qiita.com/keith_campbell/items/6787dca658a3c9460bca
 local function trim(s)
     return s:match("^%s*(.-)%s*$")
 end
