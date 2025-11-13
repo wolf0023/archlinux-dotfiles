@@ -15,6 +15,7 @@ map('n', 'dd', 'ddzz', opts)
 
 -- ターミナルモード
 map('t', '<ESC>', '<C-\\><C-n>', opts)
+map('t', '<C-[>', '<C-\\><C-n>', opts)
 
 -- ウィンドウ分割
 map('n', '<space>s', '<C-w>s', opts)
