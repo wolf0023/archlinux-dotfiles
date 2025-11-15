@@ -43,6 +43,11 @@ thunderbird
 telegram-desktop
 firefox
 discord
+spotify-launcher
+
+# Input methods
+fcitx5-im
+fcitx5-mozc
 
 ###
 # Additional packages
@@ -61,10 +66,6 @@ ufw
 
 # File management
 xdg-desktop-portal-gtk
-
-# Input methods
-fcitx5-im
-fcitx5-mozc
 
 # Cloud and gaming
 rclone
