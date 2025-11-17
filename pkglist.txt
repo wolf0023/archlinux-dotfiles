@@ -1,32 +1,31 @@
 ###
 # Essential packages
 
-# Base system packages
+# Necessary for setting up dotfiles
 git
 github-cli
 sudo
 unzip
 wget
-
-# Window manager and related tools
-alacritty
-brightnessctl
-scrot
-picom
 fish
 
 # x11 packages
 xorg
 xorg-xinit
 
-# Audio packages
+# Terminal emulator and compositor
+alacritty
+picom
+
+# System utilities
+brightnessctl
+scrot
 pamixer
+
+# Audio packages
 pipewire
 wireplumber
 pipewire-pulse
-
-# Networking packages
-wireless_tools
 
 # Development tools
 neovim
@@ -38,20 +37,19 @@ gcc
 fzf
 xclip
 
-# Utilities and applications
+# GUI Applications
 thunderbird
 telegram-desktop
 firefox
 discord
+spotify-launcher
 
 ###
 # Additional packages
 
-# System monitoring and utilities
-bat
+# System monitoring tools
 btop
 fastfetch
-mpv
 tree
 
 # Networking packages
@@ -66,6 +64,15 @@ xdg-desktop-portal-gtk
 fcitx5-im
 fcitx5-mozc
 
-# Cloud and gaming
+# Cloud storage
 rclone
+
+# Gaming platform
 steam
+
+# Document viewer
+zathura
+zathura-pdf-mupdf
+
+# Media player
+mpv
