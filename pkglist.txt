@@ -25,6 +25,7 @@ pamixer
 # Audio packages
 pipewire
 wireplumber
+pipewire-audio
 pipewire-pulse
 
 # Development tools
