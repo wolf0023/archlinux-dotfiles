@@ -28,6 +28,8 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
+import re
+
 # keybindings.pyからkeysリストをインポート
 from keybindings import keys_list, mod
 # additional_keybindings.pyから追加のキーバインドをインポート
@@ -44,7 +46,10 @@ terminal = guess_terminal()
 # インポートしたkeys_listを代入
 keys = keys_list + additional_keys
 
-groups = [Group(i) for i in "1234567890"]
+groups_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
+groups_layouts = ["columns", "columns", "columns", "columns", "columns",
+                "columns", "columns", "columns", "columns", "floating"]
+groups = [Group(name=name, layout=layout) for name, layout in zip(groups_names, groups_layouts)]
 
 for i in groups:
     keys.extend(
@@ -75,6 +80,11 @@ layouts = [
         border_focus_stack=Mocha.Mauve,
         border_normal=Mocha.Surface2,
         border_normal_stack=Mocha.Surface2,
+    ),
+    layout.Floating(
+        border_width=2,
+        border_focus=Mocha.Mauve,
+        border_normal=Mocha.Surface2,
     ),
     # layout.Max(),
     # Try more layouts by unleashing below layouts.
@@ -126,6 +136,9 @@ floating_layout = layout.Floating(
         Match(wm_class="ssh-askpass"),  # ssh-askpass
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
+        # カスタムルール
+        Match(title="Media viewer"), # Telegramの画像ビューア
+        Match(title=re.compile(r"win\d*")), # astah用
     ]
 )
 auto_fullscreen = False
