@@ -9,8 +9,6 @@ map('n', '<C-s>', ':w<CR>', opts)
 -- 画面移動（中央寄せ）
 map('n', 'j', 'gjzz', opts)
 map('n', 'k', 'gkzz', opts)
-map('n', 'H', 'Hzz', opts)
-map('n', 'L', 'Lzz', opts)
 map('n', 'dd', 'ddzz', opts)
 
 -- ターミナルモード
