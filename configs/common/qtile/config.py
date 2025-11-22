@@ -30,6 +30,8 @@ from libqtile.utils import guess_terminal
 
 # keybindings.pyからkeysリストをインポート
 from keybindings import keys_list, mod
+# additional_keybindings.pyから追加のキーバインドをインポート
+from additional_keybindings import additional_keys
 # screens.pyから各スクリーンの設定をインポート
 from screens import primary_screen, secondary_screen
 # palette.pyからカラーパレットをインポート
@@ -40,7 +42,7 @@ import autostart
 terminal = guess_terminal()
 
 # インポートしたkeys_listを代入
-keys = keys_list
+keys = keys_list + additional_keys
 
 groups = [Group(i) for i in "1234567890"]
 
