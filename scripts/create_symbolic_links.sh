@@ -35,19 +35,20 @@ setConfigLink "$working_dir/configs/common/qtile/palette.py" "$HOME/.config/qtil
 setConfigLink "$working_dir/configs/common/qtile/widgets" "$HOME/.config/qtile" "$backup_dir" || return 1
 setConfigLink "$working_dir/configs/common/qtile/wallpaper.jpg" "$HOME/.config/qtile" "$backup_dir" || return 1
 setConfigLink "$working_dir/configs/common/qtile/external_display.py" "$HOME/.config/qtile" "$backup_dir" || return 1
+setConfigLink "$working_dir/configs/common/qtile/keybindings.py" "$HOME/.config/qtile" "$backup_dir" || return 1
 
 if [ "$(checkComputerType)" == "laptop" ]; then
     # laptop
     log "Laptop detected. Linking the configuration files for laptop..." "info" "  -> "
-    setConfigLink "$working_dir/configs/laptop/qtile/keybindings.py" "$HOME/.config/qtile" "$backup_dir" || return 1
     setConfigLink "$working_dir/configs/laptop/qtile/screens.py" "$HOME/.config/qtile" "$backup_dir" || return 1
     setConfigLink "$working_dir/configs/laptop/qtile/autostart.py" "$HOME/.config/qtile" "$backup_dir" || return 1
+    setConfigLink "$working_dir/configs/laptop/qtile/additional_keybindings.py" "$HOME/.config/qtile" "$backup_dir" || return 1
 else
     # desktop
     log "Desktop detected. Linking the configuration files for desktop..." "info" "  -> "
-    setConfigLink "$working_dir/configs/desktop/qtile/keybindings.py" "$HOME/.config/qtile" "$backup_dir" || return 1
     setConfigLink "$working_dir/configs/desktop/qtile/screens.py" "$HOME/.config/qtile" "$backup_dir" || return 1
     setConfigLink "$working_dir/configs/desktop/qtile/autostart.py" "$HOME/.config/qtile" "$backup_dir" || return 1
+    setConfigLink "$working_dir/configs/desktop/qtile/additional_keybindings.py" "$HOME/.config/qtile" "$backup_dir" || return 1
 fi
 
 # Alacritty config
