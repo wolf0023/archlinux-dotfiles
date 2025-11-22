@@ -5,4 +5,7 @@ if status is-interactive
             source "$HOME/uv-qtile/.venv/bin/activate.fish"
         end
     end
+
+    # enable fish vi keybindings
+    fish_vi_key_bindings
 end
