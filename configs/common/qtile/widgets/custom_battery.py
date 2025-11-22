@@ -2,8 +2,6 @@ from libqtile.widget import base
 from libqtile.widget.battery import load_battery
 from libqtile.widget.battery import _Battery, BatteryStatus, BatteryState
 
-from  enum import Enum
-
 class CustomBattery(base.ThreadPoolText):
     """
     バッテリウィジェットのカスタムクラス
@@ -86,10 +84,11 @@ class CustomBattery(base.ThreadPoolText):
 
 
         # バッテリ残量に応じて文字の色を変える
-        if not is_power_plugged and percent <= self.low_percentage:
-            self.layout.colour = self.low_foreground
-        else:
-            self.layout.colour = self.foreground
+        if self.layout is not None:
+            if not is_power_plugged and percent <= self.low_percentage:
+                self.layout.colour = self.low_foreground
+            else:
+                self.layout.colour = self.foreground
 
         # アイコンを取得
         icon: str = self._get_icon(percent, is_power_plugged)
