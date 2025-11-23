@@ -61,13 +61,7 @@ setConfigLink "$working_dir/configs/common/nvim" "$HOME/.config" "$backup_dir" |
 
 # Fish config
 log "Linking Fish configuration files..." "info" ":: "
-if [ "$(checkComputerType)" == "laptop" ]; then
-    # laptop
-    setConfigLink "$working_dir/configs/laptop/fish/config.fish" "$HOME/.config/fish" "$backup_dir" || return 1
-else
-    # desktop
-    setConfigLink "$working_dir/configs/desktop/fish/config.fish" "$HOME/.config/fish" "$backup_dir" || return 1
-fi
+setConfigLink "$working_dir/configs/common/fish/config.fish" "$HOME/.config/fish" "$backup_dir" || return 1
 
 # Fontconfig(root権限必須)
 log "Linking Fontconfig configuration files..." "info" ":: "
