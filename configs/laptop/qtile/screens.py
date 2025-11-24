@@ -25,9 +25,13 @@ primary_screen = Screen(
                 other_current_screen_border=Mocha.Subtext0,
                 this_screen_border=Mocha.Green,
                 other_screen_border=Mocha.Subtext0,
+                disable_drag=True,
                 use_mouse_wheel=False,
                 highlight_method='line',
-                highlight_color=Mocha.Surface0
+                highlight_color=Mocha.Surface0,
+                urgent_border=Mocha.Red,
+                urgent_text=Mocha.Green,
+                borderwidth=4,
             ),
             widget.TextBox(
                 text=' ',
@@ -122,9 +126,13 @@ secondary_screen = Screen(
                 other_current_screen_border=Mocha.Subtext0,
                 this_screen_border=Mocha.Green,
                 other_screen_border=Mocha.Subtext0,
+                disable_drag=True,
                 use_mouse_wheel=False,
                 highlight_method='line',
-                highlight_color=Mocha.Surface0
+                highlight_color=Mocha.Surface0,
+                urgent_border=Mocha.Red,
+                urgent_text=Mocha.Green,
+                borderwidth=4,
             ),
             widget.TextBox(
                 text=' ',
