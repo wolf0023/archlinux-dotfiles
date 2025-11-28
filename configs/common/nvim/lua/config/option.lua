@@ -9,7 +9,7 @@ opt.fileencoding = "utf-8" -- ファイルのエンコーディング
 
 -- 表示関連
 opt.number = true -- 行番号を表示
-opt.relativenumber = false -- 相対行番号を表示しない
+opt.relativenumber = true -- 相対行番号で表示
 opt.signcolumn = "yes" -- 行番号の隣にシグナル列を表示
 opt.wrap = true -- 行を折り返す
 opt.cursorline = true -- カーソル行を強調表示
