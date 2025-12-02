@@ -14,7 +14,7 @@ cd "$HOME" || {
 if [ ! -d "uv-qtile" ]; then
     log "Initializing uvtool project for qtile..." "info" ":: "
     # uvプロジェクトの初期化
-    uv init -p pypy3 uv-qtile || {
+    uv init uv-qtile || {
         log "Failed to initialize uvtool for qtile." "error" "==> "
         return 1
     }

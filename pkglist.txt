@@ -32,7 +32,7 @@ pipewire-pulse
 neovim
 nodejs
 npm
-pypy3
+python
 uv
 gcc
 fzf
