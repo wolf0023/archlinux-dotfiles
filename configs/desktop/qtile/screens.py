@@ -17,7 +17,6 @@ primary_screen = Screen(
                 padding=2,
                 foreground=Mocha.Text
             ),
-            # widget.CurrentLayout(),
             widget.GroupBox(
                 active=Mocha.Green,
                 inactive=Mocha.Overlay0,
@@ -33,33 +32,13 @@ primary_screen = Screen(
                 urgent_text=Mocha.Green,
                 borderwidth=4,
             ),
-            widget.TextBox(
-                text=' ',
-                padding=2,
-                foreground=Mocha.Text
-            ),
             widget.Prompt(
-                prompt=' :'
+                prompt=' :',
+                padding=8,
             ),
-            widget.TextBox(
-                text=' ',
-                padding=2,
-                foreground=Mocha.Text
+            widget.WindowName(
+                padding=8,
             ),
-            widget.WindowName(),
-            widget.TextBox(
-                text=' ',
-                padding=2,
-                foreground=Mocha.Text
-            ),
-            # widget.Chord(
-            #     chords_colors={
-            #         "launch": ("#ff0000", "#ffffff"),
-            #     },
-            #     name_transform=lambda name: name.upper(),
-            # ),
-            # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
-            # widget.StatusNotifier(),
             widget.Net(
                 format='  ↓{down:5.1f}{down_suffix:>2} ↑{up:5.1f}{up_suffix:>2}',
                 padding=8,
@@ -87,13 +66,7 @@ primary_screen = Screen(
             ),
         ],
         24,
-        # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-        # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
     ),
-    # You can uncomment this variable if you see that on X11 floating resize/moving is laggy
-    # By default we handle these events delayed to already improve performance, however your system might still be struggling
-    # This variable is set to None (no cap) by default, but you can set it to 60 to indicate that you limit it to 60 events per second
-    # x11_drag_polling_rate = 60,
 )
 
 secondary_screen = Screen(
@@ -121,16 +94,8 @@ secondary_screen = Screen(
                 urgent_text=Mocha.Green,
                 borderwidth=4,
             ),
-            widget.TextBox(
-                text=' ',
-                padding=2,
-                foreground=Mocha.Text
-            ),
-            widget.WindowName(),
-            widget.TextBox(
-                text=' ',
-                padding=2,
-                foreground=Mocha.Text
+            widget.WindowName(
+                padding=8,
             ),
             widget.Net(
                 format='  ↓{down:5.1f}{down_suffix:<2} ↑{up:5.1f}{up_suffix:<2}',
