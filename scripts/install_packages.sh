@@ -19,6 +19,6 @@ checkFileExists "$working_dir/pkglist.txt"
 grep -v "^#" "$working_dir/pkglist.txt" | sudo pacman -Syu --needed -
 status=$? # インストールの終了ステータスを取得
 if [ $status -gt 1 ]; then
-    log "Failed to install packages from pkglist.txt." "error" "==> " return 1
+    log "Failed to install packages from pkglist.txt." "error" "==> "
     return 1
 fi

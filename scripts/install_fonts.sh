@@ -8,7 +8,8 @@ current_dir=$(pwd)
 
 mkdir -p "$HOME/.local/share/fonts"
 cd "$HOME/.local/share/fonts" || { 
-    log "Could not change directory to font directory: $HOME/.local/share/fonts" "error" "==> "
+    log "Could not change directory to font directory: $HOME/.local/share/fonts" "error" "  --> "
+    return 1
 }
 
 # Moralerspace font
@@ -28,5 +29,6 @@ fc-cache -fv
 
 # 元のディレクトリに戻る
 cd "$current_dir" || {
-    log "Could not change directory to the original directory: $current_dir" "error" "==> "
+    log "Could not change directory to the original directory: $current_dir" "error" "  --> "
+    return 1
 }
