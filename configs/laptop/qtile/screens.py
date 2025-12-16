@@ -32,10 +32,6 @@ primary_screen = Screen(
                 urgent_text=Mocha.Green,
                 borderwidth=4,
             ),
-            widget.Prompt(
-                prompt=' :',
-                padding=8,
-            ),
             widget.WindowName(
                 padding=8,
             ),
