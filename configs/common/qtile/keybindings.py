@@ -63,8 +63,8 @@ keys_list = [
         desc="Toggle fullscreen on the focused window",
     ),
 
-    # コマンドプロンプトの起動
-    Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+    # アプリケーションランチャーの起動
+    Key([mod], "r", lazy.spawn("rofi -show combi"), desc="Spawn a app launcher"),
 
     # ターミナルの起動
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),

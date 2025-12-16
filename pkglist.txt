@@ -37,6 +37,7 @@ uv
 gcc
 fzf
 xclip
+rofi
 
 # GUI Applications
 thunderbird
