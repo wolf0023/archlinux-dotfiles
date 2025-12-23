@@ -8,6 +8,9 @@ mod = "mod1"
 app = "mod4"
 terminal = guess_terminal();
 
+# スクリーンショットの保存とクリップボードへのコピー
+screenshot_cmd = "'xclip -selection clipboard -t image/png $f; mkdir -p ~/Screenshots; mv $f ~/Screenshots/.'"
+
 # キーバインドのリストの定義
 keys_list = [
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
@@ -71,15 +74,15 @@ keys_list = [
 
     # アクティブウィンドウのスクリーンショットを撮る
     Key([mod], "Print",
-        lazy.spawn("scrot -u -e 'mkdir -p ~/Screenshots; mv $f ~/Screenshots/.'")
+        lazy.spawn(f"scrot -u -e {screenshot_cmd}")
     ),
     # 画面全体のスクリーンショットを撮る
     Key([mod, "control"], "Print",
-        lazy.spawn("scrot -e 'mkdir -p ~/Screenshots; mv $f ~/Screenshots/.'")
+        lazy.spawn(f"scrot -e {screenshot_cmd}")
     ),
     # 選択範囲のスクリーンショットを撮る
     Key([], "Print",
-        lazy.spawn("scrot -s -f -e 'mkdir -p ~/Screenshots; mv $f ~/Screenshots/.'")
+        lazy.spawn(f"scrot -s -f -e {screenshot_cmd}")
     ),
 
     # ブラウザの起動
