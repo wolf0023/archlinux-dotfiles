@@ -63,6 +63,10 @@ setConfigLink "$working_dir/configs/common/nvim" "$HOME/.config" "$backup_dir" |
 log "Linking Fish configuration files..." "info" ":: "
 setConfigLink "$working_dir/configs/common/fish/config.fish" "$HOME/.config/fish" "$backup_dir" || return 1
 
+# Rofi config
+log "Linking Rofi configuration files..." "info" ":: "
+setConfigLink "$working_dir/configs/common/rofi" "$HOME/.config" "$backup_dir" || return 1
+
 # Fontconfig(root権限必須)
 log "Linking Fontconfig configuration files..." "info" ":: "
 log "Authentication required to link Fontconfig files." "info" "  -> "
