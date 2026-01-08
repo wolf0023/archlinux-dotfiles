@@ -31,11 +31,7 @@ keys_list = [
     Key([mod, "control"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
 
     # 別のスクリーンに移動
-    Key(
-        [mod, "control"], "i",
-        lazy.next_screen(),
-        desc="Move focus to next monitor"
-    ),
+    Key([mod], "o", lazy.next_screen(), desc="Move focus to next monitor"),
 
     # ウィンドウの操作
     Key([mod, "control"], "q", lazy.window.kill(), desc="Kill focused window"),
@@ -46,7 +42,7 @@ keys_list = [
 
     # 直前のグループに移動
     Key(
-        [mod], "o",
+        [mod, "control"], "i",
         lazy.screen.toggle_group(),
         desc="Move to the last visited group"
     ),
