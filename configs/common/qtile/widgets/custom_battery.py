@@ -12,19 +12,19 @@ class CustomBattery(base.ThreadPoolText):
         ("format", "{icon} {percent:2.0%} {hour:d}:{min:02d} {watt:.2f}W", "表示フォーマット"),
         ("low_percentage", 20, "バッテリ残量が低いとみなす閾値"),
         ("low_foreground", "ff5555", "バッテリ残量が低いときの文字色"),
-        ("empty_icon", "󱉞", "バッテリが空のときのアイコン"),
-        ("full_icon", "󰁹", "バッテリが満タンのときのアイコン"),
+        ("empty_icon", "󱉞", "バッテリ残量が10%未満のときのアイコン"),
+        ("full_icon", "󰁹", "バッテリ残量が100%のときのアイコン"),
         ("charging_icon", "", "バッテリが充電中のときのアイコン"),
         ("full_charging_icon", "󱟢", "バッテリが満タンで充電中のときのアイコン"),
-        ("ten_icon", "󰁺", "バッテリ残量が10%以下のときのアイコン"),
-        ("twenty_icon", "󰁻", "バッテリ残量が20%以下のときのアイコン"),
-        ("thirty_icon", "󰁼", "バッテリ残量が30%以下のときのアイコン"),
-        ("forty_icon", "󰁽", "バッテリ残量が40%以下のときのアイコン"),
-        ("fifty_icon", "󰁾", "バッテリ残量が50%以下のときのアイコン"),
-        ("sixty_icon", "󰁿", "バッテリ残量が60%以下のときのアイコン"),
-        ("seventy_icon", "󰂀", "バッテリ残量が70%以下のときのアイコン"),
-        ("eighty_icon", "󰂁", "バッテリ残量が80%以下のときのアイコン"),
-        ("ninety_icon", "󰂂", "バッテリ残量が90%以下のときのアイコン"),
+        ("ten_icon", "󰁺", "バッテリ残量が20%未満のときのアイコン"),
+        ("twenty_icon", "󰁻", "バッテリ残量が30%未満のときのアイコン"),
+        ("thirty_icon", "󰁼", "バッテリ残量が40%未満のときのアイコン"),
+        ("forty_icon", "󰁽", "バッテリ残量が50%未満のときのアイコン"),
+        ("fifty_icon", "󰁾", "バッテリ残量が60%未満のときのアイコン"),
+        ("sixty_icon", "󰁿", "バッテリ残量が70%未満のときのアイコン"),
+        ("seventy_icon", "󰂀", "バッテリ残量が80%未満のときのアイコン"),
+        ("eighty_icon", "󰂁", "バッテリ残量が90%未満のときのアイコン"),
+        ("ninety_icon", "󰂂", "バッテリ残量が100%未満のときのアイコン"),
     ]
 
     def __init__(self, **config):
@@ -66,7 +66,7 @@ class CustomBattery(base.ThreadPoolText):
             char = self._icons[min(percent // 10, 10)]
 
         return char
-    
+
     def poll(self) -> str:
         """
         バッテリの状態を取得し、アイコンを返す
