@@ -16,13 +16,6 @@ cd "$HOME/.local/share/fonts" || {
 installFont "https://github.com/yuru7/moralerspace/releases/download/v2.0.0/Moralerspace_v2.0.0.zip" || {
     log "Failed to install Moralerspace font." "error" "  --> "
 }
-# Noto Sans CJK KR and SC fonts
-installFont "https://github.com/notofonts/noto-cjk/releases/download/Serif2.003/08_NotoSerifCJKkr.zip" || {
-    log "Failed to install CJK KR font." "error" "  --> "
-}
-installFont "https://github.com/notofonts/noto-cjk/releases/download/Serif2.003/09_NotoSerifCJKsc.zip" || {
-    log "Failed to install CJK SC font." "error" "  --> "
-}
 
 # フォントキャッシュの更新
 fc-cache -fv

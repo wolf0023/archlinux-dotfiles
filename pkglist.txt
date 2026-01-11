@@ -78,3 +78,7 @@ zathura-pdf-mupdf
 
 # Media player
 mpv
+
+# Font packages
+noto-fonts-cjk
+noto-fonts-emoji
