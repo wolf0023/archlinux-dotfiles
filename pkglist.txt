@@ -14,7 +14,7 @@ xorg
 xorg-xinit
 
 # Terminal emulator and compositor
-alacritty
+wezterm
 picom
 
 # System utilities
@@ -64,7 +64,7 @@ xdg-desktop-portal-gtk
 
 # Input methods
 fcitx5-im
-fcitx5-mozc
+fcitx5-skk
 
 # Cloud storage
 rclone
@@ -82,3 +82,6 @@ mpv
 # Font packages
 noto-fonts-cjk
 noto-fonts-emoji
+
+# Notification daemon
+dunst
