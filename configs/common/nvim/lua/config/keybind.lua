@@ -4,7 +4,6 @@ local opts = { noremap = true, silent = true }
 -- 基本操作
 map('i', 'jj', '<ESC>', opts)
 map('n', '<ESC><ESC>', ':nohlsearch<CR>', opts)
-map('n', '<C-s>', ':w<CR>', opts)
 
 -- 画面移動（中央寄せ）
 map('n', 'j', 'gjzz', opts)
@@ -42,7 +41,3 @@ map('n', 'gi', vim.lsp.buf.implementation, opts)
 map('n', '<C-k>', vim.lsp.buf.signature_help, opts)
 map('n', '<leader>rn', vim.lsp.buf.rename, opts)
 map('n', 'gr', vim.lsp.buf.references, opts)
-
--- 診断メッセージの操作
-map('n', '[d', vim.diagnostic.goto_prev, opts)
-map('n', ']d', vim.diagnostic.goto_next, opts)
