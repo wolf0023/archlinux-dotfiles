@@ -34,10 +34,6 @@ map('n', '<space><Right>', '8<C-w>>', opts)
 map('n', '<space><Up>', '4<C-w>+', opts)
 map('n', '<space><Down>', '4<C-w>-', opts)
 
--- バッファ操作
-map('n', '<space>n', ':bnext<CR>', opts)
-map('n', '<space>N', ':bprevious<CR>', opts)
-
 -- lsp操作
 map('n', 'gD', vim.lsp.buf.declaration, opts)
 map('n', 'gd', vim.lsp.buf.definition, opts)
