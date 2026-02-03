@@ -2,7 +2,7 @@ from libqtile.widget import base
 from libqtile.widget.battery import load_battery
 from libqtile.widget.battery import _Battery, BatteryStatus, BatteryState
 
-class CustomBattery(base.ThreadPoolText):
+class CustomBattery(base.InLoopPollText):
     """
     バッテリウィジェットのカスタムクラス
     バッテリ残量に応じてアイコンを変更する
@@ -28,7 +28,7 @@ class CustomBattery(base.ThreadPoolText):
     ]
 
     def __init__(self, **config):
-        base.ThreadPoolText.__init__(self, "", **config)
+        base.InLoopPollText.__init__(self, "", **config)
         self.add_defaults(self.defaults)
         self._battery: _Battery = load_battery()
         self._icons: tuple = self._set_icon()
