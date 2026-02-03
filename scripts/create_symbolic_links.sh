@@ -51,10 +51,6 @@ else
     setConfigLink "$working_dir/configs/desktop/qtile/additional_keybindings.py" "$HOME/.config/qtile" "$backup_dir" || return 1
 fi
 
-# Alacritty config
-log "Linking Alacritty configuration files..." "info" ":: "
-setConfigLink "$working_dir/configs/common/alacritty" "$HOME/.config" "$backup_dir" || return 1
-
 # Neovim config
 log "Linking Neovim configuration files..." "info" ":: "
 setConfigLink "$working_dir/configs/common/nvim" "$HOME/.config" "$backup_dir" || return 1
@@ -66,6 +62,10 @@ setConfigLink "$working_dir/configs/common/fish/config.fish" "$HOME/.config/fish
 # Rofi config
 log "Linking Rofi configuration files..." "info" ":: "
 setConfigLink "$working_dir/configs/common/rofi" "$HOME/.config" "$backup_dir" || return 1
+
+# Dunst config
+log "Linking Dunst configuration files..." "info" ":: "
+setConfigLink "$working_dir/configs/common/dunst/dunstrc" "$HOME/.config/dunst" "$backup_dir" || return 1
 
 # Fontconfig(root権限必須)
 log "Linking Fontconfig configuration files..." "info" ":: "
