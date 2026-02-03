@@ -35,8 +35,17 @@ primary_screen = Screen(
             widget.WindowName(
                 padding=8,
             ),
+            widget.CPU(
+                format='  {freq_current:4.2f}GHz {load_percent:<3.0f}%',
+                padding=8,
+            ),
+            widget.Memory(
+                format='  {MemUsed:4.1f}{mm}/{MemTotal:4.1f}{mm}',
+                measure_mem='G',
+                padding=8,
+            ),
             widget.Net(
-                format='  ↓{down:5.1f}{down_suffix:>2} ↑{up:5.1f}{up_suffix:>2}',
+                format='  ↓{down:5.1f}{down_suffix:<2} ↑{up:5.1f}{up_suffix:<2}',
                 padding=8,
             ),
             CustomBattery(
@@ -108,6 +117,15 @@ secondary_screen = Screen(
                 padding=8,
             ),
             widget.WindowName(
+                padding=8,
+            ),
+            widget.CPU(
+                format='  {freq_current:4.2f}GHz {load_percent:<3.0f}%',
+                padding=8,
+            ),
+            widget.Memory(
+                format='  {MemUsed:4.1f}{mm}/{MemTotal:4.1f}{mm}',
+                measure_mem='G',
                 padding=8,
             ),
             widget.Net(
