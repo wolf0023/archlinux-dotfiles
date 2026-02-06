@@ -49,7 +49,8 @@ keys = keys_list + additional_keys
 groups_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 groups_layouts = ["columns", "columns", "columns", "columns", "columns",
                 "columns", "columns", "columns", "columns", "floating"]
-groups = [Group(name=name, layout=layout) for name, layout in zip(groups_names, groups_layouts)]
+groups_labels = ["", "", "", "", "", "", "", "", "", ""]
+groups = [Group(name=name, layout=layout, label=label) for name, layout, label in zip(groups_names, groups_layouts, groups_labels)]
 
 for i in groups:
     keys.extend(
@@ -105,6 +106,7 @@ widget_defaults = dict(
     background=Mocha.Surface0,
     foreground=Mocha.Sapphire,
     fontsize=13,
+    padding=4,
 )
 extension_defaults = widget_defaults.copy()
 
@@ -143,6 +145,7 @@ floating_layout = layout.Floating(
 )
 auto_fullscreen = False
 focus_on_window_activation = "smart"
+focus_previous_on_window_remove = True
 reconfigure_screens = True
 
 # If things like steam games want to auto-minimize themselves when losing
