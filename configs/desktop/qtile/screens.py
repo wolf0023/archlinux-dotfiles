@@ -4,6 +4,7 @@ from libqtile import bar, widget
 from libqtile.config import Screen
 
 from widgets.custom_battery import CustomBattery
+from widgets.custom_groupbox import CustomGroupBox
 from palette import Mocha 
 
 # メインモニタ
