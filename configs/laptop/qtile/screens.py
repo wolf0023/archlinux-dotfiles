@@ -4,6 +4,7 @@ from libqtile import bar, widget
 from libqtile.config import Screen
 
 from widgets.custom_battery import CustomBattery
+from widgets.custom_groupbox import CustomGroupBox
 from palette import Mocha 
 
 # メインモニタ
@@ -17,20 +18,15 @@ primary_screen = Screen(
                 padding=2,
                 foreground=Mocha.Text
             ),
-            widget.GroupBox(
-                active=Mocha.Green,
+            CustomGroupBox(
+                active=Mocha.Sapphire,
                 inactive=Mocha.Overlay0,
-                this_current_screen_border=Mocha.Peach,
-                other_current_screen_border=Mocha.Subtext0,
-                this_screen_border=Mocha.Green,
-                other_screen_border=Mocha.Subtext0,
-                disable_drag=True,
-                use_mouse_wheel=False,
-                highlight_method='line',
-                highlight_color=Mocha.Surface0,
-                urgent_border=Mocha.Red,
-                urgent_text=Mocha.Green,
-                borderwidth=4,
+                this_current_screen_text=Mocha.Peach,
+                other_screen_text=Mocha.Green,
+                other_current_screen_text=Mocha.Sapphire,
+                this_screen_text=Mocha.Yellow,
+                urgent_text=Mocha.Red,
+                padding=4,
             ),
             widget.WindowName(
                 padding=8,
@@ -92,25 +88,20 @@ secondary_screen = Screen(
     wallpaper_mode='stretch',  # 画像の表示方法を指定
     top=bar.Bar(
         [
-           widget.TextBox(
+            widget.TextBox(
                 text=' ',
                 padding=2,
                 foreground=Mocha.Text
             ),
-            widget.GroupBox(
-                active=Mocha.Green,
+            CustomGroupBox(
+                active=Mocha.Sapphire,
                 inactive=Mocha.Overlay0,
-                this_current_screen_border=Mocha.Peach,
-                other_current_screen_border=Mocha.Subtext0,
-                this_screen_border=Mocha.Green,
-                other_screen_border=Mocha.Subtext0,
-                disable_drag=True,
-                use_mouse_wheel=False,
-                highlight_method='line',
-                highlight_color=Mocha.Surface0,
-                urgent_border=Mocha.Red,
-                urgent_text=Mocha.Green,
-                borderwidth=4,
+                this_current_screen_text=Mocha.Peach,
+                other_current_screen_text=Mocha.Sapphire,
+                this_screen_text=Mocha.Yellow,
+                other_screen_text=Mocha.Green,
+                urgent_text=Mocha.Red,
+                padding=4,
             ),
             widget.Prompt(
                 prompt=' :',
