@@ -65,7 +65,7 @@ setConfigLink "$working_dir/configs/common/rofi" "$HOME/.config" "$backup_dir" |
 
 # Dunst config
 log "Linking Dunst configuration files..." "info" ":: "
-setConfigLink "$working_dir/configs/common/dunst/dunstrc" "$HOME/.config/dunst" "$backup_dir" || return 1
+setConfigLink "$working_dir/configs/common/dunst" "$HOME/.config" "$backup_dir" || return 1
 
 # Fontconfig(root権限必須)
 log "Linking Fontconfig configuration files..." "info" ":: "
