@@ -32,7 +32,7 @@ primary_screen = Screen(
                 padding=8,
             ),
             widget.CPU(
-                format='  {freq_current:4.2f}GHz {load_percent:<3.0f}%',
+                format='  {freq_current:4.2f}GHz {load_percent:>3.0f}%',
                 padding=8,
             ),
             widget.Memory(
@@ -111,7 +111,7 @@ secondary_screen = Screen(
                 padding=8,
             ),
             widget.CPU(
-                format='  {freq_current:4.2f}GHz {load_percent:<3.0f}%',
+                format='  {freq_current:4.2f}GHz {load_percent:>3.0f}%',
                 padding=8,
             ),
             widget.Memory(
