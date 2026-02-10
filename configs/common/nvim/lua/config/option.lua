@@ -55,5 +55,3 @@ cmd[[set updatetime=300]] -- スワップファイルが更新されるまでの
 -- テーマの設定
 opt.background = "dark" -- ダークテーマを使用
 opt.termguicolors = true -- 24ビットカラーを有効にする
-cmd[[colorscheme catppuccin]] -- テーマの設定
-
