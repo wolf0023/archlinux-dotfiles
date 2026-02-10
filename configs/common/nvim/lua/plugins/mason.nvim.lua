@@ -19,9 +19,6 @@ return {
                 severity_sort = true,
             })
 
-            -- LSPのhoverや診断メッセージのウィンドウの枠をroundedにする
-            vim.o.winborder = 'rounded'
-
             -- ホバー時に診断メッセージを表示
             vim.api.nvim_create_autocmd("CursorHold", {
                 callback = function()
