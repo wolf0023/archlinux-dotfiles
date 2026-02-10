@@ -10,6 +10,8 @@ return {
                     transparent = true,
                 },
             })
+            -- テーマの設定
+            vim.cmd.colorscheme "catppuccin"
         end
     }
 }
