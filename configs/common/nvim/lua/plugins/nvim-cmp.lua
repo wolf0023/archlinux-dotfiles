@@ -24,12 +24,12 @@ return {
                         vim.fn["vsnip#anonymous"](args.body)
                     end,
                 },
-                
+
                 window = {
                     completion = cmp.config.window.bordered(),
                     documentation = cmp.config.window.bordered()
                 },
-                
+
                 -- 補完ソースのリスト
                 sources = cmp.config.sources({
                     {name = 'nvim_lsp'},
