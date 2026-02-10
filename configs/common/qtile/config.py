@@ -81,6 +81,7 @@ layouts = [
         border_focus_stack=Mocha.Mauve,
         border_normal=Mocha.Surface2,
         border_normal_stack=Mocha.Surface2,
+        border_on_single=True,
     ),
     layout.Floating(
         border_width=2,
