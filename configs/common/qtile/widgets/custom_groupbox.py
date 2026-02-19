@@ -45,15 +45,29 @@ class CustomGroupBox(_GroupBase):
         return list(groups)
 
     def calculate_length(self):
+        """
+        ウィジェット全体の長さを計算(margin_x を考慮して計算)
+        例: グループが '1', '2' の場合
+            --> ' ', '1', ' ', '2', ' '
+            --> ' ' は、margin_x に相当
+        ==> margin_x * 2 + (len(groups) - 1) * margin_x + box_width('1') + box_width('2')
+        """
         width = self.margin_x * 2 + (len(self.groups) - 1) * self.margin_x
+
         for g in self.groups:
             width += self.box_width([g])
         return width
 
     def group_has_urgent(self, group):
+        """
+        グループに通知があるかどうかを判定
+        """
         return any(w.urgent for w in group.windows)
 
     def draw(self):
+        """
+        ウィジェットの描画
+        """
         self.drawer.clear(self.background or self.bar.background)
 
         offset = self.margin_x
