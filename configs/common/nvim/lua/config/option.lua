@@ -43,6 +43,7 @@ opt.swapfile = false -- スワップファイルを作成しない
 opt.undofile = false -- アンドゥファイルを作成しない
 opt.autoread = true -- ファイルが外部で変更された場合、自動的に再読み込み
 opt.confirm = true -- ファイルの変更を確認する
+opt.mouse = "" -- マウスを無効にする
 
 -- その他の設定
 opt.showmatch = true -- マッチする括弧を強調表示
