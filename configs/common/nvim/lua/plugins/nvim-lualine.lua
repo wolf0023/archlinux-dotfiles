@@ -7,7 +7,7 @@ return {
                     icon_enabled = true,
                     theme = "catppuccin",
                     globalstatus = true,
-                    extensions = {"lazy", "neo-tree"},
+                    extensions = {"lazy", "oil", "mason"},
                 }
             })
 	    end
