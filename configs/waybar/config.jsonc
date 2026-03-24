@@ -16,8 +16,8 @@
         "memory",
         "network",
         "battery",
-        "wireplumber",
-        "backlight"
+        "backlight",
+        "wireplumber"
     ],
     "hyprland/workspaces": {
         "format": " {id}"
