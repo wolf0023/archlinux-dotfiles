@@ -9,18 +9,23 @@ unzip
 wget
 fish
 
-# x11 packages
-xorg
-xorg-xinit
+# Display server
+wayland
+xorg-xwayland
 
-# Terminal emulator and compositor
-wezterm
-picom
-
-# System utilities
+# Window manager and related packages
+hyprland
+hyprpaper
+waybar
 brightnessctl
-scrot
-pamixer
+playerctl
+rofi
+dust
+foot
+xdg-desktop-portal-hyprland
+wl-clipboard
+grim
+slurp
 
 # Audio packages
 pipewire
@@ -33,11 +38,7 @@ neovim
 nodejs
 npm
 python
-uv
 gcc
-fzf
-xclip
-rofi
 
 # GUI Applications
 thunderbird
@@ -45,6 +46,11 @@ telegram-desktop
 firefox
 discord
 spotify-launcher
+
+# Fonts
+otf-monaspace
+noto-fonts-cjk
+noto-fonts-emoji
 
 ###
 # Additional packages
@@ -59,7 +65,7 @@ net-tools
 networkmanager
 ufw
 
-# File management
+# File picker
 xdg-desktop-portal-gtk
 
 # Input methods
@@ -83,5 +89,3 @@ mpv
 noto-fonts-cjk
 noto-fonts-emoji
 
-# Notification daemon
-dunst
