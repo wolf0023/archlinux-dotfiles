@@ -89,13 +89,6 @@ if [ "$SHELL" != "/usr/bin/fish" ]; then
 fi
 
 ###
-# qtileのインストール
-source "$working_dir/scripts/install_qtile.sh" || {
-    log "Failed to install qtile using uvtool." "error" "==> "
-    exit 1
-}
-
-###
 # フォントのインストール
 source "$working_dir/scripts/install_fonts.sh" || {
     log "Failed to install fonts." "error" "==> "
