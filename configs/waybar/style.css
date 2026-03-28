@@ -1,0 +1,107 @@
+@import "mocha.css";
+
+* {
+    font-family: "Monaspace Radon", monospace;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#waybar {
+    background-color: @transparent;
+    color: @text;
+}
+
+/* Clock(left) */
+#clock {
+    background-color: @surface0;
+    color: @lavender;
+    margin: 8px 0.5rem 0 1rem;
+    padding: 0 0.8rem;
+    border-radius: 10px;
+}
+
+/* Workspaces(left) */
+#workspaces {
+    background-color: @surface0;
+    margin: 8px 0.5rem 0 0.5rem;
+    padding: 0 0.6rem;
+    border-radius: 10px;
+}
+
+#workspaces button {
+    color: @lavender;
+    padding: 0;
+    padding-right: 0.6rem;
+    border-radius: 20px;
+}
+
+#workspaces button.empty {
+    color: @overlay0;
+}
+
+#workspaces button.visible {
+    color: @green;
+    background-color: @surface2;
+}
+
+#workspaces button.active {
+    color: @peach;
+    background-color: @surface2;
+}
+
+#workspaces button.urgent {
+    color: @red;
+}
+
+/* Tray(left) */
+#tray {
+    color: @lavender;
+    background-color: @surface0;
+    margin: 8px 1rem 0 0.5rem;
+    padding: 0 0.8rem;
+    border-radius: 10px;
+}
+
+/* Window title(center) */
+#window {
+    background-color: @surface0;
+    margin: 0 0.5rem;
+    margin-top: 8px;
+    padding: 0 0.8rem;
+    border-radius: 10px;
+}
+
+/* System info(right) */
+#cpu,
+#memory,
+#network,
+#battery,
+#wireplumber,
+#backlight {
+    background-color: @surface0;
+    color: @lavender;
+    margin-top: 8px;
+    padding: 0 0.5rem;
+}
+
+#battery.warning:not(.charging) {
+    color: @yellow;
+}
+
+#battery.critical:not(.charging) {
+    color: @red;
+    font-weight: bold;
+}
+
+#cpu {
+    margin-left: 1rem;
+    border-radius: 10px 0 0 10px;
+    padding-left: 0.8rem;
+}
+
+#wireplumber {
+    margin-right: 1rem;
+    border-radius: 0 10px 10px 0;
+    padding-right: 0.8rem;
+}
+

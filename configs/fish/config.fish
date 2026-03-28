@@ -1,11 +1,4 @@
 if status is-interactive
-    # python virtual environment を source
-    if not set -q VIRTUAL_ENV
-        if test -f "$HOME/uv-qtile/.venv/bin/activate.fish"
-            source "$HOME/uv-qtile/.venv/bin/activate.fish"
-        end
-    end
-
     # vi mode を有効化
     fish_vi_key_bindings
 
