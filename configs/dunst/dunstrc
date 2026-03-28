@@ -5,6 +5,9 @@
     separator_color= frame
     highlight = "#89b4fa"
 
+    # Default monitor to show notifications on.
+    monitor = 0
+
 [urgency_low]
     background = "#1e1e2e"
     foreground = "#cdd6f4"
