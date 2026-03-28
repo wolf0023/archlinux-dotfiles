@@ -6,6 +6,16 @@ Personal configuration files for Arch Linux with Hyprland, a Wayland compositor.
 
 This repository contains dotfiles and setup scripts for a minimal Arch Linux desktop environment. The setup uses Hyprland as the window manager, Fish as the default shell, and includes various tools for development and daily use.
 
+## Screenshots
+
+Desktop with terminal and Neovim.
+
+<img width="2560" height="1440" alt="Image" src="https://github.com/user-attachments/assets/afc4e2bd-3d36-4b82-934c-004d9c3a84e6" />
+
+Wallpaper by [ゲームまてりあるず](https://game-materials.com/).
+
+<img width="2560" height="1440" alt="Image" src="https://github.com/user-attachments/assets/d782532b-47e7-4766-a820-b3d793e266bc" />
+
 ## Directory Structure
 
 ```
