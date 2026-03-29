@@ -6,7 +6,7 @@
     highlight = "#89b4fa"
 
     # Default monitor to show notifications on.
-    monitor = 0
+    monitor = 1
 
 [urgency_low]
     background = "#1e1e2e"
