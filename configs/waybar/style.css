@@ -7,7 +7,7 @@
 }
 
 #waybar {
-    background-color: @transparent;
+    background-color: transparent;
     color: @text;
 }
 
@@ -69,6 +69,10 @@
     margin-top: 8px;
     padding: 0 0.8rem;
     border-radius: 10px;
+}
+
+window#waybar.empty #window {
+    background-color: transparent;
 }
 
 /* System info(right) */
