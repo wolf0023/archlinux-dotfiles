@@ -1,7 +1,7 @@
 @import "mocha.css";
 
 * {
-    font-family: "Monaspace Radon", monospace;
+    font-family: monospace;
     font-size: 16px;
     font-weight: bold;
 }

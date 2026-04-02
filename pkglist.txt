@@ -48,8 +48,9 @@ discord
 spotify-launcher
 
 # Fonts
-otf-monaspace
-noto-fonts-cjk
+otf-monaspace-nerd
+ttf-mplus-nerd
+adobe-source-han-sans-otc-fonts
 noto-fonts-emoji
 
 ###
