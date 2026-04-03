@@ -48,11 +48,6 @@ source "$working_dir/scripts/functions/check_file_exists.sh" || {
     echo "Failed to source check_file_exists.sh" >&2
     exit 1
 }
-# フォントのインストール関数
-source "$working_dir/scripts/functions/install_font.sh" || {
-    echo "Failed to source install_fonts.sh" >&2
-    exit 1
-}
 
 log "Starting setup..." "info" ":: "
 
@@ -87,13 +82,6 @@ if [ "$SHELL" != "/usr/bin/fish" ]; then
         exit 1
     }
 fi
-
-###
-# フォントのインストール
-source "$working_dir/scripts/install_fonts.sh" || {
-    log "Failed to install fonts." "error" "==> "
-    exit 1
-}
 
 ###
 # systemdサービスの有効化
