@@ -62,7 +62,7 @@ The `pkglist.txt` file contains all packages to be installed, organised into cat
 
 ### Fonts
 
-- Monaspace, Noto CJK, Noto Emoji
+- Monaspice(monaspace-nerd), MPlus, Source Han Sans, Noto Color Emoji
 
 ## Requirements
 
@@ -91,7 +91,6 @@ The setup script will:
 - Configure locale settings
 - Install packages from `pkglist.txt`
 - Set Fish as the default shell
-- Install additional fonts
 - Enable PipeWire audio services
 
 Existing configuration files will be backed up to `~/.archlinux-dotfiles-backup` before being replaced.
