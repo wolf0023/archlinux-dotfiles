@@ -8,31 +8,23 @@
 
 #waybar {
     background-color: transparent;
-    color: @text;
-}
-
-/* Clock(left) */
-#clock {
-    background-color: @surface0;
-    color: @lavender;
-    margin: 8px 0.5rem 0 1rem;
-    padding: 0 0.8rem;
-    border-radius: 10px;
 }
 
 /* Workspaces(left) */
 #workspaces {
     background-color: @surface0;
-    margin: 8px 0.5rem 0 0.5rem;
-    padding: 0 0.6rem;
-    border-radius: 10px;
+    margin: 0 4px;
+    padding: 0 0.5rem;
+    border-radius: 16px;
+
+    /* Leave a gap above the bar */
+    margin-top: 4px;
 }
 
 #workspaces button {
-    color: @lavender;
-    padding: 0;
-    padding-right: 0.6rem;
-    border-radius: 20px;
+    color: @blue;
+    padding: 0 0.5rem;
+    border-radius: 50%;
 }
 
 #workspaces button.empty {
@@ -41,38 +33,44 @@
 
 #workspaces button.visible {
     color: @green;
-    background-color: @surface2;
+    background-color: @surface1;
 }
 
 #workspaces button.active {
     color: @peach;
-    background-color: @surface2;
+    background-color: @surface1;
 }
 
 #workspaces button.urgent {
     color: @red;
 }
 
-/* Tray(left) */
-#tray {
-    color: @lavender;
-    background-color: @surface0;
-    margin: 8px 1rem 0 0.5rem;
-    padding: 0 0.8rem;
-    border-radius: 10px;
-}
-
-/* Window title(center) */
+/* Window title(left) */
 #window {
+    color: @blue;
     background-color: @surface0;
-    margin: 0 0.5rem;
-    margin-top: 8px;
-    padding: 0 0.8rem;
-    border-radius: 10px;
+    margin: 0 4px;
+    padding: 0 1rem;
+    border-radius: 16px;
+
+    /* Leave a gap above the bar */
+    margin-top: 4px;
 }
 
 window#waybar.empty #window {
     background-color: transparent;
+}
+
+/* Clock(center) */
+#clock {
+    background-color: @surface0;
+    color: @blue;
+    margin: 0 8px;
+    padding: 0 1rem;
+    border-radius: 16px;
+
+    /* Leave a gap above the bar */
+    margin-top: 4px;
 }
 
 /* System info(right) */
@@ -83,9 +81,11 @@ window#waybar.empty #window {
 #wireplumber,
 #backlight {
     background-color: @surface0;
-    color: @lavender;
-    margin-top: 8px;
-    padding: 0 0.5rem;
+    color: @blue;
+    padding: 0 0.6rem;
+
+    /* Leave a gap above the bar */
+    margin-top: 4px;
 }
 
 #battery.warning:not(.charging) {
@@ -94,18 +94,38 @@ window#waybar.empty #window {
 
 #battery.critical:not(.charging) {
     color: @red;
-    font-weight: bold;
 }
 
 #cpu {
-    margin-left: 1rem;
-    border-radius: 10px 0 0 10px;
-    padding-left: 0.8rem;
+    margin-left: 4px;
+    border-radius: 16px 0 0 16px;
+    padding-left: 1rem;
 }
 
 #wireplumber {
-    margin-right: 1rem;
-    border-radius: 0 10px 10px 0;
-    padding-right: 0.8rem;
+    margin-right: 4px;
+    border-radius: 0 16px 16px 0;
+    padding-right: 1rem;
 }
 
+/* Tray(right) */
+#tray {
+    color: @blue;
+    background-color: @surface0;
+    margin: 0 4px;
+    padding: 0 1rem;
+    border-radius: 16px;
+
+    /* Leave a gap above the bar */
+    margin-top: 4px;
+}
+
+/* Tooltip */
+tooltip {
+    background-color: @base;
+    border-radius: 16px;
+}
+
+tooltip label{
+    color: @lavender;
+}
