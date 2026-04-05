@@ -39,6 +39,9 @@ nodejs
 npm
 python
 gcc
+fzf
+ripgrep
+fd
 
 # GUI Applications
 thunderbird
