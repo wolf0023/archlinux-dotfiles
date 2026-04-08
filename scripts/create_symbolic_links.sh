@@ -19,6 +19,10 @@ sudo mkdir -p /etc/fonts || {
 log "Linking Hyprland configuration files..." "info" ":: "
 setConfigLink "$working_dir/configs/hypr" "$HOME/.config" "$backup_dir" || return 1
 
+# Vim config
+log "Linking Vim configuration files..." "info" ":: "
+setConfigLink "$working_dir/configs/vim/.vimrc" "$HOME" "$backup_dir" || return 1
+
 # Neovim config
 log "Linking Neovim configuration files..." "info" ":: "
 setConfigLink "$working_dir/configs/nvim" "$HOME/.config" "$backup_dir" || return 1
