@@ -103,11 +103,8 @@ set belloff=all
 "------------------------------
 " 'jj'でESCにキーマッピング
 inoremap <silent> jj <ESC>
-inoremap <silent> ｊｊ <ESC>
 " ESCを二回押したとき検索時のハイライトを消去 
 nnoremap <ESC><ESC> :nohlsearch<CR><ESC>
-" crtl+sで保存
-nnoremap <C-s> :w<CR>
 " 折り返し時に表示上行単位での移動をできるようにし、移動したときにカーソルを画面の中央に持ってくる
 nnoremap j gjzz
 nnoremap k gkzz
@@ -120,6 +117,7 @@ tnoremap <ESC> <C-\><C-n>
 " バッファの移動
 nnoremap <silent> <space>n :bnext<CR>
 nnoremap <silent> <space>p :bprevious<CR>
+
 
 " ---- ウィンドウ操作
 " ウィンドウ分割
@@ -135,109 +133,3 @@ nnoremap <silent> <space>j <C-w>j
 nnoremap <silent> <space>k <C-w>k
 nnoremap <silent> <space>l <C-w>l
 
-
-" vim-plug
-"------------------------------
-let data_dir = '~/.vim'
-if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-call plug#begin('~/.vim/plugged')
-
-  Plug 'github/copilot.vim'
-
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes' 
-
-  Plug 'godlygeek/tabular'
-  Plug 'preservim/vim-markdown'
-  Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
-
-  Plug 'preservim/vim-indent-guides'
-
-  Plug 'preservim/nerdtree'
-  Plug 'ryanoasis/vim-devicons'
-  Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-  Plug 'preservim/nerdtree'
-  Plug 'Xuyuanp/nerdtree-git-plugin'
-
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'junegunn/fzf.vim'
-  
-call plug#end()
-
-
-" plug系の設定
-"------------------------------
-" Github copilot tabキーのマッピングを無効にする
-let g:copilot_no_tab_map = v:true
-
-" vim-airlineのテーマを設定
-let g:airline_theme = 'wombat'
-" vim-airlineのpowerline fontsを有効にする
-let g:airline_powerline_fonts = 1
-" vim-airlineのタブラインのテーマを設定
-let g:airline#extensions#tabline#enabled = 1
-" vim-airlineのタブラインのフォーマット設定
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-
-" indent guidesをデフォルトで有効にする
-let g:indent_guides_enable_on_vim_startup = 1
-" indent guidesのスタートレベルを2にする
-let g:indent_guides_start_level = 2
-" indent guidesのガイドサイズを1にする
-let g:indent_guides_guide_size = 1
-
-" NERDTreeをファイルを指定したときのみ自動で起動し、カーソルは元のウィンドウに戻す
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
-" NERDTreeのみ残っていた場合はVimを閉じる
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(":quit\<CR>:\<BS>") | endif
-
-
-" plug系のkey bindings
-"------------------------------
-" NERDTree
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
-
-" coc.nvim
-" Tabキーで補完候補を選択
-inoremap <silent><expr> <TAB>
-    \ coc#pum#visible() ? coc#pum#next(1) :
-    \ CheckBackspace() ? "\<Tab>" :
-    \ coc#refresh()
-" Shift+Tabで補完候補を戻す
-inoremap <silent><expr> <S-TAB>
-    \ coc#pum#visible() ? coc#pum#prev(1) :
-    \ "\<C-h>"
-" Enterキーで選択した候補を確定
-inoremap <silent><expr> <CR>
-    \ coc#pum#visible() ? coc#pum#confirm() :
-    \ "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-function! CheckBackspace()
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-" コードジャンプ
-nmap <silent><nowait> gd <Plug>(coc-definition)
-nmap <silent><nowait> gy <Plug>(coc-type-definition)
-nmap <silent><nowait> gi <Plug>(coc-implementation)
-nmap <silent><nowait> gr <Plug>(coc-references)
-" ドキュメントの表示 
-nnoremap <silent> K :call ShowDocumentation()<CR>
-function! ShowDocumentation()
-  if CocAction('hasProvider', 'hover')
-    call CocAction('doHover')
-  else
-    call feedkeys('K', 'in')
-  endif
-endfunction
