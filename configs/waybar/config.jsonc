@@ -39,6 +39,7 @@
         "tooltip-format": "Total: {total}GiB\nUsed: {used}GiB ({percentage}%)\nSwap: {swapUsed}GiB ({swapPercentage}%)\nAvailable: {avail}GiB"
     },
     "network": {
+        "interval": 2,
         "format": "󰛳  {bandwidthUpBytes} {bandwidthDownBytes}",
         "format-wifi": "  {bandwidthUpBytes} {bandwidthDownBytes}",
         "format-ethernet": "󰈀  {bandwidthUpBytes} {bandwidthDownBytes}",
@@ -47,7 +48,7 @@
         "tooltip-format-wifi": "Interface: {ifname}\nIPAddr: {ipaddr}\nGateway: {gwaddr}\nNetmask(IPv4): {netmask}\nSSID: {essid}\nSignal Strength: {signalStrength}%"
     },
     "battery": {
-        "interval": 30,
+        "interval": 10,
         "format": "{icon}{capacity}%",
         "format-unknown": " {capacity}%",
         "format-charging":"󰚥 {capacity}%",
