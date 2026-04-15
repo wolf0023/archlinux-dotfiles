@@ -19,6 +19,7 @@ opt.laststatus = 3 -- ステータスラインを常に表示
 opt.showcmd = true -- コマンドラインを表示
 opt.title = true -- タイトルバーにファイル名を表示
 opt.list = true -- 空白文字を表示
+opt.pumheight = 10 -- ポップアップメニューの高さを設定
 
 -- 検索関連
 opt.incsearch = true -- 検索時に大文字小文字を区別しない
