@@ -1,17 +1,16 @@
 return {
     {
-        "echasnovski/mini.indentscope",
+        "nvim-mini/mini.indentscope",
         version = false,
-        config = function()
-            require("mini.indentscope").setup({
-                symbol = "│",
-                options = {try_as_border = true},
-            })
+        opts = {
+            symbol = "│",
+            options = {try_as_border = true},
+        },
+        init = function()
             vim.api.nvim_create_autocmd("FileType", {
                 pattern = {
                     "lazy",
                     "help",
-                    "neo-tree"
                 },
                 callback = function()
                     vim.b.miniindentscope_disable = true
