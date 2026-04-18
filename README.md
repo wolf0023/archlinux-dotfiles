@@ -119,6 +119,7 @@ The main modifier key is **Alt**. Application shortcuts use **Super** (Windows k
 | Alt + Ctrl + I | Switch to previous workspace |
 | Alt + O | Toggle split orientation |
 | Alt + Ctrl + O | Move active workspace to next monitor |
+| Alt + P | Pin active window (floating only) |
 
 ### Applications
 
