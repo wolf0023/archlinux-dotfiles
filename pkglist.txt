@@ -20,7 +20,7 @@ waybar
 brightnessctl
 playerctl
 rofi
-dust
+dunst
 foot
 xdg-desktop-portal-hyprland
 wl-clipboard
@@ -65,7 +65,6 @@ noto-fonts-emoji
 # System monitoring tools
 btop
 fastfetch
-tree
 
 # Networking packages
 net-tools
@@ -91,8 +90,4 @@ zathura-pdf-mupdf
 
 # Media player
 mpv
-
-# Font packages
-noto-fonts-cjk
-noto-fonts-emoji
 

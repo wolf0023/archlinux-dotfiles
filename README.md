@@ -44,25 +44,38 @@ The `pkglist.txt` file contains all packages to be installed, organised into cat
 
 ### Essential
 
-- Display server: Wayland, XWayland
-- Window manager: Hyprland, Hyprpaper, Waybar
-- Utilities: Rofi, Foot, wl-clipboard, grim, slurp
+- Display server: wayland, xorg-xwayland
+- Window manager: hyprland, hyprpaper, waybar
+- Utilities: rofi, foot, wl-clipboard, grim, slurp, brightnessctl, playerctl, dunst
+- Setup tools: git, github-cli, sudo, unzip, wget, fish
 
 ### Audio
 
-- PipeWire with WirePlumber session manager
+- PipeWire stack (pipewire, pipewire-audio, pipewire-pulse)
+- Session manager: wireplumber
 
 ### Development
 
-- Neovim, Node.js, Python, GCC
+- Editor: neovim
+- Runtimes: nodejs, npm, python
+- CLI tools: gcc, fzf, ripgrep, fd, bat, tree-sitter-cli, eza
 
 ### Applications
 
-- Firefox, Thunderbird, Telegram, Discord, Spotify, Steam
+- Browser and Mail: firefox, thunderbird
+- Social and Media: telegram-desktop, discord, spotify-launcher, mpv
+- Gaming: steam
+- Document: zathura, zathura-pdf-mupdf
+
+### System and Utilities
+
+- Monitoring: btop, fastfetch
+- Networking: net-tools, networkmanager, ufw
+- Others: rclone, fcitx5-im, fcitx5-skk
 
 ### Fonts
 
-- Monaspice(monaspace-nerd), MPlus, Source Han Sans, Noto Color Emoji
+- otf-monaspace-nerd, ttf-mplus-nerd, adobe-source-han-sans-otc-fonts, noto-fonts-emoji
 
 ## Requirements
 
