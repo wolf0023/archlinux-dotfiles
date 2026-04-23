@@ -7,6 +7,7 @@ vim.g.mapleader = ' '
 -- 基本操作
 map('i', 'jj', '<ESC>', opts)
 map('n', '<ESC><ESC>', ':nohlsearch<CR>', opts)
+map('n', '<C-[><C-[>', ':nohlsearch<CR>', opts)
 
 -- 画面移動（中央寄せ）
 map('n', 'j', 'gjzz', opts)
@@ -14,7 +15,6 @@ map('n', 'k', 'gkzz', opts)
 
 -- ターミナルモード
 map('t', '<ESC>', '<C-\\><C-n>', opts)
-map('t', '<C-[>', '<C-\\><C-n>', opts)
 
 -- ウィンドウ分割
 map('n', '<leader>s', '<C-w>s', opts)
