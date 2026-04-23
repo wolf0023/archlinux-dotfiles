@@ -26,32 +26,32 @@
         "tooltip": false 
     },
     "tray": {
-        "icon-size": 18,
-        "spacing": 12
+        "icon-size": 14,
+        "spacing": 8
     },
     "cpu": {
         "interval": 2,
-        "format": " {usage}%"
+        "format": "  {usage}%"
     },
     "memory": {
         "interval": 2,
-        "format": " {used:.1f}GiB/{total:.1f}GiB",
+        "format": "  {used:.1f}GiB/{total:.1f}GiB",
         "tooltip-format": "Total: {total}GiB\nUsed: {used}GiB ({percentage}%)\nSwap: {swapUsed}GiB ({swapPercentage}%)\nAvailable: {avail}GiB"
     },
     "network": {
         "interval": 2,
-        "format": "󰛳  {bandwidthUpBytes} {bandwidthDownBytes}",
-        "format-wifi": "  {bandwidthUpBytes} {bandwidthDownBytes}",
-        "format-ethernet": "󰈀  {bandwidthUpBytes} {bandwidthDownBytes}",
-        "format-disconnected": " Disconnected",
+        "format": "󰛳   {bandwidthUpBytes}  {bandwidthDownBytes}",
+        "format-wifi": "   {bandwidthUpBytes}  {bandwidthDownBytes}",
+        "format-ethernet": "󰈀   {bandwidthUpBytes}  {bandwidthDownBytes}",
+        "format-disconnected": "  Disconnected",
         "tooltip-format": "Interface: {ifname}\nIPAddr: {ipaddr}\nGateway: {gwaddr}\nNetmask(IPv4): {netmask}",
         "tooltip-format-wifi": "Interface: {ifname}\nIPAddr: {ipaddr}\nGateway: {gwaddr}\nNetmask(IPv4): {netmask}\nSSID: {essid}\nSignal Strength: {signalStrength}%"
     },
     "battery": {
         "interval": 10,
-        "format": "{icon}{capacity}%",
-        "format-unknown": " {capacity}%",
-        "format-charging":"󰚥 {capacity}%",
+        "format": "{icon} {capacity}%",
+        "format-unknown": "  {capacity}%",
+        "format-charging":"󰚥  {capacity}%",
         "format-icons": [" ", " ", " ", " ", " "],
         "states": {
             "warning": 30,
@@ -60,13 +60,13 @@
         "tooltip-format": "Watt: {power}W\nState: {timeTo}\nCycles: {cycles}\nHealth: {health}%"
     },
     "wireplumber": {
-        "format": "{icon}{volume}%",
+        "format": "{icon} {volume}%",
         "format-icons" : [" ", " ", " "],
-        "format-muted": " 0%",
+        "format-muted": "  0%",
         "tooltip-format": "Sink: {node_name}\nSource: {source_desc}"
     },
     "backlight": {
-        "format": "{icon}{percent}%",
+        "format": "{icon} {percent}%",
         "format-icons": ["󰃞 ", "󰃟 ", "󰃝 ", "󰃠 "],
         "tooltip-format": "Brightness: {percent}%"
     },

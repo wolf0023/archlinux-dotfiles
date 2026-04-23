@@ -2,7 +2,7 @@
 
 * {
     font-family: monospace;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
     min-height: 0;
 }
@@ -18,13 +18,14 @@
     padding: 0 0.5rem;
     border-radius: 16px;
 
-    /* Leave a gap above the bar */
+    /* Leave a gap above and below the bar */
     margin-top: 4px;
+    margin-bottom: 2px;
 }
 
 #workspaces button {
     color: @blue;
-    padding: 0 0.5rem;
+    padding: 0 4px;
     border-radius: 50%;
 }
 
@@ -54,8 +55,9 @@
     padding: 0 1rem;
     border-radius: 16px;
 
-    /* Leave a gap above the bar */
+    /* Leave a gap above and below the bar */
     margin-top: 4px;
+    margin-bottom: 2px;
 }
 
 window#waybar.empty #window {
@@ -70,8 +72,9 @@ window#waybar.empty #window {
     padding: 0 1rem;
     border-radius: 16px;
 
-    /* Leave a gap above the bar */
+    /* Leave a gap above and below the bar */
     margin-top: 4px;
+    margin-bottom: 2px;
 }
 
 /* System info(right) */
@@ -85,8 +88,9 @@ window#waybar.empty #window {
     color: @blue;
     padding: 0 0.6rem;
 
-    /* Leave a gap above the bar */
+    /* Leave a gap above and below the bar */
     margin-top: 4px;
+    margin-bottom: 2px;
 }
 
 #battery.warning:not(.charging) {
@@ -117,8 +121,9 @@ window#waybar.empty #window {
     padding: 0 1rem;
     border-radius: 16px;
 
-    /* Leave a gap above the bar */
+    /* Leave a gap above and below the bar */
     margin-top: 4px;
+    margin-bottom: 2px;
 }
 
 /* Tooltip */
