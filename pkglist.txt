@@ -59,6 +59,10 @@ ttf-mplus-nerd
 adobe-source-han-sans-otc-fonts
 noto-fonts-emoji
 
+# Document viewer
+zathura
+zathura-pdf-mupdf
+
 ###
 # Additional packages
 
@@ -83,10 +87,6 @@ rclone
 
 # Gaming platform
 steam
-
-# Document viewer
-zathura
-zathura-pdf-mupdf
 
 # Media player
 mpv
