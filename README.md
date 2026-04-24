@@ -58,7 +58,7 @@ The `pkglist.txt` file contains all packages to be installed, organised into cat
 
 - Editor: neovim
 - Runtimes: nodejs, npm, python
-- CLI tools: gcc, fzf, ripgrep, fd, bat, tree-sitter-cli, eza
+- CLI tools: gcc, fzf, ripgrep, fd, bat, tree-sitter-cli, eza, zoxide
 
 ### Applications
 

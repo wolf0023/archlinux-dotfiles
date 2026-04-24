@@ -65,4 +65,7 @@ if status is-interactive
     ## Development
     abbr -a vi 'nvim'
     abbr -a za 'zathura --fork'
+
+    # Others
+    zoxide init fish | source
 end

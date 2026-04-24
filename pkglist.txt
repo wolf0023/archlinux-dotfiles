@@ -45,6 +45,7 @@ fd
 bat
 tree-sitter-cli
 eza
+zoxide
 
 # GUI Applications
 thunderbird
