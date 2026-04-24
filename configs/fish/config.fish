@@ -64,5 +64,5 @@ if status is-interactive
 
     ## Development
     abbr -a vi 'nvim'
-    abbr -a za 'zathura'
+    abbr -a za 'zathura --fork'
 end
