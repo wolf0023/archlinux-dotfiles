@@ -48,7 +48,7 @@ if status is-interactive
     abbr -a lta 'eza --icons --tree -a'
     abbr -a ltl 'eza --icons --tree --level'
 
-    ## Package management (pacman) abbr -a pi 'sudo pacman -S'
+    ## Package management (pacman)
     abbr -a pu 'sudo pacman -Syu'
     abbr -a ps 'sudo pacman -Ss'
     abbr -a pr 'sudo pacman -Rs'
