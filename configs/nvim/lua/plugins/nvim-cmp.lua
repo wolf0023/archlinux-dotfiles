@@ -37,6 +37,7 @@ return {
                     {name = 'buffer'},
                     {name = 'path'},
                     {name = 'copilot'},
+                    {name = 'orgmode'},
                 }),
                 -- キーマッピング
                 mapping = cmp.mapping.preset.insert({
