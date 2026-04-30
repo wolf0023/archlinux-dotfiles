@@ -17,6 +17,7 @@ xorg-xwayland
 hyprland
 hyprpaper
 waybar
+hyprlock
 brightnessctl
 playerctl
 rofi

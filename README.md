@@ -28,7 +28,7 @@ Wallpaper by [ゲームまてりあるず](https://game-materials.com/).
 
 ## Included Configurations
 
-- **hypr** - Hyprland window manager and Hyprpaper wallpaper daemon
+- **hypr** - Hyprland window manager, Hyprlock screen locker, and Hyprpaper wallpaper daemon
 - **waybar** - Status bar for Wayland compositors
 - **fish** - Fish shell configuration
 - **foot** - Wayland terminal emulator
@@ -45,7 +45,7 @@ The `pkglist.txt` file contains all packages to be installed, organised into cat
 ### Essential
 
 - Display server: wayland, xorg-xwayland
-- Window manager: hyprland, hyprpaper, waybar
+- Window manager: hyprland, hyprlock, hyprpaper, waybar
 - Utilities: rofi, foot, wl-clipboard, grim, slurp, brightnessctl, playerctl, dunst
 - Setup tools: git, github-cli, sudo, unzip, wget, fish
 
@@ -145,6 +145,7 @@ The main modifier key is **Alt**. Application shortcuts use **Super** (Windows k
 | Super + D | Open Discord |
 | Super + S | Open Spotify |
 | Super + T | Open Telegram |
+| Super + L | Lock screen (Hyprlock) |
 
 ### Window Navigation
 
