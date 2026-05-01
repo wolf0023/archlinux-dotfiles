@@ -66,6 +66,9 @@ if status is-interactive
     abbr -a vi 'nvim'
     abbr -a za 'zathura --fork'
 
+    ## Music
+    abbr -a sp 'spotify_player'
+
     # Others
     zoxide init fish | source
 end
