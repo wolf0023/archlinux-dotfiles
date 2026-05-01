@@ -53,7 +53,6 @@ thunderbird
 telegram-desktop
 firefox
 discord
-spotify-launcher
 
 # Fonts
 otf-monaspace-nerd
@@ -92,4 +91,5 @@ steam
 
 # Media player
 mpv
+spotify-player
 

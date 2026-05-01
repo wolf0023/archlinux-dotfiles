@@ -63,7 +63,7 @@ The `pkglist.txt` file contains all packages to be installed, organised into cat
 ### Applications
 
 - Browser and Mail: firefox, thunderbird
-- Social and Media: telegram-desktop, discord, spotify-launcher, mpv
+- Social and Media: telegram-desktop, discord, spotify-player, mpv
 - Gaming: steam
 - Document: zathura, zathura-pdf-mupdf
 
@@ -143,7 +143,6 @@ The main modifier key is **Alt**. Application shortcuts use **Super** (Windows k
 | Alt + B | Open browser (Firefox) |
 | Alt + M | Open mail client (Thunderbird) |
 | Super + D | Open Discord |
-| Super + S | Open Spotify |
 | Super + T | Open Telegram |
 | Super + L | Lock screen (Hyprlock) |
 
