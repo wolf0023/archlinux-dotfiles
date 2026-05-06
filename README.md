@@ -8,13 +8,13 @@ This repository contains dotfiles and setup scripts for a minimal Arch Linux des
 
 ## Screenshots
 
-Desktop with terminal and Neovim.
+Desktop with fastfetch, btop and Neovim.
 
-<img width="2560" height="1440" alt="Image" src="https://github.com/user-attachments/assets/afc4e2bd-3d36-4b82-934c-004d9c3a84e6" />
+<img width="1920" height="1200" alt="Image" src="https://github.com/user-attachments/assets/15625966-47c8-4dfa-9494-cad6a2dd0e19" />
 
-Wallpaper by [ゲームまてりあるず](https://game-materials.com/).
+Wallpaper by Gemini 3 Pro Image (Nano Banana Pro).
 
-<img width="2560" height="1440" alt="Image" src="https://github.com/user-attachments/assets/d782532b-47e7-4766-a820-b3d793e266bc" />
+<img width="1920" height="1200" alt="Image" src="https://github.com/user-attachments/assets/01446cbd-23cc-480f-8217-10e23e0e05ad" />
 
 ## Directory Structure
 

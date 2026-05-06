@@ -18,9 +18,10 @@
     padding: 0 0.5rem;
     border-radius: 16px;
 
-    /* Leave a gap above and below the bar */
-    margin-top: 4px;
-    margin-bottom: 2px;
+    /* Leave a gap above the bar */
+    margin-top: 8px;
+    /* Leave a gap on left of the bar */
+    margin-left: 8px;
 }
 
 #workspaces button {
@@ -55,9 +56,8 @@
     padding: 0 1rem;
     border-radius: 16px;
 
-    /* Leave a gap above and below the bar */
-    margin-top: 4px;
-    margin-bottom: 2px;
+    /* Leave a gap above the bar */
+    margin-top: 8px;
 }
 
 window#waybar.empty #window {
@@ -72,9 +72,8 @@ window#waybar.empty #window {
     padding: 0 1rem;
     border-radius: 16px;
 
-    /* Leave a gap above and below the bar */
-    margin-top: 4px;
-    margin-bottom: 2px;
+    /* Leave a gap above the bar */
+    margin-top: 8px;
 }
 
 /* System info(right) */
@@ -88,9 +87,8 @@ window#waybar.empty #window {
     color: @blue;
     padding: 0 0.6rem;
 
-    /* Leave a gap above and below the bar */
-    margin-top: 4px;
-    margin-bottom: 2px;
+    /* Leave a gap above the bar */
+    margin-top: 8px;
 }
 
 #battery.warning:not(.charging) {
@@ -121,9 +119,10 @@ window#waybar.empty #window {
     padding: 0 1rem;
     border-radius: 16px;
 
-    /* Leave a gap above and below the bar */
-    margin-top: 4px;
-    margin-bottom: 2px;
+    /* Leave a gap above the bar */
+    margin-top: 8px;
+    /* Leave a gap on right of the bar */
+    margin-right: 8px;
 }
 
 /* Tooltip */
