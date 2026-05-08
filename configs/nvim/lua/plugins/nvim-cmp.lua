@@ -41,8 +41,20 @@ return {
                 }),
                 -- キーマッピング
                 mapping = cmp.mapping.preset.insert({
-                    ["<C-n>"] = cmp.mapping.select_next_item(),
-                    ["<C-p>"] = cmp.mapping.select_prev_item(),
+                    ["<C-n>"] = cmp.mapping(function(fallback)
+                        if cmp.visible() then
+                            cmp.select_next_item()
+                        else
+                            cmp.complete()
+                        end
+                    end),
+                    ["<C-p>"] = cmp.mapping(function(fallback)
+                        if cmp.visible() then
+                            cmp.select_prev_item()
+                        else
+                            cmp.complete()
+                        end
+                    end),
                     ["<C-l>"] = cmp.mapping.complete(),
                     ["<C-e>"] = cmp.mapping.abort(),
                     ["<C-y>"] = cmp.mapping.confirm({select = true}),
