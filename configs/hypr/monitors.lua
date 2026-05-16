@@ -1,0 +1,10 @@
+-- Hyprland monitor configuration file
+--
+-- For example:
+--
+-- hl.monitor({
+--     output = "DP-1",
+--     mode = "1920x1080",
+--     position = "auto",
+--     scale=1,
+-- )}
