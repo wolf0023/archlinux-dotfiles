@@ -1,10 +1,8 @@
 {
     "layer": "top", // Waybar at top layer
-    "position": "top", // Waybar position (top|bottom|left|right)
+    "position": "bottom", // Waybar position (top|bottom|left|right)
     "mode": "dock", // Waybar mode (dock|overlay)
-    "height": 26, // Waybar height
-    // "width": 1280, // Waybar width
-    // Choose the order of the modules
+    "height": 18, // Waybar height
     "modules-left": [
         "hyprland/workspaces",
         "hyprland/window"
@@ -71,7 +69,8 @@
         "tooltip-format": "Brightness: {percent}%"
     },
     "clock": {
-        "format": "{:%m/%d(%a) %H:%M}",
+        "interval": 1,
+        "format": "{:%m/%d (%a) %H:%M:%S}",
         "timezone": "Asia/Tokyo",
         "tooltip": false 
     }

@@ -65,7 +65,7 @@ hl.config({
 
         col = {
             active_border = mocha.blue,
-            inactive_border = mocha.overlay0,
+            inactive_border = mocha.base,
         },
 
         -- Set to true enable resizing windows by clicking and dragging on borders and gaps
@@ -77,7 +77,7 @@ hl.config({
     },
 
     decoration = {
-        rounding = 16,
+        rounding = 8,
         rounding_power = 4,
 
         -- Change transparency of focused and unfocused windows

@@ -8,40 +8,29 @@
 }
 
 #waybar {
-    background-color: transparent;
+    background-color: @base;
 }
 
 /* Workspaces(left) */
 #workspaces {
-    background-color: @surface0;
     margin: 0 4px;
     padding: 0 0.5rem;
-    border-radius: 16px;
-
-    /* Leave a gap above the bar */
-    margin-top: 8px;
-    /* Leave a gap on left of the bar */
-    margin-left: 8px;
 }
 
 #workspaces button {
     color: @blue;
-    padding: 0 4px;
+    padding: 0 2px;
     border-radius: 50%;
-}
-
-#workspaces button.empty {
-    color: @overlay0;
 }
 
 #workspaces button.visible {
     color: @green;
-    background-color: @surface1;
+    background-color: @surface0;
 }
 
 #workspaces button.active {
     color: @peach;
-    background-color: @surface1;
+    background-color: @surface0;
 }
 
 #workspaces button.urgent {
@@ -51,29 +40,18 @@
 /* Window title(left) */
 #window {
     color: @blue;
-    background-color: @surface0;
     margin: 0 4px;
     padding: 0 1rem;
     border-radius: 16px;
-
-    /* Leave a gap above the bar */
-    margin-top: 8px;
-}
-
-window#waybar.empty #window {
-    background-color: transparent;
 }
 
 /* Clock(center) */
 #clock {
-    background-color: @surface0;
-    color: @blue;
+    color: @base;
+    background-color: @blue;
     margin: 0 8px;
     padding: 0 1rem;
     border-radius: 16px;
-
-    /* Leave a gap above the bar */
-    margin-top: 8px;
 }
 
 /* System info(right) */
@@ -83,12 +61,8 @@ window#waybar.empty #window {
 #battery,
 #wireplumber,
 #backlight {
-    background-color: @surface0;
     color: @blue;
     padding: 0 0.6rem;
-
-    /* Leave a gap above the bar */
-    margin-top: 8px;
 }
 
 #battery.warning:not(.charging) {
@@ -99,38 +73,19 @@ window#waybar.empty #window {
     color: @red;
 }
 
-#cpu {
-    margin-left: 4px;
-    border-radius: 16px 0 0 16px;
-    padding-left: 1rem;
-}
-
-#wireplumber {
-    margin-right: 4px;
-    border-radius: 0 16px 16px 0;
-    padding-right: 1rem;
-}
-
 /* Tray(right) */
 #tray {
     color: @blue;
-    background-color: @surface0;
     margin: 0 4px;
     padding: 0 1rem;
-    border-radius: 16px;
-
-    /* Leave a gap above the bar */
-    margin-top: 8px;
-    /* Leave a gap on right of the bar */
-    margin-right: 8px;
 }
 
 /* Tooltip */
 tooltip {
-    background-color: @base;
-    border-radius: 16px;
+    background-color: @surface0;
+    border-radius: 0;
 }
 
 tooltip label{
-    color: @lavender;
+    color: @blue;
 }
