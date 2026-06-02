@@ -24,7 +24,7 @@ local terminal = "foot"
 local menu = "rofi -show run"
 local browser = "firefox"
 local mail = "thunderbird"
-local screen_lock = "hyprlock"
+local screen_lock = "pidof hyprlock || hyprlock"
 
 -------------------
 ---- AUTOSTART ----
@@ -263,7 +263,7 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true 
 hl.bind("Print", hl.dsp.exec_cmd("mkdir -p \"$HOME/Screenshots/\" && grim -g \"$(slurp -d)\" - | tee \"$HOME/Screenshots/$(date +'%s_grim.png')\" | wl-copy -t image/png"))
 
 -- Lock screen when the laptop lid is closed
-hl.bind("switch:Lid Switch", hl.dsp.exec_cmd(screen_lock))
+hl.bind("switch:on:Lid Switch", hl.dsp.exec_cmd(screen_lock))
 
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
