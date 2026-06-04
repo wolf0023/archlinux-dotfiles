@@ -233,7 +233,7 @@ hl.bind(mainMod .. " + CTRL + L", hl.dsp.window.move({ direction = "r" }))
 for i = 1, 10 do
     local key = i % 10
     hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
-    hl.bind(mainMod .. " + CTRL + " .. key, hl.dsp.window.move({ workspace = i }))
+    hl.bind(mainMod .. " + CTRL + " .. key, hl.dsp.window.move({ workspace = i, follow = false }))
 end
 
 -- Execute applicatons with appMod + [key]
