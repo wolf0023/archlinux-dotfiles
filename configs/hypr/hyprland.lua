@@ -213,6 +213,9 @@ hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "d" }))
 hl.bind(mainMod .. " + K", hl.dsp.focus({ direction = "u" }))
 hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "r" }))
 
+hl.bind(mainMod .. " + bracketleft", hl.dsp.focus({ workspace = "m-1" }))
+hl.bind(mainMod .. " + bracketright", hl.dsp.focus({ workspace = "m+1" }))
+
 -- Resize Active window with mainMod + SHIFT + h/j/k/l
 hl.bind(mainMod .. " + SHIFT + H", hl.dsp.window.resize({ x = "-60", y = "0", relative = true }))
 hl.bind(mainMod .. " + SHIFT + J", hl.dsp.window.resize({ x = "0", y = "60", relative = true }))
