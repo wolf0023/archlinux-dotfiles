@@ -20,7 +20,7 @@ hl.monitor({
 ---- MY PROGRAMS ----
 ---------------------
 
-local terminal = "foot"
+local terminal = "alacritty"
 local menu = "rofi -show combi"
 local browser = "firefox"
 local mail = "thunderbird"

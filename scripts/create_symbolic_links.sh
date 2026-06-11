@@ -43,9 +43,9 @@ setConfigLink "$working_dir/configs/dunst" "$HOME/.config" "$backup_dir" || retu
 log "Linking Waybar configuration files..." "info" ":: "
 setConfigLink "$working_dir/configs/waybar" "$HOME/.config" "$backup_dir" || return 1
 
-# Foot config
-log "Linking Foot configuration files..." "info" ":: "
-setConfigLink "$working_dir/configs/foot" "$HOME/.config" "$backup_dir" || return 1
+# Alacritty config
+log "Linking Alacritty configuration files..." "info" ":: "
+setConfigLink "$working_dir/configs/alacritty" "$HOME/.config" "$backup_dir" || return 1
 
 # Fontconfig(root権限必須)
 log "Linking Fontconfig configuration files..." "info" ":: "

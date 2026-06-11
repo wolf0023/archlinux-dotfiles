@@ -22,7 +22,7 @@ brightnessctl
 playerctl
 rofi
 dunst
-foot
+alacritty
 xdg-desktop-portal-hyprland
 wl-clipboard
 grim

@@ -31,7 +31,7 @@ Wallpaper by Gemini 3 Pro Image (Nano Banana Pro).
 - **hypr** - Hyprland window manager, Hyprlock screen locker, and Hyprpaper wallpaper daemon
 - **waybar** - Status bar for Wayland compositors
 - **fish** - Fish shell configuration
-- **foot** - Wayland terminal emulator
+- **alacritty** - Terminal emulator
 - **nvim** - Neovim text editor
 - **vim** - Vim text editor
 - **rofi** - Application launcher
@@ -46,7 +46,7 @@ The `pkglist.txt` file contains all packages to be installed, organised into cat
 
 - Display server: wayland, xorg-xwayland
 - Window manager: hyprland, hyprlock, hyprpaper, waybar
-- Utilities: rofi, foot, wl-clipboard, grim, slurp, brightnessctl, playerctl, dunst
+- Utilities: rofi, alacritty, wl-clipboard, grim, slurp, brightnessctl, playerctl, dunst
 - Setup tools: git, github-cli, sudo, unzip, wget, fish
 
 ### Audio
