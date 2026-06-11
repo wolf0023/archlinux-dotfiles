@@ -21,7 +21,7 @@ hl.monitor({
 ---------------------
 
 local terminal = "foot"
-local menu = "rofi -show run"
+local menu = "rofi -show combi"
 local browser = "firefox"
 local mail = "thunderbird"
 local screen_lock = "pidof hyprlock || hyprlock"
