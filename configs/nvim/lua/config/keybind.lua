@@ -16,25 +16,6 @@ map('n', 'k', 'gkzz', opts)
 -- ターミナルモード
 map('t', '<ESC>', '<C-\\><C-n>', opts)
 
--- ウィンドウ分割
-map('n', '<leader>s', '<C-w>s', opts)
-map('n', '<leader>v', '<C-w>v', opts)
-
--- ウィンドウ移動
-map('n', '<leader>q', '<C-w>q', opts)
-map('n', '<leader>w', '<C-w>w', opts)
-map('n', '<leader>W', '<C-w>W', opts)
-map('n', '<leader>h', '<C-w>h', opts)
-map('n', '<leader>j', '<C-w>j', opts)
-map('n', '<leader>k', '<C-w>k', opts)
-map('n', '<leader>l', '<C-w>l', opts)
-
--- ウィンドウサイズ変更 
-map('n', '<leader><Left>', '8<C-w><', opts)
-map('n', '<leader><Right>', '8<C-w>>', opts)
-map('n', '<leader><Up>', '4<C-w>+', opts)
-map('n', '<leader><Down>', '4<C-w>-', opts)
-
 -- lsp操作
 map('n', '<leader>gD', vim.lsp.buf.declaration, opts)
 map('n', '<leader>gd', vim.lsp.buf.definition, opts)
