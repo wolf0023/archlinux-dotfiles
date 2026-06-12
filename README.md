@@ -63,7 +63,7 @@ The `pkglist.txt` file contains all packages to be installed, organised into cat
 ### Applications
 
 - Browser and Mail: firefox, thunderbird
-- Social and Media: telegram-desktop, discord, spotify-player, mpv
+- Social and Media: telegram-desktop, discord, spotify-player, mpv, imv
 - Gaming: steam
 - Document: zathura, zathura-pdf-mupdf
 

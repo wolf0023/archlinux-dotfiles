@@ -93,3 +93,5 @@ steam
 mpv
 spotify-player
 
+# Image viewer
+imv
