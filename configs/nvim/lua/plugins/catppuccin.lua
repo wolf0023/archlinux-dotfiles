@@ -7,6 +7,9 @@ return {
             require("catppuccin").setup({
                 flavour = "mocha",
                 auto_integrations = true,
+                float = {
+                    solid = true
+                },
             })
             -- テーマの設定
             vim.cmd.colorscheme "catppuccin"
