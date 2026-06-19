@@ -242,7 +242,7 @@ hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd(mail))
 hl.bind(appMod .. " + L", hl.dsp.exec_cmd(screen_lock))
-hl.bind(appMod .. " + D", hl.dsp.exec_cmd("discord"))
+hl.bind(appMod .. " + D", hl.dsp.exec_cmd("discord --enable-features=WaylandWindowDecorations,AllowQt --ozone-platform=wayland --gtk-version=4"))
 hl.bind(appMod .. " + T", hl.dsp.exec_cmd("Telegram"))
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
