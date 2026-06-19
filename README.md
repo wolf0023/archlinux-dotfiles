@@ -176,6 +176,8 @@ The main modifier key is **Alt**. Application shortcuts use **Super** (Windows k
 |------------|--------|
 | Alt + 1-0 | Switch to workspace 1-10 |
 | Alt + Ctrl + 1-0 | Move active window to workspace 1-10 |
+| Alt + Ctrl + N | Focus the workspace on the monitor to the right |
+| Alt + Ctrl + P | Focus the workspace on the monitor to the left |
 
 ### Media and Hardware
 
