@@ -33,7 +33,6 @@ Wallpaper by Gemini 3 Pro Image (Nano Banana Pro).
 - **fish** - Fish shell configuration
 - **alacritty** - Terminal emulator
 - **nvim** - Neovim text editor
-- **vim** - Vim text editor
 - **rofi** - Application launcher
 - **dunst** - Notification daemon
 - **fontconfig** - Font configuration
