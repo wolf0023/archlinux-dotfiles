@@ -3,7 +3,7 @@ set -uo pipefail
 
 ###
 # 変数定義
-working_dir="$(pwd)"
+working_dir="$PWD"
 backup_dir="$HOME/.archlinux-dotfiles-backup"
 
 # 作業ディレクトリが正しいか確認
@@ -29,13 +29,8 @@ source "$working_dir/scripts/functions/logger.sh" || {
     exit 1
 }
 # シンボリックリンク作成関数
-source "$working_dir/scripts/functions/set_config_link.sh" || {
-    echo "Failed to source set_config_link.sh" >&2
-    exit 1
-}
-# sudo権限付きシンボリックリンク作成関数
-source "$working_dir/scripts/functions/set_config_link_with_sudo.sh" || {
-    echo "Failed to source set_config_link_with_sudo.sh" >&2
+source "$working_dir/scripts/functions/set_configs_link.sh" || {
+    echo "Failed to source set_configs_link.sh" >&2
     exit 1
 }
 # コンピュータタイプ判定関数

@@ -1,55 +1,38 @@
 ###
 # シンボリックリンクの作成
 # 既存の設定ファイルがある場合はバックアップを作成
-# また、コンピュータの種類（ノートPC/デスクトップ）に応じて適切な設定を選択
 log "Creating symbolic links for configuration files..." "info" ":: "
 
-# 必要なディレクトリの作成
-# ただし、ディレクトリのシンボリックリンクの場合は事前に作成する必要はない
-mkdir -p "$HOME/.config"
-mkdir -p "$HOME/.config/hypr"
-mkdir -p "$HOME/.config/fish"
-
-sudo mkdir -p /etc/fonts || {
-    log "Failed to create directory: /etc/fonts" "error" "==> "
-    return 1
-}
-
-# Hyprland config
-log "Linking Hyprland configuration files..." "info" ":: "
-setConfigLink "$working_dir/configs/hypr" "$HOME/.config" "$backup_dir" || return 1
-
-# Vim config
-log "Linking Vim configuration files..." "info" ":: "
-setConfigLink "$working_dir/configs/vim/.vimrc" "$HOME" "$backup_dir" || return 1
-
-# Neovim config
-log "Linking Neovim configuration files..." "info" ":: "
-setConfigLink "$working_dir/configs/nvim" "$HOME/.config" "$backup_dir" || return 1
-
-# Fish config
-log "Linking Fish configuration files..." "info" ":: "
-setConfigLink "$working_dir/configs/fish/config.fish" "$HOME/.config/fish" "$backup_dir" || return 1
-
-# Rofi config
-log "Linking Rofi configuration files..." "info" ":: "
-setConfigLink "$working_dir/configs/rofi" "$HOME/.config" "$backup_dir" || return 1
-
-# Dunst config
-log "Linking Dunst configuration files..." "info" ":: "
-setConfigLink "$working_dir/configs/dunst" "$HOME/.config" "$backup_dir" || return 1
-
-# Waybar config
-log "Linking Waybar configuration files..." "info" ":: "
-setConfigLink "$working_dir/configs/waybar" "$HOME/.config" "$backup_dir" || return 1
-
-# Alacritty config
-log "Linking Alacritty configuration files..." "info" ":: "
-setConfigLink "$working_dir/configs/alacritty" "$HOME/.config" "$backup_dir" || return 1
-
-# Fontconfig(root権限必須)
-log "Linking Fontconfig configuration files..." "info" ":: "
-log "Authentication required to link Fontconfig files." "info" "  -> "
-setConfigLinkWithSudo "$working_dir/configs/fontconfig/local.conf" "/etc/fonts" "$backup_dir" || return 1
-
-
+log "Linking all configuration files..." "info" ":: "
+error_message=$(setConfigLinks "$working_dir/configs" "$backup_dir" 2>&1)
+case $? in
+    0) return 0;;
+    1)
+        log "There are not enough arguments." "error" "==> "
+        return 1
+        ;;
+    2)
+        log "The backup directory does not exist." "error" "==> "
+        return 1
+        ;;
+    10)
+        log "Failed to remove existing symbolic link: $error_message" "error" "==> "
+        return 1
+        ;;
+    11)
+        log "Failed to backup existing directory: $error_message" "error" "==> "
+        return 1
+        ;;
+    20)
+        log "Failed to create directory: $error_message" "error" "==> "
+        return 1
+        ;;
+    21)
+        log "Failed to create symbolic link: $error_message" "error" "==> "
+        return 1
+        ;;
+    *)
+        log "An unexepected promlem has occurred!" "error" "==> "
+        return 1
+        ;;
+esac
