@@ -47,10 +47,11 @@ hl.env("HYPRCURSOR_SIZE", "24")
 hl.env("GLFW_IM_MODULE", "ibus")
 hl.env("XMODIFIERS", "@im=fcitx")
 
-hl.env("GBM_BACKEND", "nvidia-drm")
-hl.env("LIBVA_DRIVER_NAME", "nvidia")
-hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
-hl.env("__GL_VRR_ALLOWED", "0")
+-- Uncomment the following lines if you use NVIDIA GPUs 
+-- hl.env("GBM_BACKEND", "nvidia-drm")
+-- hl.env("LIBVA_DRIVER_NAME", "nvidia")
+-- hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
+-- hl.env("__GL_VRR_ALLOWED", "0")
 
 -----------------------
 ---- LOOK AND FEEL ----
