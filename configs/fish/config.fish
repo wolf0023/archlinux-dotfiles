@@ -49,10 +49,10 @@ if status is-interactive
     abbr -a ltl 'eza --icons --tree --level'
 
     ## Package management (pacman)
-    abbr -a pu 'sudo pacman -Syu'
-    abbr -a ps 'sudo pacman -Ss'
-    abbr -a pr 'sudo pacman -Rs'
-    abbr -a pl 'sudo pacman -Qe'
+    abbr -a pmu 'sudo pacman -Syu'
+    abbr -a pms 'sudo pacman -Ss'
+    abbr -a pmr 'sudo pacman -Rs'
+    abbr -a pml 'sudo pacman -Qe'
 
     ## System management
     abbr -a sr 'sudo systemctl restart'
