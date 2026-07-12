@@ -82,8 +82,8 @@
 
 /* Tooltip */
 tooltip {
-    background-color: @surface0;
-    border-radius: 0;
+    background-color: @base;
+    border-radius: 8px;
 }
 
 tooltip label{
