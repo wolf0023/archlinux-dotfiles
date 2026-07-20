@@ -264,7 +264,7 @@ hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tru
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 
 -- Screenshot key, requires grim, slurp and wl-clipboard
-hl.bind("Print", hl.dsp.exec_cmd("mkdir -p \"$HOME/Screenshots/\" && grim -g \"$(slurp -d)\" - | tee \"$HOME/Screenshots/$(date +'%s_grim.png')\" | wl-copy -t image/png"))
+hl.bind("Print", hl.dsp.exec_cmd("pidof slurp > /dev/null || { mkdir -p \"$HOME/Screenshots/\" && grim -g \"$(slurp -d)\" - | tee \"$HOME/Screenshots/$(date +'%s_grim.png')\" | wl-copy -t image/png; }"))
 
 -- Lock screen when the laptop lid is closed
 hl.bind("switch:on:Lid Switch", hl.dsp.exec_cmd(screen_lock))
