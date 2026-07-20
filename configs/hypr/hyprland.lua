@@ -24,7 +24,7 @@ local terminal = "alacritty"
 local menu = "rofi -show combi -show-icons"
 local browser = "firefox"
 local mail = "thunderbird"
-local screen_lock = "pidof hyprlock || hyprlock"
+local screen_lock = "pidof hyprlock > /dev/null || hyprlock"
 
 -------------------
 ---- AUTOSTART ----
