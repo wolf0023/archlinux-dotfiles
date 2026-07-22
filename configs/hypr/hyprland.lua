@@ -193,8 +193,11 @@ hl.bind(mainMod .. " + CTRL + Z", hl.dsp.exec_cmd("command -v hyprshutdown >/dev
 hl.bind(mainMod .. " + F", hl.dsp.window.float( { action = "toggle" }))
 hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen({ action = "toggle" }))
 
--- Focus the last used window
-hl.bind(mainMod .. " + I", hl.dsp.focus({ last = true }))
+-- Focus the next window including floating window and bring it to top
+hl.bind(mainMod .. " + I", function ()
+    hl.dispatch(hl.dsp.window.cycle_next())
+    hl.dispatch(hl.dsp.window.alter_zorder({ mode = "top" }))
+end)
 
 -- Focus the last used workspace
 hl.bind(mainMod .. " + CTRL + I", hl.dsp.focus({ workspace = "previous_per_monitor" }))

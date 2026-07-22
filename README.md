@@ -127,7 +127,7 @@ The main modifier key is **Alt**. Application shortcuts use **Super** (Windows k
 | Alt + Ctrl + Z | Exit Hyprland |
 | Alt + F | Toggle floating mode |
 | Alt + Shift + F | Toggle fullscreen |
-| Alt + I | Focus previous window |
+| Alt + I | Focus next window, including floating windows |
 | Alt + Ctrl + I | Switch to previous workspace |
 | Alt + O | Toggle split orientation |
 | Alt + Ctrl + O | Move active workspace to next monitor |
