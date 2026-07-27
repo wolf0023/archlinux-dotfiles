@@ -184,70 +184,87 @@ hl.gesture({
 ---------------------
 
 local mainMod = "ALT"
-local appMod = "SUPER"
+local subMod = "SUPER"
 
-hl.bind(mainMod .. " + CTRL + Q", hl.dsp.window.close("activewindow"))
-hl.bind(mainMod .. " + CTRL + Z", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
+-- Close active window
+hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.window.close("activewindow"))
 
--- Toogle floating and fullscreen
-hl.bind(mainMod .. " + F", hl.dsp.window.float( { action = "toggle" }))
-hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen({ action = "toggle" }))
+-- Exit Hyprland
+hl.bind(subMod .. " + SHIFT + Z", hl.dsp.exec_cmd("hyprctl dispatch 'hl.dsp.exit()'"))
+
+-- Toggle floating and full screen
+hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.float( { action = "toggle" }))
+hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ action = "toggle" }))
+
+-- Maximize the current window
+hl.bind(mainMod .. " + M", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }))
 
 -- Focus the next window including floating window and bring it to top
-hl.bind(mainMod .. " + I", function ()
+hl.bind(mainMod .. " + I", function()
     hl.dispatch(hl.dsp.window.cycle_next())
     hl.dispatch(hl.dsp.window.alter_zorder({ mode = "top" }))
 end)
 
--- Focus the last used workspace
-hl.bind(mainMod .. " + CTRL + I", hl.dsp.focus({ workspace = "previous_per_monitor" }))
+-- Toggle the split (top/side)
+hl.bind(mainMod .. " + S", hl.dsp.layout("togglesplit"))
 
--- Toogle the split (top/side) with mainMod + o
-hl.bind(mainMod .. " + O", hl.dsp.layout("togglesplit"))
-
--- Move the active workspace to the next monitor
-hl.bind(mainMod .. " + CTRL + O", hl.dsp.workspace.move({ monitor = "+1" }))
+-- Move the focus to the next monitor
+hl.bind(mainMod .. " + O", hl.dsp.focus({ monitor = "+1" }))
 
 -- Pin the active floating window to all workspaces
 hl.bind(mainMod .. " + P", hl.dsp.window.pin())
 
+-- Focus the last used workspace
+hl.bind(mainMod .. " + SHIFT + I", hl.dsp.focus({ workspace = "previous_per_monitor" }))
+
+-- Move the active workspace to the next monitor
+hl.bind(mainMod .. " + SHIFT + O", hl.dsp.workspace.move({ monitor = "+1" }))
+
+-- Cycle the focus to the next/previous workspace
+hl.bind(mainMod .. " + SHIFT + P", hl.dsp.focus({ workspace = "m-1" }))
+hl.bind(mainMod .. " + SHIFT + N", hl.dsp.focus({ workspace = "m+1" }))
+
+local directions = {
+    { key = "H", dir = "l", dx = "-20", dy = "0" },
+    { key = "J", dir = "d", dx = "0", dy = "20" },
+    { key = "K", dir = "u", dx = "0", dy = "-20" },
+    { key = "L", dir = "r", dx = "20", dy = "0" }
+}
+
 -- Move focus with mainMod + h/j/k/l
-hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "l" }))
-hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "d" }))
-hl.bind(mainMod .. " + K", hl.dsp.focus({ direction = "u" }))
-hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "r" }))
-
-hl.bind(mainMod .. " + CTRL + P", hl.dsp.focus({ workspace = "m-1" }))
-hl.bind(mainMod .. " + CTRL + N", hl.dsp.focus({ workspace = "m+1" }))
-
--- Resize Active window with mainMod + SHIFT + h/j/k/l
-hl.bind(mainMod .. " + SHIFT + H", hl.dsp.window.resize({ x = "-10", y = "0", relative = true }), { repeating = true })
-hl.bind(mainMod .. " + SHIFT + J", hl.dsp.window.resize({ x = "0", y = "10", relative = true }), { repeating = true })
-hl.bind(mainMod .. " + SHIFT + K", hl.dsp.window.resize({ x = "0", y = "-10", relative = true }), { repeating = true })
-hl.bind(mainMod .. " + SHIFT + L", hl.dsp.window.resize({ x = "10", y = "0", relative = true }), { repeating = true })
-
--- Move Active window with mainMod + CTRL + h/j/k/l
-hl.bind(mainMod .. " + CTRL + H", hl.dsp.window.move({ direction = "l" }))
-hl.bind(mainMod .. " + CTRL + J", hl.dsp.window.move({ direction = "d" }))
-hl.bind(mainMod .. " + CTRL + K", hl.dsp.window.move({ direction = "u" }))
-hl.bind(mainMod .. " + CTRL + L", hl.dsp.window.move({ direction = "r" }))
+-- Move Active window with mainMod + SHIFT + h/j/k/l
+for _, v in ipairs(directions) do
+    hl.bind(mainMod .. " + " .. v.key, hl.dsp.focus({ direction = v.dir }))
+    hl.bind(mainMod .. " + SHIFT + " .. v.key, hl.dsp.window.move({ direction = v.dir }))
+end
 
 -- Switch workspaces with mainMod + [0-9]
--- Move active window to a workspace with mainMod + CTRL + [0-9]
+-- Move active window to a workspace with mainMod + SHIFT + [0-9]
 for i = 1, 10 do
     local key = i % 10
     hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
-    hl.bind(mainMod .. " + CTRL + " .. key, hl.dsp.window.move({ workspace = i, follow = false }))
+    hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i, follow = false }))
 end
 
--- Execute applicatons with appMod + [key]
-hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
-hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
-hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
-hl.bind(mainMod .. " + M", hl.dsp.exec_cmd(mail))
-hl.bind(appMod .. " + L", hl.dsp.exec_cmd(screen_lock))
-hl.bind(appMod .. " + D", hl.dsp.exec_cmd("discord --enable-features=WaylandWindowDecorations,AllowQt --ozone-platform=wayland --gtk-version=4"))
-hl.bind(appMod .. " + T", hl.dsp.exec_cmd("Telegram"))
+-- Resize Active window
+hl.bind(mainMod .. " + R", hl.dsp.submap("resize"))
+hl.define_submap("resize", function()
+    for _, v in ipairs(directions) do
+        hl.bind(v.key, hl.dsp.window.resize({ x = v.dx, y = v.dy, relative = true }), { repeating = true })
+    end
+    -- Go back
+    hl.bind("escape", hl.dsp.submap("reset"))
+    hl.bind("CTRL + bracketleft", hl.dsp.submap("reset"))
+end)
+
+-- Execute applications
+hl.bind(mainMod .. " + SHIFT + Return", hl.dsp.exec_cmd(terminal))
+hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd(menu))
+hl.bind(subMod .. " + B", hl.dsp.exec_cmd(browser))
+hl.bind(subMod .. " + M", hl.dsp.exec_cmd(mail))
+hl.bind(subMod .. " + D", hl.dsp.exec_cmd("discord --enable-features=WaylandWindowDecorations,AllowQt --ozone-platform=wayland --gtk-version=4"))
+hl.bind(subMod .. " + T", hl.dsp.exec_cmd("Telegram"))
+hl.bind(subMod .. " + SHIFT + L", hl.dsp.exec_cmd(screen_lock))
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })

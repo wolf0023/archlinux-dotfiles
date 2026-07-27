@@ -117,78 +117,73 @@ After running the setup script, you may need to:
 
 ## Keybindings
 
-The main modifier key is **Alt**. Application shortcuts use **Super** (Windows key).
+The main modifier key is **Alt**. Application shortcuts use **Super** or **Alt**.
 
 ### General
 
 | Keybinding | Action |
 |------------|--------|
-| Alt + Ctrl + Q | Close active window |
-| Alt + Ctrl + Z | Exit Hyprland |
-| Alt + F | Toggle floating mode |
-| Alt + Shift + F | Toggle fullscreen |
+| Alt + Shift + Q | Close active window |
+| Super + Shift + Z | Exit Hyprland |
+| Alt + Shift + F | Toggle floating mode |
+| Alt + F | Toggle full screen |
+| Alt + M | Maximize active window |
 | Alt + I | Focus next window, including floating windows |
-| Alt + Ctrl + I | Switch to previous workspace |
-| Alt + O | Toggle split orientation |
-| Alt + Ctrl + O | Move active workspace to next monitor |
+| Alt + S | Toggle split orientation |
+| Alt + O | Move focus to next monitor |
 | Alt + P | Pin active window (floating only) |
 
 ### Applications
 
 | Keybinding | Action |
 |------------|--------|
-| Alt + Return | Open terminal (Foot) |
-| Alt + R | Open application launcher (Rofi) |
-| Alt + B | Open browser (Firefox) |
-| Alt + M | Open mail client (Thunderbird) |
+| Alt + Shift + Return | Open terminal (Alacritty) |
+| Alt + Shift + M | Open application launcher (Rofi) |
+| Super + B | Open browser (Firefox) |
+| Super + M | Open mail client (Thunderbird) |
 | Super + D | Open Discord |
 | Super + T | Open Telegram |
-| Super + L | Lock screen (Hyprlock) |
+| Super + Shift + L | Lock screen (Hyprlock) |
 
-### Window Navigation
-
-| Keybinding | Action |
-|------------|--------|
-| Alt + H | Focus left |
-| Alt + J | Focus down |
-| Alt + K | Focus up |
-| Alt + L | Focus right |
-
-### Window Management
+### Navigation and Window Movement
 
 | Keybinding | Action |
 |------------|--------|
-| Alt + Shift + H | Resize window left |
-| Alt + Shift + J | Resize window down |
-| Alt + Shift + K | Resize window up |
-| Alt + Shift + L | Resize window right |
-| Alt + Ctrl + H | Swap window left |
-| Alt + Ctrl + J | Swap window down |
-| Alt + Ctrl + K | Swap window up |
-| Alt + Ctrl + L | Swap window right |
-| Alt + Left Mouse | Move window |
-| Alt + Right Mouse | Resize window |
+| Alt + H / J / K / L | Move focus left / down / up / right |
+| Alt + Shift + H / J / K / L | Move active window left / down / up / right |
+| Alt + Shift + 1-0 | Move active window to workspace 1-10 |
+| Alt + Left Mouse Drag | Move window |
+| Alt + Right Mouse Drag | Resize window |
+
+### Resize Mode (Submap)
+
+| Keybinding | Action |
+|------------|--------|
+| Alt + R | Enter resize mode |
+| H / J / K / L | Resize window (in resize mode) |
+| Esc / Ctrl + [ | Exit resize mode |
 
 ### Workspaces
 
 | Keybinding | Action |
 |------------|--------|
 | Alt + 1-0 | Switch to workspace 1-10 |
-| Alt + Ctrl + 1-0 | Move active window to workspace 1-10 |
-| Alt + Ctrl + N | Focus the workspace on the monitor to the right |
-| Alt + Ctrl + P | Focus the workspace on the monitor to the left |
+| Alt + Shift + I | Switch to previous workspace |
+| Alt + Shift + O | Move active workspace to next monitor 
+| Alt + Shift + N | Focus the next workspace on the monitor |
+| Alt + Shift + P | Focus the previous workspace on the monitor |
 
 ### Media and Hardware
 
 | Keybinding | Action |
 |------------|--------|
-| XF86AudioRaiseVolume | Increase volume |
-| XF86AudioLowerVolume | Decrease volume |
-| XF86AudioMute | Toggle mute |
+| XF86AudioRaiseVolume | Increase volume (+2%) |
+| XF86AudioLowerVolume | Decrease volume (-2%) |
+| XF86AudioMute | Toggle audio mute |
 | XF86AudioMicMute | Toggle microphone mute |
-| XF86MonBrightnessUp | Increase brightness |
-| XF86MonBrightnessDown | Decrease brightness |
-| XF86AudioPlay/Pause | Play/pause media |
+| XF86MonBrightnessUp | Increase LCD brightness (+2%) |
+| XF86MonBrightnessDown | Decrease LCD brightness (-2%) |
+| XF86AudioPlay / Pause | Play / Pause media |
 | XF86AudioNext | Next track |
 | XF86AudioPrev | Previous track |
 
