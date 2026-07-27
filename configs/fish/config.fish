@@ -40,7 +40,7 @@ if status is-interactive
     abbr -a ff 'fzf --height 40% --reverse --preview "bat --color=always --style=numbers --line-range=:500 {}"'
 
     ### ls and tree with icons (using eza)
-    abbr -a ls 'eza --icons'
+    abbr -a ls 'eza --icons=auto'
     abbr -a ll 'eza --icons -l'
     abbr -a la 'eza --icons -a'
     abbr -a lla 'eza --icons -la'
