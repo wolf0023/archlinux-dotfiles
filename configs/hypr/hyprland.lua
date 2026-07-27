@@ -65,7 +65,7 @@ hl.config({
         border_size = 2,
 
         col = {
-            active_border = mocha.blue,
+            active_border = mocha.peach,
             inactive_border = mocha.base,
         },
 
