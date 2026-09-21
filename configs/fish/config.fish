@@ -40,34 +40,30 @@ if status is-interactive
     abbr -a ff 'fzf --height 40% --reverse --preview "bat --color=always --style=numbers --line-range=:500 {}"'
 
     ### ls and tree with icons (using eza)
-    abbr -a ls 'eza --icons=auto'
+    abbr -a l 'eza --icons=auto'
     abbr -a ll 'eza --icons -l'
     abbr -a la 'eza --icons -a'
     abbr -a lla 'eza --icons -la'
-    abbr -a lt 'eza --icons --tree'
-    abbr -a lta 'eza --icons --tree -a'
-    abbr -a ltl 'eza --icons --tree --level'
+    abbr -a t 'eza --icons -lT'
+    abbr -a ta 'eza --icons -laT'
+    abbr -a tll 'eza --icons -lTL'
 
     ## Package management (pacman)
-    abbr -a pmu 'sudo pacman -Syu'
-    abbr -a pms 'sudo pacman -Ss'
-    abbr -a pmr 'sudo pacman -Rs'
-    abbr -a pml 'sudo pacman -Qe'
+    abbr -a p 'pacman'
+    abbr -a pss 'pacman -Ss'
+    abbr -a pqs 'pacman -Qs'
+    abbr -a sp 'sudo pacman'
+    abbr -a spu 'sudo pacman -Syu'
+    abbr -a spr 'sudo pacman -Rs'
 
     ## System management
-    abbr -a sr 'sudo systemctl restart'
-    abbr -a st 'sudo systemctl start'
-    abbr -a sp 'sudo systemctl stop'
-    abbr -a se 'sudo systemctl enable'
-    abbr -a sd 'sudo systemctl disable'
-    abbr -a ss 'sudo systemctl status'
+    abbr -a ssc 'sudo systemctl'
+    abbr -a sc 'systemctl'
+    abbr -a scu 'systemctl --user'
 
     ## Development
     abbr -a vi 'nvim'
     abbr -a za 'zathura --fork'
-
-    ## Music
-    abbr -a sp 'spotify_player'
 
     # Others
     zoxide init fish | source
