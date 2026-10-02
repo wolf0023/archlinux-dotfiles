@@ -33,10 +33,15 @@
 
 }
 element {
-    padding: 1px ;
-    cursor:  pointer;
-    spacing: 5px ;
-    border:  0;
+    // padding: 1px ;
+    // cursor:  pointer;
+    // spacing: 5px ;
+    // border:  0;
+    padding:        2px 4px;
+    cursor:         pointer;
+    spacing:        5px;
+    border:         0;
+    border-radius:  16px;
 }
 element normal.normal {
     background-color: @normal-background;
@@ -87,9 +92,14 @@ element-icon {
     text-color:       inherit;
 }
 window {
-    padding:          5;
-    background-color: @background;
-    border:           1;
+    // padding:          5;
+    // background-color: @background;
+    // border:           1;
+    padding:            8px;
+    background-color:   @background;
+    border:             2px;
+    border-color:       @blue;
+    border-radius:      16px;
 }
 mainbox {
     padding: 0;
@@ -104,17 +114,20 @@ textbox {
     text-color: @foreground;
 }
 listview {
-    padding:      2px 0px 0px ;
+    // padding:      2px 0px 0px ;
+    padding:      6px 0px 0px ;
     scrollbar:    true;
     border-color: @separatorcolor;
     spacing:      2px ;
     fixed-height: 0;
-    border:       2px dash 0px 0px ;
+    // border:       2px dash 0px 0px ;
+    border:       2px 0px 0px;
 }
 scrollbar {
     width:        4px ;
     padding:      0;
-    handle-width: 8px ;
+    // handle-width: 8px ;
+    handle-width: 4px ;
     border:       0;
     handle-color: @normal-foreground;
 }
@@ -145,7 +158,8 @@ textbox-num-sep {
     text-color: Gray;
 }
 inputbar {
-    padding:    1px ;
+    // padding:    1px ;
+    padding:    2px;
     spacing:    0px ;
     text-color: @normal-foreground;
     children:   [ "prompt","textbox-prompt-colon","entry","num-filtered-rows","textbox-num-sep","num-rows","case-indicator" ];
