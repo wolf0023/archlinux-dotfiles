@@ -74,7 +74,7 @@ The `pkglist.txt` file contains all packages to be installed, organised into cat
 
 ### Fonts
 
-- otf-monaspace-nerd, ttf-mplus-nerd, adobe-source-han-sans-otc-fonts, noto-fonts-emoji
+- otf-monaspace-nerd, ttf-mplus-nerd, noto-fonts-cjk, noto-fonts-emoji
 
 ## Requirements
 

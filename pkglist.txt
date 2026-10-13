@@ -57,7 +57,7 @@ discord
 # Fonts
 otf-monaspace-nerd
 ttf-mplus-nerd
-adobe-source-han-sans-otc-fonts
+note-fonts-cjk
 noto-fonts-emoji
 
 # Document viewer
